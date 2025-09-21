@@ -1,69 +1,88 @@
 [Skip to main content](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#__docusaurus_skipToContent_fallback "Skip to main content")
 [![MEXC Logo](https://www.mexc.com/api-docs-assets/img/mexc-logo.svg)](https://www.mexc.com/ "https://www.mexc.com/")[SpotV3](https://www.mexc.com/api-docs/spot-v3/introduction "SpotV3")[Futures](https://www.mexc.com/api-docs/futures/update-log "Futures")[Broker](https://www.mexc.com/api-docs/broker/mexc-broker-introduction "Broker")
 [](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams "English")
-  * [English](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams "English")
-  * [中文](https://www.mexc.com/zh-MY/api-docs/spot-v3/websocket-market-streams "中文")
 
+- [English](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams "English")
 
-  * [Introduction](https://www.mexc.com/api-docs/spot-v3/introduction "Introduction")
-  * [Change Log](https://www.mexc.com/api-docs/spot-v3/change-log "Change Log")
-  * [FAQs](https://www.mexc.com/api-docs/spot-v3/faqs "FAQs")
-  * [General Info](https://www.mexc.com/api-docs/spot-v3/general-info "General Info")
-  * [Market Data Endpoints](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints "Market Data Endpoints")
-  * [Sub-Account Endpoints](https://www.mexc.com/api-docs/spot-v3/subaccount-endpoints "Sub-Account Endpoints")
-  * [Spot Account/Trade](https://www.mexc.com/api-docs/spot-v3/spot-account-trade "Spot Account/Trade")
-  * [Wallet Endpoints](https://www.mexc.com/api-docs/spot-v3/wallet-endpoints "Wallet Endpoints")
-  * [Websocket Market Streams](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams "Websocket Market Streams")
-  * [Websocket User Data Streams](https://www.mexc.com/api-docs/spot-v3/websocket-user-data-streams "Websocket User Data Streams")
-  * [Rebate Endpoints](https://www.mexc.com/api-docs/spot-v3/rebate-endpoints "Rebate Endpoints")
-  * [Public API Definitions](https://www.mexc.com/api-docs/spot-v3/public-api-definitions "Public API Definitions")
+- [中文](https://www.mexc.com/zh-MY/api-docs/spot-v3/websocket-market-streams "中文")
 
+- [Introduction](https://www.mexc.com/api-docs/spot-v3/introduction "Introduction")
+
+- [Change Log](https://www.mexc.com/api-docs/spot-v3/change-log "Change Log")
+
+- [FAQs](https://www.mexc.com/api-docs/spot-v3/faqs "FAQs")
+
+- [General Info](https://www.mexc.com/api-docs/spot-v3/general-info "General Info")
+
+- [Market Data Endpoints](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints "Market Data Endpoints")
+
+- [Sub-Account Endpoints](https://www.mexc.com/api-docs/spot-v3/subaccount-endpoints "Sub-Account Endpoints")
+
+- [Spot Account/Trade](https://www.mexc.com/api-docs/spot-v3/spot-account-trade "Spot Account/Trade")
+
+- [Wallet Endpoints](https://www.mexc.com/api-docs/spot-v3/wallet-endpoints "Wallet Endpoints")
+
+- [Websocket Market Streams](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams "Websocket Market Streams")
+
+- [Websocket User Data Streams](https://www.mexc.com/api-docs/spot-v3/websocket-user-data-streams "Websocket User Data Streams")
+
+- [Rebate Endpoints](https://www.mexc.com/api-docs/spot-v3/rebate-endpoints "Rebate Endpoints")
+
+- [Public API Definitions](https://www.mexc.com/api-docs/spot-v3/public-api-definitions "Public API Definitions")
 
 On this page
-# Websocket Market Streams
-  * The base endpoint is: **[wss://wbs-api.mexc.com/ws](https://wbs-api.mexc.com/ws "wss://wbs-api.mexc.com/ws")**
-  * Each connection to **[wss://wbs-api.mexc.com/ws](https://wbs-api.mexc.com/ws "wss://wbs-api.mexc.com/ws")** is valid for no more than 24 hours. Please handle disconnections and reconnections properly.
-  * All trading pair names in the symbol must be in **uppercase**. For example: `spot@public.aggre.deals.v3.api.pb@&lt;symbol&gt;`  
-Example: `spot@public.aggre.deals.v3.api.pb@100ms@BTCUSDT`
-  * If there is no valid subscription on the websocket, the server will actively disconnect after **30 seconds**. If the subscription is successful but there is no data flow, the server will disconnect after **one minute**. The client can send a ping to keep the connection alive.
-  * One ws connection supports a maximum of 30 subscriptions.
-  * Please process the data according to the parameters returned in the documentation. Parameters not returned in the documentation will be optimized soon, so please do not use them.
 
+# Websocket Market Streams
+
+- The base endpoint is: **[wss://wbs-api.mexc.com/ws](https://wbs-api.mexc.com/ws "wss://wbs-api.mexc.com/ws")**
+- Each connection to **[wss://wbs-api.mexc.com/ws](https://wbs-api.mexc.com/ws "wss://wbs-api.mexc.com/ws")** is valid for no more than 24 hours. Please handle disconnections and reconnections properly.
+- All trading pair names in the symbol must be in **uppercase**. For example: `spot@public.aggre.deals.v3.api.pb@&lt;symbol&gt;`\
+  Example: `spot@public.aggre.deals.v3.api.pb@100ms@BTCUSDT`
+- If there is no valid subscription on the websocket, the server will actively disconnect after **30 seconds**. If the subscription is successful but there is no data flow, the server will disconnect after **one minute**. The client can send a ping to keep the connection alive.
+- One ws connection supports a maximum of 30 subscriptions.
+- Please process the data according to the parameters returned in the documentation. Parameters not returned in the documentation will be optimized soon, so please do not use them.
 
 ## Live Subscription/Unsubscription to Data Streams[​](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#live-subscriptionunsubscription-to-data-streams "Direct link to Live Subscription/Unsubscription to Data Streams")
-  * The following data can be sent via websocket to subscribe or unsubscribe from data streams. Examples are provided below.
-  * The `id` in the response is an unsigned integer and serves as the unique identifier for communication.
-  * If the `msg` in the response matches the corresponding request field, it indicates that the request was sent successfully.
 
+- The following data can be sent via websocket to subscribe or unsubscribe from data streams. Examples are provided below.
+- The `id` in the response is an unsigned integer and serves as the unique identifier for communication.
+- If the `msg` in the response matches the corresponding request field, it indicates that the request was sent successfully.
 
 ## Protocol Buffers Integration[​](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#protocol-buffers-integration "Direct link to Protocol Buffers Integration")
+
 The current websocket push uses the protobuf format. The specific integration process is as follows:
-1.**PB File Definition**  
+1.**PB File Definition**\
 The PB definition files can be obtained via the provided link:[](https://github.com/mexcdevelop/websocket-proto "https://github.com/mexcdevelop/websocket-proto")<https://github.com/mexcdevelop/websocket-proto>
-2.**Generate Deserialization Code**  
+2.**Generate Deserialization Code**\
 Use the tool available at [](https://github.com/protocolbuffers/protobuf "https://github.com/protocolbuffers/protobuf")<https://github.com/protocolbuffers/protobuf> to compile the .proto files and generate deserialization code.
+
 > **Java**
+
 ```
 protoc *.proto --java_out=python custom_path  
 
 ```
 
 > **Python**
+
 ```
 protoc *.proto --python_out=python custom_path  
 
 ```
 
 > **Others**
+
 ```
 Multiple languages are supported, including C++, C#, Go, Ruby, PHP, JS, etc. For details, see <a href="https://github.com/protocolbuffers/protobuf" title="https://github.com/protocolbuffers/protobuf" aria-label="https://github.com/protocolbuffers/protobuf" rel="nofollow">https://github.com/protocolbuffers/protobuf</a>.  
 
 ```
 
-3.**Data Deserialization**  
+3.**Data Deserialization**\
 Use the code generated in the previous step to deserialize the data.
-> **Java**  
->  Include the protobuf-java dependency:
+
+> **Java**\
+> Include the protobuf-java dependency:
+
 ```
 <dependency>  
 <groupId>com.google.protobuf</groupId>  
@@ -92,6 +111,7 @@ PushDataV3ApiWrapper resultV3 = PushDataV3ApiWrapper.parseFrom(serializedData);
 ```
 
 > **Python**
+
 ```
 #Parsing example:  
   
@@ -112,9 +132,12 @@ print(result)
 
 ```
 
-* * *
+______________________________________________________________________
+
 ### Subscribe to a Data Stream[​](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#subscribe-to-a-data-stream "Direct link to Subscribe to a Data Stream")
+
 > **Subscription Channel Response**
+
 ```
 {  
 "id":0,  
@@ -124,8 +147,7 @@ print(result)
 
 ```
 
-  * **Request**
-
+- **Request**
 
 ```
 {  
@@ -135,9 +157,12 @@ print(result)
 
 ```
 
-* * *
+______________________________________________________________________
+
 ### Unsubscribe from a Data Stream[​](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#unsubscribe-from-a-data-stream "Direct link to Unsubscribe from a Data Stream")
+
 > **Unsubscription Response**
+
 ```
 {  
 "id":0,  
@@ -147,8 +172,7 @@ print(result)
 
 ```
 
-  * **Request**
-
+- **Request**
 
 ```
 {  
@@ -158,9 +182,12 @@ print(result)
 
 ```
 
-* * *
+______________________________________________________________________
+
 ### PING/PONG Mechanism[​](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#pingpong-mechanism "Direct link to PING/PONG Mechanism")
+
 > **PING/PONG Response**
+
 ```
 {  
 "id":0,  
@@ -170,17 +197,19 @@ print(result)
 
 ```
 
-  * **Request**
-
+- **Request**
 
 ```
 {"method":"PING"}  
 
 ```
 
-* * *
+______________________________________________________________________
+
 ## Trade Streams[​](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#trade-streams "Direct link to Trade Streams")
+
 > **Request:**
+
 ```
 {  
 "method":"SUBSCRIPTION",  
@@ -192,6 +221,7 @@ print(result)
 ```
 
 > **Response:**
+
 ```
 {  
 "channel":"spot@public.aggre.deals.v3.api.pb@100ms@BTCUSDT",  
@@ -215,19 +245,23 @@ print(result)
 **Request Parameter:** `spot@public.aggre.deals.v3.api.pb@(100ms|10ms)@&lt;symbol&gt;`
 The Trade Streams push raw trade information; each trade has a unique buyer and seller
 **Response Parameters:**
-Parameter | Data Type | Description  
----|---|---  
-dealsList | array | Trade information  
-price | string | Trade price  
-quantity | string | Trade quantity  
-tradetype | int | Trade type (1: Buy, 2: Sell)  
-time | long | Trade time  
-eventtype | string | Event type  
-symbol | string | Trading pair  
-sendtime | long | Event time  
-* * *
+Parameter | Data Type | Description\
+---|---|---\
+dealsList | array | Trade information\
+price | string | Trade price\
+quantity | string | Trade quantity\
+tradetype | int | Trade type (1: Buy, 2: Sell)\
+time | long | Trade time\
+eventtype | string | Event type\
+symbol | string | Trading pair\
+sendtime | long | Event time
+
+______________________________________________________________________
+
 ## K-line Streams[​](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#k-line-streams "Direct link to K-line Streams")
+
 > **Request:**
+
 ```
 {  
 "method":"SUBSCRIPTION",  
@@ -239,6 +273,7 @@ sendtime | long | Event time
 ```
 
 > **Response:**
+
 ```
 {  
 "channel":"spot@public.kline.v3.api.pb@BTCUSDT@Min15",  
@@ -263,41 +298,44 @@ sendtime | long | Event time
 The Kline/Candlestick Stream push updates to the current klines/candlestick every second.
 **Request Parameter:** `spot@public.kline.v3.api.pb@&lt;symbol&gt;@&lt;interval&gt;`
 **Response Parameters:**
-Parameter | Data Type | Description  
----|---|---  
-publicspotkline | object | K-line information  
-interval | string | K-line interval  
-windowstart | long | Start time of the K-line  
-openingprice | bigDecimal | Opening trade price during this K-line  
-closingprice | bigDecimal | Closing trade price during this K-line  
-highestprice | bigDecimal | Highest trade price during this K-line  
-lowestprice | bigDecimal | Lowest trade price during this K-line  
-volume | bigDecimal | Trade volume during this K-line  
-amount | bigDecimal | Trade amount during this K-line  
-windowend | long | End time of the K-line  
-symbol | string | Trading pair  
-symbolid | string | Trading pair ID  
-createtime | long | Event time  
+Parameter | Data Type | Description\
+---|---|---\
+publicspotkline | object | K-line information\
+interval | string | K-line interval\
+windowstart | long | Start time of the K-line\
+openingprice | bigDecimal | Opening trade price during this K-line\
+closingprice | bigDecimal | Closing trade price during this K-line\
+highestprice | bigDecimal | Highest trade price during this K-line\
+lowestprice | bigDecimal | Lowest trade price during this K-line\
+volume | bigDecimal | Trade volume during this K-line\
+amount | bigDecimal | Trade amount during this K-line\
+windowend | long | End time of the K-line\
+symbol | string | Trading pair\
+symbolid | string | Trading pair ID\
+createtime | long | Event time\
 **K-line Interval Parameters:**
-  * Min: Minutes; Hour: Hours; Day: Days; Week: Weeks; M: Month
 
+- Min: Minutes; Hour: Hours; Day: Days; Week: Weeks; M: Month
 
 Available intervals:
-  * Min1
-  * Min5
-  * Min15
-  * Min30
-  * Min60
-  * Hour4
-  * Hour8
-  * Day1
-  * Week1
-  * Month1
 
+- Min1
+- Min5
+- Min15
+- Min30
+- Min60
+- Hour4
+- Hour8
+- Day1
+- Week1
+- Month1
 
-* * *
+______________________________________________________________________
+
 ## Diff.Depth Stream[​](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#diffdepth-stream "Direct link to Diff.Depth Stream")
+
 > **Request:**
+
 ```
 {  
 "method":"SUBSCRIPTION",  
@@ -309,6 +347,7 @@ Available intervals:
 ```
 
 > **Response:**
+
 ```
 {  
 "channel":"spot@public.aggre.depth.v3.api.pb@100ms@BTCUSDT",  
@@ -333,18 +372,23 @@ Available intervals:
 If the order quantity (`quantity`) for a price level is 0, it indicates that the order at that price has been canceled or executed, and that price level should be removed.
 **Request Parameter:** `spot@public.aggre.depth.v3.api.pb@(100ms|10ms)@&lt;symbol&gt;`
 **Response Parameters:**
-Parameter | Data Type | Description  
----|---|---  
-price | string | Price level of change  
-quantity | string | Quantity  
-eventtype | string | Event type  
-version | string | Version number  
-symbol | string | Trading pair  
-sendtime | long | Event time  
-* * *
+Parameter | Data Type | Description\
+---|---|---\
+price | string | Price level of change\
+quantity | string | Quantity\
+eventtype | string | Event type\
+version | string | Version number\
+symbol | string | Trading pair\
+sendtime | long | Event time
+
+______________________________________________________________________
+
 ## Partial Book Depth Streams[​](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#partial-book-depth-streams "Direct link to Partial Book Depth Streams")
+
 This stream pushes limited level depth information. The "levels" indicate the number of order levels for buy and sell orders, which can be 5, 10, or 20 levels.
+
 > **Request:**
+
 ```
 {  
 "method":"SUBSCRIPTION",  
@@ -356,6 +400,7 @@ This stream pushes limited level depth information. The "levels" indicate the nu
 ```
 
 > **Response:**
+
 ```
 {  
 "channel":"spot@public.limit.depth.v3.api.pb@BTCUSDT@5",  
@@ -383,18 +428,23 @@ This stream pushes limited level depth information. The "levels" indicate the nu
 
 **Request Parameter:** `spot@public.limit.depth.v3.api.pb@&lt;symbol&gt;@&lt;level&gt;`
 **Response Parameters:**
-Parameter | Data Type | Description  
----|---|---  
-price | string | Price level of change  
-quantity | string | Quantity  
-eventtype | string | Event type  
-version | string | Version number  
-symbol | string | Trading pair  
-sendtime | long | Event time  
-* * *
+Parameter | Data Type | Description\
+---|---|---\
+price | string | Price level of change\
+quantity | string | Quantity\
+eventtype | string | Event type\
+version | string | Version number\
+symbol | string | Trading pair\
+sendtime | long | Event time
+
+______________________________________________________________________
+
 ## Individual Symbol Book Ticker Streams[​](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#individual-symbol-book-ticker-streams "Direct link to Individual Symbol Book Ticker Streams")
+
 Pushes any update to the best bid or ask's price or quantity in real-time for a specified symbol.
+
 > **Request:**
+
 ```
 {  
 "method":"SUBSCRIPTION",  
@@ -406,6 +456,7 @@ Pushes any update to the best bid or ask's price or quantity in real-time for a 
 ```
 
 > **Response:**
+
 ```
 {  
 "channel":"spot@public.aggre.bookTicker.v3.api.pb@100ms@BTCUSDT",  
@@ -423,18 +474,23 @@ Pushes any update to the best bid or ask's price or quantity in real-time for a 
 
 **Request Parameter:** `spot@public.aggre.bookTicker.v3.api.pb@(100ms|10ms)@&lt;symbol&gt;`
 **Response Parameters:**
-Parameter | Data Type | Description  
----|---|---  
-bidprice | string | Best bid price  
-bidquantity | string | Best bid quantity  
-askprice | string | Best ask price  
-askquantity | string | Best ask quantity  
-symbol | string | Trading pair  
-sendtime | long | Event time  
-* * *
-## Individual Symbol Book Ticker Streams(Batch Aggregation)[​](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#individual-symbol-book-ticker-streamsbatch-aggregation "Direct link to Individual Symbol Book Ticker Streams\(Batch Aggregation\)")
+Parameter | Data Type | Description\
+---|---|---\
+bidprice | string | Best bid price\
+bidquantity | string | Best bid quantity\
+askprice | string | Best ask price\
+askquantity | string | Best ask quantity\
+symbol | string | Trading pair\
+sendtime | long | Event time
+
+______________________________________________________________________
+
+## Individual Symbol Book Ticker Streams(Batch Aggregation)[​](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#individual-symbol-book-ticker-streamsbatch-aggregation "Direct link to Individual Symbol Book Ticker Streams(Batch Aggregation)")
+
 This batch aggregation version pushes the best order information for a specified trading pair.
+
 > **Request:**
+
 ```
 {  
 "method":"SUBSCRIPTION",  
@@ -446,6 +502,7 @@ This batch aggregation version pushes the best order information for a specified
 ```
 
 > **Response:**
+
 ```
 {  
 "channel":"spot@public.bookTicker.batch.v3.api.pb@BTCUSDT",  
@@ -465,19 +522,24 @@ This batch aggregation version pushes the best order information for a specified
 
 **Request Parameter:** `spot@public.bookTicker.batch.v3.api.pb@&lt;symbol&gt;`
 **Response Parameters:**
-Parameter | Data Type | Description  
----|---|---  
-bidprice | string | Best bid price  
-bidquantity | string | Best bid quantity  
-askprice | string | Best ask price  
-askquantity | string | Best ask quantity  
-symbol | string | Trading pair  
-sendtime | long | Event time  
-* * *
+Parameter | Data Type | Description\
+---|---|---\
+bidprice | string | Best bid price\
+bidquantity | string | Best bid quantity\
+askprice | string | Best ask price\
+askquantity | string | Best ask quantity\
+symbol | string | Trading pair\
+sendtime | long | Event time
+
+______________________________________________________________________
+
 ## MiniTickers[​](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#minitickers "Direct link to MiniTickers")
-minitickers of all trading pairs in the specified timezone, pushed every 3 seconds.  
+
+minitickers of all trading pairs in the specified timezone, pushed every 3 seconds.\
 UTC value range: 24H, UTC-10, UTC-8, UTC-7, UTC-6, UTC-5, UTC-4, UTC-3, UTC+0, UTC+1, UTC+2, UTC+3, UTC+4, UTC+4:30, UTC+5, UTC+5:30, UTC+6, UTC+7, UTC+8, UTC+9, UTC+10, UTC+11, UTC+12, UTC+12:45, UTC+13
+
 > **Request:**
+
 ```
 {  
 "method":"SUBSCRIPTION",  
@@ -489,6 +551,7 @@ UTC value range: 24H, UTC-10, UTC-8, UTC-7, UTC-6, UTC-5, UTC-4, UTC-3, UTC+0, U
 ```
 
 > **Response:**
+
 ```
 {  
 "channel":"spot@public.miniTickers.v3.api.pb@UTC+8",  
@@ -547,25 +610,30 @@ UTC value range: 24H, UTC-10, UTC-8, UTC-7, UTC-6, UTC-5, UTC-4, UTC-3, UTC+0, U
 
 **Request Parameter:** `spot@public.miniTickers.v3.api.pb@&lt;timezone&gt;`
 **Response Parameters:**
-Parameter Name | Data Type | Description  
----|---|---  
-symbol | string | Trading pair name  
-price | string | Latest price  
-rate | string | Price change percentage (UTC+8 timezone)  
-zonedRate | string | Price change percentage (local timezone)  
-high | string | Rolling highest price  
-low | string | Rolling lowest price  
-volume | string | Rolling turnover amount  
-quantity | string | Rolling trading volume  
-lastCloseRate | string | Previous close change percentage (UTC+8 timezone)  
-lastCloseZonedRate | string | Previous close change percentage (local timezone)  
-lastCloseHigh | string | Previous close rolling highest price  
-lastCloseLow | string | Previous close rolling lowest price  
-* * *
+Parameter Name | Data Type | Description\
+---|---|---\
+symbol | string | Trading pair name\
+price | string | Latest price\
+rate | string | Price change percentage (UTC+8 timezone)\
+zonedRate | string | Price change percentage (local timezone)\
+high | string | Rolling highest price\
+low | string | Rolling lowest price\
+volume | string | Rolling turnover amount\
+quantity | string | Rolling trading volume\
+lastCloseRate | string | Previous close change percentage (UTC+8 timezone)\
+lastCloseZonedRate | string | Previous close change percentage (local timezone)\
+lastCloseHigh | string | Previous close rolling highest price\
+lastCloseLow | string | Previous close rolling lowest price
+
+______________________________________________________________________
+
 ## MiniTicker[​](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#miniticker "Direct link to MiniTicker")
-miniticker of the specified trading pair in the specified timezone, pushed every 3 seconds.  
+
+miniticker of the specified trading pair in the specified timezone, pushed every 3 seconds.\
 UTC value range: 24H, UTC-10, UTC-8, UTC-7, UTC-6, UTC-5, UTC-4, UTC-3, UTC+0, UTC+1, UTC+2, UTC+3, UTC+4, UTC+4:30, UTC+5, UTC+5:30, UTC+6, UTC+7, UTC+8, UTC+9, UTC+10, UTC+11, UTC+12, UTC+12:45, UTC+13
+
 > **Request:**
+
 ```
 {  
 "method":"SUBSCRIPTION",  
@@ -577,6 +645,7 @@ UTC value range: 24H, UTC-10, UTC-8, UTC-7, UTC-6, UTC-5, UTC-4, UTC-3, UTC+0, U
 ```
 
 > **Response:**
+
 ```
 {  
 "channel":"spot@public.miniTicker.v3.api.pb@MXUSDT@UTC+8",  
@@ -602,50 +671,53 @@ UTC value range: 24H, UTC-10, UTC-8, UTC-7, UTC-6, UTC-5, UTC-4, UTC-3, UTC+0, U
 
 **Request Parameter:** `spot@public.miniTicker.v3.api.pb@&lt;symbol&gt;@&lt;timezone&gt;`
 **Response Parameters:**
-Parameter Name | Data Type | Description  
----|---|---  
-symbol | string | Trading pair name  
-price | string | Latest price  
-rate | string | Price change percentage (UTC+8 timezone)  
-zonedRate | string | Price change percentage (local timezone)  
-high | string | Rolling highest price  
-low | string | Rolling lowest price  
-volume | string | Rolling turnover amount  
-quantity | string | Rolling trading volume  
-lastCloseRate | string | Previous close change percentage (UTC+8 timezone)  
-lastCloseZonedRate | string | Previous close change percentage (local timezone)  
-lastCloseHigh | string | Previous close rolling highest price  
-lastCloseLow | string | Previous close rolling lowest price  
-* * *
-## How to Properly Maintain a Local Copy of the Order Book[​](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#how-to-properly-maintain-a-local-copy-of-the-order-book "Direct link to How to Properly Maintain a Local Copy of the Order Book")
-  1. Connect to the WebSocket and subscribe to `spot@public.aggre.depth.v3.api.pb@(100ms|10ms)@MXBTC` to obtain incremental aggregated depth information.
-  2. Access the REST API `https://api.mexc.com/api/v3/depth?symbol=MXBTC&limit=1000` to obtain a depth snapshot with 1000 levels.
-  3. The `fromVersion` of each new push message should be exactly equal to the `toVersion + 1` of the previous message. Otherwise, packet loss has occurred, and reinitialization from step 2 is required.
-  4. The order quantity in each push message represents the absolute value of the current order quantity at that price level, not a relative change.
-  5. If the `toVersion` in the push message is smaller than the `version` in the snapshot, the message is outdated and should be ignored.
-  6. If the `fromVersion` in the push message is greater than the `version` in the snapshot, data is missing between the push message and the snapshot, requiring reinitialization from step 2.
-  7. Now that the `version` in the snapshot falls within the `[fromVersion, toVersion]` range of the push message, the push message can be integrated with the snapshot data as follows: 
-     * If the price level in the push message already exists in the snapshot, update the quantity based on the push message.
-     * If the price level in the push message does not exist in the snapshot, insert a new entry with the quantity from the push message.
-     * If a price level in the push message has a quantity of 0, remove that price level from the snapshot.
+Parameter Name | Data Type | Description\
+---|---|---\
+symbol | string | Trading pair name\
+price | string | Latest price\
+rate | string | Price change percentage (UTC+8 timezone)\
+zonedRate | string | Price change percentage (local timezone)\
+high | string | Rolling highest price\
+low | string | Rolling lowest price\
+volume | string | Rolling turnover amount\
+quantity | string | Rolling trading volume\
+lastCloseRate | string | Previous close change percentage (UTC+8 timezone)\
+lastCloseZonedRate | string | Previous close change percentage (local timezone)\
+lastCloseHigh | string | Previous close rolling highest price\
+lastCloseLow | string | Previous close rolling lowest price
 
+______________________________________________________________________
+
+## How to Properly Maintain a Local Copy of the Order Book[​](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#how-to-properly-maintain-a-local-copy-of-the-order-book "Direct link to How to Properly Maintain a Local Copy of the Order Book")
+
+1. Connect to the WebSocket and subscribe to `spot@public.aggre.depth.v3.api.pb@(100ms|10ms)@MXBTC` to obtain incremental aggregated depth information.
+1. Access the REST API `https://api.mexc.com/api/v3/depth?symbol=MXBTC&limit=1000` to obtain a depth snapshot with 1000 levels.
+1. The `fromVersion` of each new push message should be exactly equal to the `toVersion + 1` of the previous message. Otherwise, packet loss has occurred, and reinitialization from step 2 is required.
+1. The order quantity in each push message represents the absolute value of the current order quantity at that price level, not a relative change.
+1. If the `toVersion` in the push message is smaller than the `version` in the snapshot, the message is outdated and should be ignored.
+1. If the `fromVersion` in the push message is greater than the `version` in the snapshot, data is missing between the push message and the snapshot, requiring reinitialization from step 2.
+1. Now that the `version` in the snapshot falls within the `[fromVersion, toVersion]` range of the push message, the push message can be integrated with the snapshot data as follows:
+   - If the price level in the push message already exists in the snapshot, update the quantity based on the push message.
+   - If the price level in the push message does not exist in the snapshot, insert a new entry with the quantity from the push message.
+   - If a price level in the push message has a quantity of 0, remove that price level from the snapshot.
 
 **Note:** Since the depth snapshot has a limitation on the number of price levels, price levels outside the initial snapshot that have not changed in quantity will not appear in incremental push messages. Therefore, the local order book may differ slightly from the real order book. However, for most use cases, the 5000-depth limit is sufficient to effectively understand the market and trading activity.
-* * *
+
+______________________________________________________________________
+
 [Previous Wallet Endpoints](https://www.mexc.com/api-docs/spot-v3/wallet-endpoints "PreviousWallet Endpoints")[Next Websocket User Data Streams](https://www.mexc.com/api-docs/spot-v3/websocket-user-data-streams "NextWebsocket User Data Streams")
-  * [Live Subscription/Unsubscription to Data Streams](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#live-subscriptionunsubscription-to-data-streams "Live Subscription/Unsubscription to Data Streams")
-  * [Protocol Buffers Integration](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#protocol-buffers-integration "Protocol Buffers Integration")
-    * [Subscribe to a Data Stream](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#subscribe-to-a-data-stream "Subscribe to a Data Stream")
-    * [Unsubscribe from a Data Stream](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#unsubscribe-from-a-data-stream "Unsubscribe from a Data Stream")
-    * [PING/PONG Mechanism](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#pingpong-mechanism "PING/PONG Mechanism")
-  * [Trade Streams](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#trade-streams "Trade Streams")
-  * [K-line Streams](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#k-line-streams "K-line Streams")
-  * [Diff.Depth Stream](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#diffdepth-stream "Diff.Depth Stream")
-  * [Partial Book Depth Streams](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#partial-book-depth-streams "Partial Book Depth Streams")
-  * [Individual Symbol Book Ticker Streams](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#individual-symbol-book-ticker-streams "Individual Symbol Book Ticker Streams")
-  * [Individual Symbol Book Ticker Streams(Batch Aggregation)](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#individual-symbol-book-ticker-streamsbatch-aggregation "Individual Symbol Book Ticker Streams\(Batch Aggregation\)")
-  * [MiniTickers](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#minitickers "MiniTickers")
-  * [MiniTicker](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#miniticker "MiniTicker")
-  * [How to Properly Maintain a Local Copy of the Order Book](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#how-to-properly-maintain-a-local-copy-of-the-order-book "How to Properly Maintain a Local Copy of the Order Book")
 
-
+- [Live Subscription/Unsubscription to Data Streams](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#live-subscriptionunsubscription-to-data-streams "Live Subscription/Unsubscription to Data Streams")
+- [Protocol Buffers Integration](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#protocol-buffers-integration "Protocol Buffers Integration")
+  - [Subscribe to a Data Stream](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#subscribe-to-a-data-stream "Subscribe to a Data Stream")
+  - [Unsubscribe from a Data Stream](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#unsubscribe-from-a-data-stream "Unsubscribe from a Data Stream")
+  - [PING/PONG Mechanism](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#pingpong-mechanism "PING/PONG Mechanism")
+- [Trade Streams](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#trade-streams "Trade Streams")
+- [K-line Streams](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#k-line-streams "K-line Streams")
+- [Diff.Depth Stream](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#diffdepth-stream "Diff.Depth Stream")
+- [Partial Book Depth Streams](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#partial-book-depth-streams "Partial Book Depth Streams")
+- [Individual Symbol Book Ticker Streams](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#individual-symbol-book-ticker-streams "Individual Symbol Book Ticker Streams")
+- [Individual Symbol Book Ticker Streams(Batch Aggregation)](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#individual-symbol-book-ticker-streamsbatch-aggregation "Individual Symbol Book Ticker Streams(Batch Aggregation)")
+- [MiniTickers](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#minitickers "MiniTickers")
+- [MiniTicker](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#miniticker "MiniTicker")
+- [How to Properly Maintain a Local Copy of the Order Book](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#how-to-properly-maintain-a-local-copy-of-the-order-book "How to Properly Maintain a Local Copy of the Order Book")
