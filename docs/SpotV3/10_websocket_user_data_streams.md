@@ -75,8 +75,8 @@ ______________________________________________________________________
 
 Extends the validity to 60 minutes from the time of this call. It is recommended to send a request every 30 minutes.
 **Request Parameters:**
-Parameter | Data Type | Required | Description\
----|---|---|---\
+Parameter | Data Type | Required | Description
+---|---|---|---
 listenKey | string | Yes |
 
 ______________________________________________________________________
@@ -97,8 +97,8 @@ ______________________________________________________________________
 
 Closes the user data stream.
 **Request Parameters:**
-Parameter | Data Type | Required | Description\
----|---|---|---\
+Parameter | Data Type | Required | Description
+---|---|---|---
 listenKey | string | Yes |
 
 ______________________________________________________________________
@@ -140,15 +140,15 @@ After a successful subscription, whenever the account balance or available balan
 
 **Request Parameter:** `spot@private.account.v3.api.pb`
 **Response Parameters:**
-Parameter | Data Type | Description\
----|---|---\
-privateAccount | json | Account information\
-vcoinName | string | Asset name\
-balanceAmount | string | Available balance\
-balanceAmountChange | string | Change in available balance\
-frozenAmount | string | Frozen balance\
-frozenAmountChange | string | Change in frozen balance\
-type | string | Change type ([see details](https://www.mexc.com/api-docs/spot-v3/websocket-user-data-streams#account_position))\
+Parameter | Data Type | Description
+---|---|---
+privateAccount | json | Account information
+vcoinName | string | Asset name
+balanceAmount | string | Available balance
+balanceAmountChange | string | Change in available balance
+frozenAmount | string | Frozen balance
+frozenAmountChange | string | Change in frozen balance
+type | string | Change type ([see details](https://www.mexc.com/api-docs/spot-v3/websocket-user-data-streams#account_position))
 time | long | Settlement time
 
 ______________________________________________________________________
@@ -190,21 +190,21 @@ ______________________________________________________________________
 
 **Request Parameter:** `spot@private.deals.v3.api.pb`
 **Response Parameters:**
-Parameter | Data Type | Description\
----|---|---\
-symbol | string | Trading pair\
-sendTime | long | Event time\
-privateDeals | json | Account trade information\
-price | string | Trade price\
-quantity | string | Trade quantity\
-amount | string | Trade amount\
-tradeType | int | Trade type (1: Buy, 2: Sell)\
-tradeId | string | Trade ID\
-isMaker | Boolean | is maker\
-orderId | string | Order ID\
-clientOrderId | string | User-defined order ID\
-feeAmount | string | Fee amount\
-feeCurrency | string | Fee currency\
+Parameter | Data Type | Description
+---|---|---
+symbol | string | Trading pair
+sendTime | long | Event time
+privateDeals | json | Account trade information
+price | string | Trade price
+quantity | string | Trade quantity
+amount | string | Trade amount
+tradeType | int | Trade type (1: Buy, 2: Sell)
+tradeId | string | Trade ID
+isMaker | Boolean | is maker
+orderId | string | Order ID
+clientOrderId | string | User-defined order ID
+feeAmount | string | Fee amount
+feeCurrency | string | Fee currency
 time | long | Trade time
 
 ______________________________________________________________________
@@ -251,21 +251,21 @@ ______________________________________________________________________
 ```
 
 **Response Parameters:**
-Parameter | Data Type | Description\
----|---|---\
-symbol | string | Trading pair\
-sendTime | long | Event time\
-privateOrders | json | Account order information\
-clientId | string | Order ID\
-price | bigDecimal | Order price\
-quantity | bigDecimal | Order quantity\
-amount | bigDecimal | Total order amount\
-avgPrice | bigDecimal | Average trade price\
-orderType | int | Order type: LIMIT_ORDER (1), POST_ONLY (2), IMMEDIATE_OR_CANCEL (3), FILL_OR_KILL (4), MARKET_ORDER (5); Stop loss/take profit (100)\
-tradeType | int | Trade type (1: Buy, 2: Sell)\
-remainAmount | bigDecimal | Remaining amount\
-remainQuantity | bigDecimal | Remaining quantity\
-cumulativeQuantity | bigDecimal | Cumulative trade quantity\
-cumulativeAmount | bigDecimal | Cumulative trade amount\
-status | int | Order status: 1: Not traded, 2: Fully traded, 3: Partially traded, 4: Canceled, 5: Partially canceled\
-createTime | long | Order creation time\\
+Parameter | Data Type | Description
+---|---|---
+symbol | string | Trading pair
+sendTime | long | Event time
+privateOrders | json | Account order information
+clientId | string | Order ID
+price | bigDecimal | Order price
+quantity | bigDecimal | Order quantity
+amount | bigDecimal | Total order amount
+avgPrice | bigDecimal | Average trade price
+orderType | int | Order type: LIMIT_ORDER (1), POST_ONLY (2), IMMEDIATE_OR_CANCEL (3), FILL_OR_KILL (4), MARKET_ORDER (5); Stop loss/take profit (100)
+tradeType | int | Trade type (1: Buy, 2: Sell)
+remainAmount | bigDecimal | Remaining amount
+remainQuantity | bigDecimal | Remaining quantity
+cumulativeQuantity | bigDecimal | Cumulative trade quantity
+cumulativeAmount | bigDecimal | Cumulative trade amount
+status | int | Order status: 1: Not traded, 2: Fully traded, 3: Partially traded, 4: Canceled, 5: Partially canceled
+createTime | long | Order creation time

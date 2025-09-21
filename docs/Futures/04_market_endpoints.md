@@ -108,45 +108,45 @@ curl "https://contract.mexc.com/api/v1/contract/detail"
 
 Rate limit: 1 times / 5 seconds
 **Request parameters:**
-Parameter | Date Type | Mandatory | Description\
----|---|---|---\
-symbol | string | false | the name of the contract\
+Parameter | Date Type | Mandatory | Description
+---|---|---|---
+symbol | string | false | the name of the contract
 **Response parameters:**
-Parameter | Date Type | Description\
----|---|---\
-symbol | string | the name of the contract\
-displayName | string | display name\
-displayNameEn | string | english display name\
-positionOpenType | int | position open type,1：isolated，2：cross，3：both\
-baseCoin | string | base currency such as BTC\
-quoteCoin | string | quote currency such as USDT\
-settleCoin | string | liquidation currency such as USDT\
-contractSize | decimal | contract value\
-minLeverage | int | minimum leverage\
-maxLeverage | int | maximum leverage\
-priceScale | int | price scale\
-volScale | int | quantity scale\
-amountScale | int | amount scale\
-priceUnit | int | price unit\
-volUnit | int | volume unit\
-minVol | decimal | minimum volume\
-maxVol | decimal | maximum volume\
-bidLimitPriceRate | decimal | bid limit price rate\
-askLimitPriceRate | decimal | ask limit price rate\
-takerFeeRate | decimal | taker rate\
-makerFeeRate | decimal | maker rate\
-maintenanceMarginRate | decimal | maintenance margin rate\
-initialMarginRate | decimal | initial margin rate\
-riskBaseVol | decimal | initial volume\
-riskIncrVol | decimal | risk increasing volume\
-riskIncrMmr | decimal | maintain increasing margin rate\
-riskIncrImr | decimal | initial increasing margin rate\
-riskLevelLimit | int | risk level limit\
-priceCoefficientVariation | decimal | fair price coefficient variation\
-indexOrigin | List | index origin\
-state | int | status, 0:enabled,1:delivery, 2:completed, 3: offline, 4: pause\
-apiAllowed | bool | whether support api\
-conceptPlate | List | The zone, corresponding to the entryKey field of the section list\
+Parameter | Date Type | Description
+---|---|---
+symbol | string | the name of the contract
+displayName | string | display name
+displayNameEn | string | english display name
+positionOpenType | int | position open type,1：isolated，2：cross，3：both
+baseCoin | string | base currency such as BTC
+quoteCoin | string | quote currency such as USDT
+settleCoin | string | liquidation currency such as USDT
+contractSize | decimal | contract value
+minLeverage | int | minimum leverage
+maxLeverage | int | maximum leverage
+priceScale | int | price scale
+volScale | int | quantity scale
+amountScale | int | amount scale
+priceUnit | int | price unit
+volUnit | int | volume unit
+minVol | decimal | minimum volume
+maxVol | decimal | maximum volume
+bidLimitPriceRate | decimal | bid limit price rate
+askLimitPriceRate | decimal | ask limit price rate
+takerFeeRate | decimal | taker rate
+makerFeeRate | decimal | maker rate
+maintenanceMarginRate | decimal | maintenance margin rate
+initialMarginRate | decimal | initial margin rate
+riskBaseVol | decimal | initial volume
+riskIncrVol | decimal | risk increasing volume
+riskIncrMmr | decimal | maintain increasing margin rate
+riskIncrImr | decimal | initial increasing margin rate
+riskLevelLimit | int | risk level limit
+priceCoefficientVariation | decimal | fair price coefficient variation
+indexOrigin | List | index origin
+state | int | status, 0:enabled,1:delivery, 2:completed, 3: offline, 4: pause
+apiAllowed | bool | whether support api
+conceptPlate | List | The zone, corresponding to the entryKey field of the section list
 riskLimitType | List | Risk limit type, BY_VOLUME: by the volume, BY_VALUE: by the position
 
 ## Get the transferable currencies
@@ -195,18 +195,18 @@ curl "https://contract.mexc.com/api/v1/contract/depth/BTC_USDT"
 {
   "asks": [
     [
-      3968.5,
+      3968. 5,
       121
     ],
     [
-      3968.6,
+      3968. 6,
       160,
       4
     ]
   ],
   "bids": [
     [
-      3968.4,
+      3968. 4,
       179,
       4
     ],
@@ -225,17 +225,17 @@ curl "https://contract.mexc.com/api/v1/contract/depth/BTC_USDT"
 
 Rate limit: 20 times /2 seconds
 **Request parameters:**
-Parameter | Date Type | Mandatory | Description\
----|---|---|---\
-symbol | string | true | the name of the contract\
-limit | int | false | tier\
+Parameter | Date Type | Mandatory | Description
+---|---|---|---
+symbol | string | true | the name of the contract
+limit | int | false | tier
 **Response parameters:**
-Parameter | Data Type | Description\
----|---|---\
-asks | List | the seller depth\
-bids | List | the buyer depth\
-version | long | the version number\
-timestamp | long | system timestamp\
+Parameter | Data Type | Description
+---|---|---
+asks | List | the seller depth
+bids | List | the buyer depth
+version | long | the version number
+timestamp | long | system timestamp
 note: [411.8, 10, 1] 411.8 is the price，10 is the volume of contracts for this price,1 is the order quantity
 
 ## Get a snapshot of the latest N depth information of the contract
@@ -273,15 +273,15 @@ curl "https://contract.mexc.com/api/v1/contract/depth_commits/BTC_USDT/20"
 
 Rate limit: 20 times /2 seconds
 **Request parameter:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-symbol | string | true | the name of the contract\
-limit | int | true | count\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+symbol | string | true | the name of the contract
+limit | int | true | count
 **Response parameters:**
-Parameter | Data Type | Description\
----|---|---\
-asks | List | the seller depth\
-bids | List | the buyer depth\
+Parameter | Data Type | Description
+---|---|---
+asks | List | the seller depth
+bids | List | the buyer depth
 version | long | the version number
 
 ## Get contract index price
@@ -311,14 +311,14 @@ curl "https://contract.mexc.com/api/v1/contract/index_price/BTC_USDT"
 
 Rate limit: 20 times /2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-symbol | string | true | the name of the contract\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+symbol | string | true | the name of the contract
 **Response parameters:**
-Parameter | Data Type | Description\
----|---|---\
-symbol | string | trading pair\
-indexPrice | decimal | index price\
+Parameter | Data Type | Description
+---|---|---
+symbol | string | trading pair
+indexPrice | decimal | index price
 timestamp | long | system timestamp
 
 ## Get contract fair price
@@ -348,14 +348,14 @@ curl "https://contract.mexc.com/api/v1/contract/fair_price/BTC_USDT"
 
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-symbol | string | true | the name of the contract\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+symbol | string | true | the name of the contract
 **Response parameters:**
-Parameter | Data Type | Description\
----|---|---\
-symbol | string | the name of the contract\
-fairPrice | decimal | fair price\
+Parameter | Data Type | Description
+---|---|---
+symbol | string | the name of the contract
+fairPrice | decimal | fair price
 timestamp | long | system timestamp
 
 ## Get contract funding rate
@@ -389,18 +389,18 @@ curl "https://contract.mexc.com/api/v1/contract/funding_rate/BTC_USDT"
 
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-symbol | string | true | the name of the contract\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+symbol | string | true | the name of the contract
 **Response parameters:**
-Parameter | Data Type | Description\
----|---|---\
-symbol | string | the name of the contract\
-fundingRate | decimal | funding rate\
-maxFundingRate | decimal | max funding rate\
-minFundingRate | decimal | min funding rate\
-collectCycle | int | charge cycle\
-nextSettleTime | long | next charge time\
+Parameter | Data Type | Description
+---|---|---
+symbol | string | the name of the contract
+fundingRate | decimal | funding rate
+maxFundingRate | decimal | max funding rate
+minFundingRate | decimal | min funding rate
+collectCycle | int | charge cycle
+nextSettleTime | long | next charge time
 timestamp | long | system timestamp
 
 ## K-line data
@@ -423,22 +423,22 @@ curl "https://contract.mexc.com/api/v1/contract/kline/BTC_USDT?interval=Min15&st
       1609740600
     ],
     "open": [
-      33016.5
+      33016. 5
     ],
     "close": [
-      33040.5
+      33040. 5
     ],
     "high": [
-      33094.0
+      33094. 0
     ],
     "low": [
-      32995.0
+      32995. 0
     ],
     "vol": [
-      67332.0
+      67332. 0
     ],
     "amount": [
-      222515.85925
+      222515. 85925
     ]
   }
 }
@@ -448,21 +448,21 @@ curl "https://contract.mexc.com/api/v1/contract/kline/BTC_USDT?interval=Min15&st
 
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-symbol | string | true | the name of the contract\
-interval | string | false | interval: Min1、Min5、Min15、Min30、Min60、Hour4、Hour8、Day1、Week1、Month1,default: Min1\
-start | long | false | start timestamp,seconds\
-end | long | false | end timestamp,seconds\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+symbol | string | true | the name of the contract
+interval | string | false | interval: Min1、Min5、Min15、Min30、Min60、Hour4、Hour8、Day1、Week1、Month1,default: Min1
+start | long | false | start timestamp,seconds
+end | long | false | end timestamp,seconds
 **Response parameters:**
-Parameter | Data Type | Description\
----|---|---\
-open | double | the opening price\
-close | double | the closing price\
-high | double | the highest price\
-low | double | the lowest price\
-vol | double | volume\
-time | long | time window\
+Parameter | Data Type | Description
+---|---|---
+open | double | the opening price
+close | double | the closing price
+high | double | the highest price
+low | double | the lowest price
+vol | double | volume
+time | long | time window
 Attention:
 1、The maximum data in a single request is 2000 pieces. If your choice of start/end time and granularity of time results in more than the maximum volume of data in a single request, your request will only return 2000 pieces. If you want to get sufficiently fine-grained data over a larger time range, you need to make several times requests.
 2、If only the start time is provided, then query the data from the start time to the current system time. If only the end time is provided, the 2000 pieces of data closest to the end time are returned. If neither start time nor end time is provided, the 2000 pieces of data closest to the current time in the system are queried.
@@ -487,22 +487,22 @@ curl "https://contract.mexc.com/api/v1/contract/kline/index_price/BTC_USDT?inter
       1609740900
     ],
     "open": [
-      33039.0
+      33039. 0
     ],
     "close": [
-      33233.1
+      33233. 1
     ],
     "high": [
-      33352.3
+      33352. 3
     ],
     "low": [
-      33007.9
+      33007. 9
     ],
     "vol": [
-      0.0
+      0. 0
     ],
     "amount": [
-      0.0
+      0. 0
     ]
   }
 }
@@ -512,21 +512,21 @@ curl "https://contract.mexc.com/api/v1/contract/kline/index_price/BTC_USDT?inter
 
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-symbol | string | true | the name of the contract\
-interval | string | false | interval: Min1、Min5、Min15、Min30、Min60、Hour4、Hour8、Day1、Week1、Month1,default: Min1\
-start | long | false | start timestamp,seconds\
-end | long | false | end timestamp,seconds\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+symbol | string | true | the name of the contract
+interval | string | false | interval: Min1、Min5、Min15、Min30、Min60、Hour4、Hour8、Day1、Week1、Month1,default: Min1
+start | long | false | start timestamp,seconds
+end | long | false | end timestamp,seconds
 **Response parameters:**
-Parameter | Data Type | Description\
----|---|---\
-open | double | the opening price\
-close | double | the closing price\
-high | double | the highest price\
-low | double | the lowest price\
-vol | double | volume\
-time | long | time window\
+Parameter | Data Type | Description
+---|---|---
+open | double | the opening price
+close | double | the closing price
+high | double | the highest price
+low | double | the lowest price
+vol | double | volume
+time | long | time window
 Attention:
 1、The maximum data in a single request is 2000 pieces. If your choice of start/end time and granularity of time results in more than the maximum volume of data in a single request, your request will only return 2000 pieces. If you want to get sufficiently fine-grained data over a larger time range, you need to make several times requests.
 2、If only the start time is provided, then query the data from the start time to the current system time. If only the end time is provided, the 2000 pieces of data closest to the end time are returned. If neither start time nor end time is provided, the 2000 pieces of data closest to the current time in the system are queried.
@@ -551,22 +551,22 @@ curl "https://contract.mexc.com/api/v1/contract/kline/fair_price/BTC_USDT?interv
       1609740900
     ],
     "open": [
-      33041.0
+      33041. 0
     ],
     "close": [
-      33233.3
+      33233. 3
     ],
     "high": [
-      33354.8
+      33354. 8
     ],
     "low": [
-      33009.4
+      33009. 4
     ],
     "vol": [
-      0.0
+      0. 0
     ],
     "amount": [
-      0.0
+      0. 0
     ]
   }
 }
@@ -576,21 +576,21 @@ curl "https://contract.mexc.com/api/v1/contract/kline/fair_price/BTC_USDT?interv
 
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-symbol | string | true | the name of the contract\
-interval | string | false | interval: Min1、Min5、Min15、Min30、Min60、Hour4、Hour8、Day1、Week1、Month1,default: Min1\
-start | long | false | start timestamp,seconds\
-end | long | false | end timestamp,seconds\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+symbol | string | true | the name of the contract
+interval | string | false | interval: Min1、Min5、Min15、Min30、Min60、Hour4、Hour8、Day1、Week1、Month1,default: Min1
+start | long | false | start timestamp,seconds
+end | long | false | end timestamp,seconds
 **Response parameters:**
-Parameter | Data Type | Description\
----|---|---\
-open | double | the opening price\
-close | double | the closing price\
-high | double | the highest price\
-low | double | the lowest price\
-vol | double | volume\
-time | long | time window\
+Parameter | Data Type | Description
+---|---|---
+open | double | the opening price
+close | double | the closing price
+high | double | the highest price
+low | double | the lowest price
+vol | double | volume
+time | long | time window
 Attention:
 1、The maximum data in a single request is 2000 pieces. If your choice of start/end time and granularity of time results in more than the maximum volume of data in a single request, your request will only return 2000 pieces. If you want to get sufficiently fine-grained data over a larger time range, you need to make several times requests.
 2、If only the start time is provided, then query the data from the start time to the current system time. If only the end time is provided, the 2000 pieces of data closest to the end time are returned. If neither start time nor end time is provided, the 2000 pieces of data closest to the current time in the system are queried.
@@ -635,18 +635,18 @@ curl "https://contract.mexc.com/api/v1/contract/deals/BTC_USDT"
 
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-symbol | string | true | the name of the contract\
-limit | int | false | consequence set quantity ，maximum is 100, default 100 without setting\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+symbol | string | true | the name of the contract
+limit | int | false | consequence set quantity ，maximum is 100, default 100 without setting
 **Response parameters:**
-Parameter | Data Type | Description\
----|---|---\
-p | decimal | transaction price\
-v | decimal | quantity\
-T | int | deal type,1:purchase,2:sell\
-O | int | open position, 1: Yes,2: No, when O is 1, vol is additional position\
-M | int | self-transact,1:yes,2:no\
+Parameter | Data Type | Description
+---|---|---
+p | decimal | transaction price
+v | decimal | quantity
+T | int | deal type,1:purchase,2:sell
+O | int | open position, 1: Yes,2: No, when O is 1, vol is additional position
+M | int | self-transact,1:yes,2:no
 t | long | transaction time
 
 ## Get contract trend data
@@ -690,26 +690,26 @@ curl "https://contract.mexc.com/api/v1/contract/ticker"
 
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-symbol | string | false | the name of the contract\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+symbol | string | false | the name of the contract
 **Response parameters:**
-Parameter | Data Type | Description\
----|---|---\
-symbol | string | the name of the contract\
-lastPrice | decimal | the latest price\
-bid1 | decimal | purchase price\
-ask1 | decimal | sell price\
-volume24 | decimal | 24 hours trading volume, according to the volume of statistical count\
-amount24 | decimal | 24 hours transaction volume\
-holdVol | decimal | total holdings\
-lower24Price | decimal | lowest price within 24 hours\
-high24Price | decimal | highest price within 24 hours\
-riseFallRate | decimal | rise/fall rate\
-riseFallValue | decimal | rise/fall value\
-indexPrice | decimal | index price\
-fairPrice | decimal | fair price\
-fundingRate | decimal | funding rate\
+Parameter | Data Type | Description
+---|---|---
+symbol | string | the name of the contract
+lastPrice | decimal | the latest price
+bid1 | decimal | purchase price
+ask1 | decimal | sell price
+volume24 | decimal | 24 hours trading volume, according to the volume of statistical count
+amount24 | decimal | 24 hours transaction volume
+holdVol | decimal | total holdings
+lower24Price | decimal | lowest price within 24 hours
+high24Price | decimal | highest price within 24 hours
+riseFallRate | decimal | rise/fall rate
+riseFallValue | decimal | rise/fall value
+indexPrice | decimal | index price
+fairPrice | decimal | fair price
+fundingRate | decimal | funding rate
 timestamp | long | transaction timestamp
 
 ## Get all contract risk fund balance
@@ -750,11 +750,11 @@ Rate limit:20 times/2 seconds
 **Request parameters:**
 None
 **Response parameters:**
-parameter name | type | description\
----|---|---\
-symbol | string | the name of the cntract\
-currency | string | currency\
-available | decimal | available balance\
+parameter name | type | description
+---|---|---
+symbol | string | the name of the cntract
+currency | string | currency
+available | decimal | available balance
 timestamp | long | system timestamp
 
 ## Get contract risk fund balance history
@@ -799,22 +799,22 @@ curl "https://contract.mexc.com/api/v1/contract/risk_reverse/history?symbol=BTC_
 
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-symbol | string | true | the name of the contract\
-page_num | int | true | current page number, default is 1\
-page_size | int | true | the page size, default 20, maximum 100\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+symbol | string | true | the name of the contract
+page_num | int | true | current page number, default is 1
+page_size | int | true | the page size, default 20, maximum 100
 **Response parameters:**
-Parameter | Data Type | Description\
----|---|---\
-pageSize | int | page size\
-totalCount | int | total count\
-totalPage | int | total pages\
-currentPage | int | current page\
-resultList | list | data consequence set\
-symbol | string | the name of the contract\
-currency | string | liquidation currency\
-available | decimal | balance\
+Parameter | Data Type | Description
+---|---|---
+pageSize | int | page size
+totalCount | int | total count
+totalPage | int | total pages
+currentPage | int | current page
+resultList | list | data consequence set
+symbol | string | the name of the contract
+currency | string | liquidation currency
+available | decimal | balance
 snapshotTime | long | snapshot time
 
 ## Get contract funding rate history
@@ -857,19 +857,19 @@ curl "https://contract.mexc.com/api/v1/contract/funding_rate/history?symbol=BTC_
 
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-symbol | string | true | the name of the contract\
-page_num | int | true | current page number, default is 1\
-page_size | int | true | the page size, default 20, maximum 1000\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+symbol | string | true | the name of the contract
+page_num | int | true | current page number, default is 1
+page_size | int | true | the page size, default 20, maximum 1000
 **Response parameters:**
-Parameter | Data Type | Description\
----|---|---\
-pageSize | int | page size\
-totalCount | int | the total count\
-totalPage | int | the total pages\
-currentPage | int | the current page\
-resultList | list | data consequence set\
-symbol | string | the name of the contract\
-fundingRate | decimal | funding rate\
-settleTime | long | liquidation time\\
+Parameter | Data Type | Description
+---|---|---
+pageSize | int | page size
+totalCount | int | the total count
+totalPage | int | the total pages
+currentPage | int | the current page
+resultList | list | data consequence set
+symbol | string | the name of the contract
+fundingRate | decimal | funding rate
+settleTime | long | liquidation time

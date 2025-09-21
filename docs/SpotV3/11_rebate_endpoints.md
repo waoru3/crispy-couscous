@@ -43,25 +43,25 @@ get /api/v3/rebate/taxQuery?timestamp={{timestamp}}&signature={{signature}}
 - **GET** `/api/v3/rebate/taxQuery`
 
 **Permission:** SPOT_ACCOUNT_READ
-**Weight(IP):** 1
+**Weight (IP):** 1
 **Request**
-Name | Type | Mandatory | Description\
----|---|---|---\
-startTime | long | NO |\
-endTime | long | NO |\
-page | int | NO | default 1\
-recvWindow | long | NO |\
-timestamp | long | YES |\
-signature | string | YES |\
+Name | Type | Mandatory | Description
+---|---|---|---
+startTime | long | NO |
+endTime | long | NO |
+page | int | NO | default 1
+recvWindow | long | NO |
+timestamp | long | YES |
+signature | string | YES |
 **Response**
-Name | Type | Description\
----|---|---\
-spot | string | spot rebate,unit:usdt\
-futures | string | futures rebate,unit:usdt\
-total | string | total rebate,unit:usdt\
-uid | string | Invitee uid\
-account | string | Invitee account\
-inviteTime | long | invite time\
+Name | Type | Description
+---|---|---
+spot | string | spot rebate,unit:usdt
+futures | string | futures rebate,unit:usdt
+total | string | total rebate,unit:usdt
+uid | string | Invitee uid
+account | string | Invitee account
+inviteTime | long | invite time
 If startTime and endTime are not sent, the recent 1 year's data will be returned.
 
 ## Get Rebate Records Detail
@@ -112,27 +112,27 @@ get /api/v3/rebate/detail?timestamp={{timestamp}}&signature={{signature}}
 - **GET** `/api/v3/rebate/detail`
 
 **Permission:** SPOT_ACCOUNT_READ
-**Weight(IP):** 1
+**Weight (IP):** 1
 **Request**
-Name | Type | Mandatory | Description\
----|---|---|---\
-startTime | long | NO |\
-endTime | long | NO |\
-page | int | NO | default 1\
-recvWindow | long | NO |\
-timestamp | long | YES |\
-signature | string | YES |\
+Name | Type | Mandatory | Description
+---|---|---|---
+startTime | long | NO |
+endTime | long | NO |
+page | int | NO | default 1
+recvWindow | long | NO |
+timestamp | long | YES |
+signature | string | YES |
 **Response**
-Name | Type | Description\
----|---|---\
-asset | string | rebate asset\
-type | string | rebate type: spot futures\
-rate | string | rebate rate\
-amount | string | rebate amount\
-uid | string | Invitee uid\
-account | string | Invitee account\
-tradeTime | long | trade time\
-updateTime | long | update time\
+Name | Type | Description
+---|---|---
+asset | string | rebate asset
+type | string | rebate type: spot futures
+rate | string | rebate rate
+amount | string | rebate amount
+uid | string | Invitee uid
+account | string | Invitee account
+tradeTime | long | trade time
+updateTime | long | update time
 If startTime and endTime are not sent, the recent 1 year's data will be returned.
 
 ## Get Self Rebate Records Detail
@@ -182,27 +182,27 @@ get /api/v3/rebate/detail/kickback?timestamp={{timestamp}}&signature={{signature
 - **GET** `/api/v3/rebate/detail/kickback`
 
 **Permission:** SPOT_ACCOUNT_READ
-**Weight(IP):** 1
+**Weight (IP):** 1
 **Request**
-Name | Type | Mandatory | Description\
----|---|---|---\
-startTime | long | NO |\
-endTime | long | NO |\
-page | int | NO | default 1\
-recvWindow | long | NO |\
-timestamp | long | YES |\
-signature | string | YES |\
+Name | Type | Mandatory | Description
+---|---|---|---
+startTime | long | NO |
+endTime | long | NO |
+page | int | NO | default 1
+recvWindow | long | NO |
+timestamp | long | YES |
+signature | string | YES |
 **Response**
-Name | Type | Description\
----|---|---\
-asset | string | rebate asset\
-type | string | rebate type: spot futures\
-rate | string | rebate rate\
-amount | string | rebate amount\
-uid | string | Invitee uid\
-account | string | Invitee account\
-tradeTime | long | trade time\
-updateTime | long | update time\
+Name | Type | Description
+---|---|---
+asset | string | rebate asset
+type | string | rebate type: spot futures
+rate | string | rebate rate
+amount | string | rebate amount
+uid | string | Invitee uid
+account | string | Invitee account
+tradeTime | long | trade time
+updateTime | long | update time
 If startTime and endTime are not sent, the recent 1 year's data will be returned.
 
 ## Query ReferCode
@@ -227,16 +227,16 @@ get /api/v3/rebate/referCode?timestamp={{timestamp}}&signature={{signature}}
 - **GET** `/api/v3/rebate/referCode`
 
 **Permission:** SPOT_ACCOUNT_READ
-**Weight(IP):** 1
+**Weight (IP):** 1
 **Request**
-Name | Type | Mandatory | Description\
----|---|---|---\
-recvWindow | long | NO |\
-timestamp | long | YES |\
-signature | string | YES |\
+Name | Type | Mandatory | Description
+---|---|---|---
+recvWindow | long | NO |
+timestamp | long | YES |
+signature | string | YES |
 **Response**
-Name | Type | Description\
----|---|---\
+Name | Type | Description
+---|---|---
 referCode | string | referCode
 
 ## Get Affiliate Commission Record (affiliate only)
@@ -300,30 +300,30 @@ get /api/v3/rebate/affiliate/commission?timestamp={{timestamp}}&signature={{sign
 - **GET** `/api/v3/rebate/affiliate/commission`
 
 **Permission:** SPOT_ACCOUNT_READ
-**Weight(IP):** 1
+**Weight (IP):** 1
 **Request**
-Name | Type | Mandatory | Description\
----|---|---|---\
-startTime | long | No | startTime\
-endTime | long | No | endTime\
-inviteCode | string | No | invite Code\
-page | int | No | page\
-pageSize | int | No | pageSize，default:10\
-timestamp | long | Yes | timestamp\
-signature | string | Yes | signature\
+Name | Type | Mandatory | Description
+---|---|---|---
+startTime | long | No | startTime
+endTime | long | No | endTime
+inviteCode | string | No | invite Code
+page | int | No | page
+pageSize | int | No | pageSize，default:10
+timestamp | long | Yes | timestamp
+signature | string | Yes | signature
 **Response**
-Name | Type | Description\
----|---|---\
-uid | string | user uid\
-account | string | account\
-inviteCode | string | inviteCode\
-inviteTime | long | inviteTime\
-spot | string | spot commission(usdt)\
-etf | string | ETF commission(usdt)\
-futures | string | futures commission(usdt)\
-total | string | total commission(usdt)\
-deposit | string | deposit amount(usdt)\
-firstDepositTime | string | first Deposit Time\
+Name | Type | Description
+---|---|---
+uid | string | user uid
+account | string | account
+inviteCode | string | inviteCode
+inviteTime | long | inviteTime
+spot | string | spot commission (usdt)
+etf | string | ETF commission (usdt)
+futures | string | futures commission (usdt)
+total | string | total commission (usdt)
+deposit | string | deposit amount (usdt)
+firstDepositTime | string | first Deposit Time
 If startTime and endTime are not sent, default return the data of the last six months .
 
 ## Get Affiliate Withdraw Record (affiliate only)
@@ -369,22 +369,22 @@ get /api/v3/rebate/affiliate/withdraw?timestamp={{timestamp}}&signature={{signat
 - **GET** `/api/v3/rebate/affiliate/withdraw`
 
 **Permission:** SPOT_ACCOUNT_READ
-**Weight(IP):** 1
+**Weight (IP):** 1
 **Request**
-Name | Type | Mandatory | Description\
----|---|---|---\
-startTime | long | No | startTime\
-endTime | long | No | endTime\
-page | int | No | page\
-pageSize | int | No | pageSize,default: 10\
-timestamp | long | Yes | timestamp\
-signature | string | Yes | signature\
+Name | Type | Mandatory | Description
+---|---|---|---
+startTime | long | No | startTime
+endTime | long | No | endTime
+page | int | No | page
+pageSize | int | No | pageSize,default: 10
+timestamp | long | Yes | timestamp
+signature | string | Yes | signature
 **Response**
-Name | Type | Description\
----|---|---\
-withdrawTime | long | withdrawTime\
-asset | string | withdraw asset\
-amount | string | withdraw amount\
+Name | Type | Description
+---|---|---
+withdrawTime | long | withdrawTime
+asset | string | withdraw asset
+amount | string | withdraw amount
 If startTime and endTime are not sent, the data of the last six months is returned.
 
 ## Get Affiliate Commission Detail Record (affiliate only)
@@ -437,36 +437,36 @@ get /api/v3/rebate/affiliate/commission/detail?timestamp={{timestamp}}&signature
 - **GET** `/api/v3/rebate/affiliate/commission/detail`
 
 **Permission:** SPOT_ACCOUNT_READ
-**Weight(IP):** 1
+**Weight (IP):** 1
 **Request**
-Name | Type | Mandatory | Description\
----|---|---|---\
-startTime | long | No | startTime\
-endTime | long | No | endTime\
-inviteCode | string | No | inviteCode\
-page | int | No | page\
-pageSize | int | No | pageSize,default: 10\
-type | int | No | commission type,1:spot,2:futures,3:ETF\
-timestamp | long | Yes | timestamp\
-signature | string | Yes | signature\
+Name | Type | Mandatory | Description
+---|---|---|---
+startTime | long | No | startTime
+endTime | long | No | endTime
+inviteCode | string | No | inviteCode
+page | int | No | page
+pageSize | int | No | pageSize,default: 10
+type | int | No | commission type,1:spot,2:futures,3: ETF
+timestamp | long | Yes | timestamp
+signature | string | Yes | signature
 **Response**
-Name | Type | Description\
----|---|---\
-totalCommissionUsdtAmount | string | total commission in usdt\
-totalTradeUsdtAmount | string | total trade volume in usdt\
-type | int | commission type,1:spot 2:futures 3:ETF\
-sourceType | int | sourceType,1:referral 2:sub-affiliate\
-state | int | commission state\
-date | long | trade date\
-uid | string | uid\
-rate | string | commission rate\
-symbol | string | symbol\
-takerAmount | string | taker amount\
-makerAmount | string | maker amount\
-amountCurrency | string | amount currency\
-usdtAmount | string | usdt amount\
-commission | string | commission amount\
-currency | string | commission currency\
+Name | Type | Description
+---|---|---
+totalCommissionUsdtAmount | string | total commission in usdt
+totalTradeUsdtAmount | string | total trade volume in usdt
+type | int | commission type,1:spot 2:futures 3: ETF
+sourceType | int | sourceType,1:referral 2:sub-affiliate
+state | int | commission state
+date | long | trade date
+uid | string | uid
+rate | string | commission rate
+symbol | string | symbol
+takerAmount | string | taker amount
+makerAmount | string | maker amount
+amountCurrency | string | amount currency
+usdtAmount | string | usdt amount
+commission | string | commission amount
+currency | string | commission currency
 If startTime and endTime are not sent, the data from T-7 to T is returned. If type is not sent, the data of all types is returned,maximum 30 days data can be queried at one time.
 
 ## Get Affiliate Campaign Data (affiliate only)
@@ -526,29 +526,29 @@ get /api/v3/rebate/affiliate/campaign?timestamp={{timestamp}}&signature={{signat
 - **GET** `/api/v3/rebate/affiliate/campaign`
 
 **Permission:** SPOT_ACCOUNT_READ
-**Weight(IP):** 1
+**Weight (IP):** 1
 **Request**
-Name | Type | Mandatory | Description\
----|---|---|---\
-startTime | long | No | startTime\
-endTime | long | No | endTime\
-page | int | No | page\
-pageSize | int | No | pageSize,default: 10\
-timestamp | long | Yes | timestamp\
-signature | string | Yes | signature\
+Name | Type | Mandatory | Description
+---|---|---|---
+startTime | long | No | startTime
+endTime | long | No | endTime
+page | int | No | page
+pageSize | int | No | pageSize,default: 10
+timestamp | long | Yes | timestamp
+signature | string | Yes | signature
 **Response**
-Name | Type | Description\
----|---|---\
-campaign | string | campaign name\
-inviteCode | string | campaign inviteCode\
-createTime | long | campaign createTime\
-clickTime | int | inviteCode clickTime\
-signup | int | signup number\
-deposited | int | deposited number\
-depositAmount | string | depositAmount(usdt)\
-tradingAmount | string | tradingAmount(usdt)\
-traded | int | traded number\
-commission | string | commission\
+Name | Type | Description
+---|---|---
+campaign | string | campaign name
+inviteCode | string | campaign inviteCode
+createTime | long | campaign createTime
+clickTime | int | inviteCode clickTime
+signup | int | signup number
+deposited | int | deposited number
+depositAmount | string | depositAmount (usdt)
+tradingAmount | string | tradingAmount (usdt)
+traded | int | traded number
+commission | string | commission
 If startTime and endTime are not sent, the data from T-7 to T is returned.
 
 ## Get Affiliate Referral Data（affiliate only）
@@ -601,36 +601,36 @@ get /api/v3/rebate/affiliate/referral?timestamp={{timestamp}}&signature={{signat
 - **GET** `/api/v3/rebate/affiliate/referral`
 
 **Permission:** SPOT_ACCOUNT_READ
-**Weight(IP):** 1
+**Weight (IP):** 1
 **Request**
-Name | Type | Mandatory | Description\
----|---|---|---\
-startTime | long | No | startTime\
-endTime | long | No | endTime\
-uid | string | No | uid\
-inviteCode | string | No | invite code\
-page | int | No | page\
-pageSize | int | No | pageSize,default: 10\
-timestamp | long | Yes | timestamp\
-signature | string | Yes | signature\
+Name | Type | Mandatory | Description
+---|---|---|---
+startTime | long | No | startTime
+endTime | long | No | endTime
+uid | string | No | uid
+inviteCode | string | No | invite code
+page | int | No | page
+pageSize | int | No | pageSize,default: 10
+timestamp | long | Yes | timestamp
+signature | string | Yes | signature
 **Response**
-Name | Type | Description\
----|---|---\
-uid | int | uid\
-account | string | account email\
-inviteCode | string | invite code\
-inviteTime | long | invite time\
-nickName | string | nickName\
-firstDeposit | long | first deposit date\
-firstTrade | long | first trade date\
-lastDeposit | long | last deposit date\
-lastTrade | long | last trade date\
-depositAmount | string | deposit amount(USDT)\
-tradingAmount | string | trading amount(USDT)\
-amount | string | commission amount(USDT)\
-asset | string | 0 USDT、1-1,000 USDT、1,000 - 10,000 USDT、 10,000 - 50,000 USDT、50,000 - 100,000 USDT、 100,000 - 500,000 USDT、500,000 - 1,000,000 USDT、 1,000,000 - 5,000,000 USDT、>5,000,000 USDT\
-withdrawalAmount | string | withdrawal amount(USDT)\
-identification | int | identification,1: Uncertified, 2: primary, 3: Advanced, 4: Institutional\
+Name | Type | Description
+---|---|---
+uid | int | uid
+account | string | account email
+inviteCode | string | invite code
+inviteTime | long | invite time
+nickName | string | nickName
+firstDeposit | long | first deposit date
+firstTrade | long | first trade date
+lastDeposit | long | last deposit date
+lastTrade | long | last trade date
+depositAmount | string | deposit amount (USDT)
+tradingAmount | string | trading amount (USDT)
+amount | string | commission amount (USDT)
+asset | string | 0 USDT、1-1,000 USDT、1,000 - 10,000 USDT、 10,000 - 50,000 USDT、50,000 - 100,000 USDT、 100,000 - 500,000 USDT、500,000 - 1,000,000 USDT、 1,000,000 - 5,000,000 USDT、>5,000,000 USDT
+withdrawalAmount | string | withdrawal amount (USDT)
+identification | int | identification,1: Uncertified, 2: primary, 3: Advanced, 4: Institutional
 If startTime and endTime are not sent, the data from T-7 to T is returned.
 
 ## Get Subaffiliates Data (affiliate only)
@@ -688,27 +688,27 @@ get /api/v3/rebate/affiliate/subaffiliates?timestamp={{timestamp}}&signature={{s
 - **GET** `/api/v3/rebate/affiliate/subaffiliates`
 
 **Permission:** SPOT_ACCOUNT_READ
-**Weight(IP):** 1
+**Weight (IP):** 1
 **Request**
-Name | Type | Mandatory | Description\
----|---|---|---\
-startTime | long | No | startTime\
-endTime | long | No | endTime\
-inviteCode | string | No | inviteCode\
-page | int | No | page\
-pageSize | int | No | pageSize,default: 10\
-timestamp | long | Yes | timestamp\
-signature | string | Yes | signature\
+Name | Type | Mandatory | Description
+---|---|---|---
+startTime | long | No | startTime
+endTime | long | No | endTime
+inviteCode | string | No | inviteCode
+page | int | No | page
+pageSize | int | No | pageSize,default: 10
+timestamp | long | Yes | timestamp
+signature | string | Yes | signature
 **Response**
-Name | Type | Description\
----|---|---\
-subaffiliateName | string | subaffiliate name\
-subaffiliateMail | string | subaffiliate mail\
-campaign | string | campaign\
-inviteCode | string | inviteCode\
-activationTime | long | activation time\
-registered | int | registered number\
-deposited | int | deposited number\
-depositAmount | string | deposit amount\
-commission | string | commission\
+Name | Type | Description
+---|---|---
+subaffiliateName | string | subaffiliate name
+subaffiliateMail | string | subaffiliate mail
+campaign | string | campaign
+inviteCode | string | inviteCode
+activationTime | long | activation time
+registered | int | registered number
+deposited | int | deposited number
+depositAmount | string | deposit amount
+commission | string | commission
 If startTime and endTime are not sent, the data from T-7 to T is returned.

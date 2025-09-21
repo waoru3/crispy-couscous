@@ -15,7 +15,7 @@ Provides kline and trading data for all Spot pairs since 01-01-2023:[Historical 
 - **GET** `/api/v3/ping`
 
 Test connectivity to the Rest API.
-**Weight(IP):** 1
+**Weight (IP):** 1
 Parameter:
 NONE
 
@@ -29,9 +29,9 @@ NONE
 }
 ```
 
-- **GET** `/api/v3/time `
+- **GET** `/api/v3/time`
 
-**Weight(IP):** 1
+**Weight (IP):** 1
 Parameter:
 NONE
 
@@ -60,14 +60,14 @@ GET /api/v3/defaultSymbols
 }
 ```
 
-- **GET** `/api/v3/defaultSymbols `
+- **GET** `/api/v3/defaultSymbols`
 
-**Weight(IP):** 1
+**Weight (IP):** 1
 **Request**
 NONE
 **Response**
-Name | Type | Description\
----|---|---\
+Name | Type | Description
+---|---|---
 symbol | string | symbol
 
 ## Exchange Information
@@ -119,47 +119,47 @@ symbol | string | symbol
 - **GET** `/api/v3/exchangeInfo`
 
 Current exchange trading rules and symbol information
-**Weight(IP):** 10
+**Weight (IP):** 10
 **Parameter** :
 There are 3 possible options:
-Method | **Example**\
----|---\
-No parameter | curl -X GET "<https://api.mexc.com/api/v3/exchangeInfo>"\
-symbol | curl -X GET "<https://api.mexc.com/api/v3/exchangeInfo?symbol=MXUSDT>"\
-symbols | curl -X GET "<https://api.mexc.com/api/v3/exchangeInfo?symbols=MXUSDT,BTCUSDT>"\
+Method | **Example**
+---|---
+No parameter | curl -X GET "<https://api.mexc.com/api/v3/exchangeInfo>"
+symbol | curl -X GET "<https://api.mexc.com/api/v3/exchangeInfo?symbol=MXUSDT>"
+symbols | curl -X GET "<https://api.mexc.com/api/v3/exchangeInfo?symbols=MXUSDT, BTCUSDT>"
 **Response:**
-Name | Type | Description\
----|---|---\
-timezone | string | timezone\
-serverTime | long | server Time\
-rateLimits | Array | rate Limits\
-exchangeFilters | Array | exchange Filters\
-symbol | String | symbol\
-status | String | status:1 - online, 2 - Pause, 3 - offline\
-baseAsset | String | base Asset\
-baseAssetPrecision | Int | base Asset Precision\
-quoteAsset | String | quote Asset\
-quotePrecision | Int | quote Precision\
-quoteAssetPrecision | Int | quote Asset Precision\
-baseCommissionPrecision | Int | base Commission Precision\
-quoteCommissionPrecision | Int | quote Commission Precision\
-orderTypes | Array | [Order Type](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints#order_type)\
-isSpotTradingAllowed | Boolean | allow api spot trading\
-isMarginTradingAllowed | Boolean | allow api margin trading\
-permissions | Array | permissions\
-filterType | String | filter type:PERCENT_PRICE_BY_SIDE\
-bidMultiplierUp | String | bidMultiplierUp\
-askMultiplierDown | String | askMultiplierDown\
-maxQuoteAmount | String | max Quote Amount\
-makerCommission | String | marker Commission\
-takerCommission | String | taker Commission\
-quoteAmountPrecision | string | min order amount\
-baseSizePrecision | string | min order quantity\
-quoteAmountPrecisionMarket | string | min order amount in market order\
-maxQuoteAmountMarket | String | max quote Amount in market order\
-tradeSideType | String | tradeSide Type:1 - All, 2 - buy order only, 3 - Sell order only, 4 - Close\
-contractAddress | String | contract Address\
-st | String | symbol st status:false,true\
+Name | Type | Description
+---|---|---
+timezone | string | timezone
+serverTime | long | server Time
+rateLimits | Array | rate Limits
+exchangeFilters | Array | exchange Filters
+symbol | String | symbol
+status | String | status:1 - online, 2 - Pause, 3 - offline
+baseAsset | String | base Asset
+baseAssetPrecision | Int | base Asset Precision
+quoteAsset | String | quote Asset
+quotePrecision | Int | quote Precision
+quoteAssetPrecision | Int | quote Asset Precision
+baseCommissionPrecision | Int | base Commission Precision
+quoteCommissionPrecision | Int | quote Commission Precision
+orderTypes | Array | [Order Type](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints#order_type)
+isSpotTradingAllowed | Boolean | allow api spot trading
+isMarginTradingAllowed | Boolean | allow api margin trading
+permissions | Array | permissions
+filterType | String | filter type: PERCENT_PRICE_BY_SIDE
+bidMultiplierUp | String | bidMultiplierUp
+askMultiplierDown | String | askMultiplierDown
+maxQuoteAmount | String | max Quote Amount
+makerCommission | String | marker Commission
+takerCommission | String | taker Commission
+quoteAmountPrecision | string | min order amount
+baseSizePrecision | string | min order quantity
+quoteAmountPrecisionMarket | string | min order amount in market order
+maxQuoteAmountMarket | String | max quote Amount in market order
+tradeSideType | String | tradeSide Type:1 - All, 2 - buy order only, 3 - Sell order only, 4 - Close
+contractAddress | String | contract Address
+st | String | symbol st status:false,true
 filter parameter description:
 
 - lastPrice means using the latest trade price, orderPrice means the order placement price.
@@ -190,17 +190,17 @@ filter parameter description:
 
 - **GET** `/api/v3/depth`
 
-**Weight(IP):** 1
+**Weight (IP):** 1
 Parameter:
-Name | Type | Mandatory | Description | Scope\
----|---|---|---|---\
-symbol | string | YES | Symbol |\
-limit | integer | NO | Returen number | default 100; max 5000\
+Name | Type | Mandatory | Description | Scope
+---|---|---|---|---
+symbol | string | YES | Symbol |
+limit | integer | NO | Returen number | default 100; max 5000
 Response:
-Name | Type | Description\
----|---|---\
-lastUpdateId | long | Last Update Id\
-bids | list | Bid [Price, Quantity ]\
+Name | Type | Description
+---|---|---
+lastUpdateId | long | Last Update Id
+bids | list | Bid [Price, Quantity ]
 asks | list | Ask [Price, Quantity ]
 
 ## Recent Trades List
@@ -223,21 +223,21 @@ asks | list | Ask [Price, Quantity ]
 
 - **GET** `/api/v3/trades`
 
-**Weight(IP):** 5
+**Weight (IP):** 5
 Parameter:
-Name | Type | Mandatory | Description | Scope\
----|---|---|---|---\
-symbol | string | YES | |\
-limit | integer | NO | | Default 500; max 1000\
+Name | Type | Mandatory | Description | Scope
+---|---|---|---|---
+symbol | string | YES | |
+limit | integer | NO | | Default 500; max 1000
 Response:
-Name | Description\
----|---\
-id | Trade id\
-price | Price\
-qty | Number\
-quoteQty | Trade total\
-time | Trade time\
-isBuyerMaker | Was the buyer the maker?\
+Name | Description
+---|---
+id | Trade id
+price | Price
+qty | Number
+quoteQty | Trade total
+time | Trade time
+isBuyerMaker | Was the buyer the maker?
 isBestMatch | Was the trade the best price match?
 
 ## Compressed/Aggregate Trades List
@@ -261,26 +261,26 @@ isBestMatch | Was the trade the best price match?
 
 - **GET** `/api/v3/aggTrades`
 
-**Weight(IP):** 1
+**Weight (IP):** 1
 Get compressed, aggregate trades. Trades that fill at the time, from the same order, with the same price will have the quantity aggregated.
 Parameters:
-Name | Type | Mandatory | Description | Scope\
----|---|---|---|---\
-symbol | string | YES | |\
-startTime | long | NO | Timestamp in ms to get aggregate trades from INCLUSIVE. |\
-endTime | long | NO | Timestamp in ms to get aggregate trades until INCLUSIVE. |\
-limit | integer | NO | | Default 500; max 1000.\
+Name | Type | Mandatory | Description | Scope
+---|---|---|---|---
+symbol | string | YES | |
+startTime | long | NO | Timestamp in ms to get aggregate trades from INCLUSIVE. |
+endTime | long | NO | Timestamp in ms to get aggregate trades until INCLUSIVE. |
+limit | integer | NO | | Default 500; max 1000.
 startTime and endTime must be used at the same time.
 Response:
-Name | Description\
----|---\
-a | Aggregate tradeId\
-f | First tradeId\
-l | Last tradeId\
-p | Price\
-q | Quantity\
-T | Timestamp\
-m | Was the buyer the maker?\
+Name | Description
+---|---
+a | Aggregate tradeId
+f | First tradeId
+l | Last tradeId
+p | Price
+q | Quantity
+T | Timestamp
+m | Was the buyer the maker?
 M | Was the trade the best price match?
 
 ## Kline/Candlestick Data
@@ -305,26 +305,26 @@ M | Was the trade the best price match?
 
 - **GET** `/api/v3/klines`
 
-**Weight(IP):** 1
+**Weight (IP):** 1
 Kline/candlestick bars for a symbol. Klines are uniquely identified by their open time.
 Parameters:
-Name | Type | Mandatory | Description\
----|---|---|---\
-symbol | string | YES |\
-interval | ENUM | YES | ENUM: [Kline Interval](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints#kline_interval)\
-startTime | long | NO |\
-endTime | long | NO |\
-limit | integer | NO | Default 500; max 1000.\
+Name | Type | Mandatory | Description
+---|---|---|---
+symbol | string | YES |
+interval | ENUM | YES | ENUM: [Kline Interval](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints#kline_interval)
+startTime | long | NO |
+endTime | long | NO |
+limit | integer | NO | Default 500; max 1000.
 Response:
-Index | Description\
----|---\
-0 | Open time\
-1 | Open\
-2 | High\
-3 | Low\
-4 | Close\
-5 | Volume\
-6 | Close time\
+Index | Description
+---|---
+0 | Open time
+1 | Open
+2 | High
+3 | Low
+4 | Close
+5 | Volume
+6 | Close time
 7 | Quote asset volume
 
 ## Current Average Price
@@ -340,15 +340,15 @@ Index | Description\
 
 - **GET** `/api/v3/avgPrice`
 
-**Weight(IP):** 1
+**Weight (IP):** 1
 Parameters:
-Name | Type | Mandatory | Description\
----|---|---|---\
-symbol | string | YES |\
+Name | Type | Mandatory | Description
+---|---|---|---
+symbol | string | YES |
 Response:
-Name | Description\
----|---\
-mins | Average price time frame\
+Name | Description
+---|---
+mins | Average price time frame
 price | Price
 
 ## 24hr Ticker Price Change Statistics
@@ -420,35 +420,35 @@ or
 
 - **GET** `/api/v3/ticker/24hr`
 
-**Weight(IP):**
-Parameter | Symbols Provided | Weight\
----|---|---\
-symbol | 1 | 1\
-symbols | all | 40\
+**Weight (IP):**
+Parameter | Symbols Provided | Weight
+---|---|---
+symbol | 1 | 1
+symbols | all | 40
 Parameters:
-Name | Type | Mandatory | Description\
----|---|---|---\
-symbol | string | NO | If the symbol is not sent, tickers for all symbols will be returned in an array.\
+Name | Type | Mandatory | Description
+---|---|---|---
+symbol | string | NO | If the symbol is not sent, tickers for all symbols will be returned in an array.
 Response:
-Name | Description\
----|---\
-symbol | Symbol\
-priceChange | price Change\
-priceChangePercent | price change percent\
-prevClosePrice | Previous close price\
-lastPrice | Last price\
-lastQty | Last quantity\
-bidPrice | Bid best price\
-bidQty | Bid best quantity\
-askPrice | Ask best price\
-askQty | Ask best quantity\
-openPrice | Open\
-highPrice | High\
-lowPrice | Low\
-volume | Deal volume\
-quoteVolume | Quote asset volume\
-openTime | Start time\
-closeTime | Close time\
+Name | Description
+---|---
+symbol | Symbol
+priceChange | price Change
+priceChangePercent | price change percent
+prevClosePrice | Previous close price
+lastPrice | Last price
+lastQty | Last quantity
+bidPrice | Bid best price
+bidQty | Bid best quantity
+askPrice | Ask best price
+askQty | Ask best quantity
+openPrice | Open
+highPrice | High
+lowPrice | Low
+volume | Deal volume
+quoteVolume | Quote asset volume
+openTime | Start time
+closeTime | Close time
 count |
 
 ## Symbol Price Ticker
@@ -475,19 +475,19 @@ or
 
 - **GET** `/api/v3/ticker/price`
 
-**Weight(IP):**
-Parameter | Symbols Provided | Weight\
----|---|---\
-symbol | 1 | 1\
-symbols | all | 2\
+**Weight (IP):**
+Parameter | Symbols Provided | Weight
+---|---|---
+symbol | 1 | 1
+symbols | all | 2
 Parameters:
-Name | Type | Mandatory | Description\
----|---|---|---\
-symbol | string | NO | If the symbol is not sent, all symbols will be returned in an array.\
+Name | Type | Mandatory | Description
+---|---|---|---
+symbol | string | NO | If the symbol is not sent, all symbols will be returned in an array.
 Response:
-Name | Description\
----|---\
-symbol |\
+Name | Description
+---|---
+symbol |
 price | Last price
 
 ## Symbol Order Book Ticker
@@ -523,17 +523,17 @@ OR
 
 - **GET** `/api/v3/ticker/bookTicker`
 
-**Weight(IP):** 1
+**Weight (IP):** 1
 Best price/qty on the order book for a symbol or symbols.
 Parameters:
-Name | Type | Mandatory | Description\
----|---|---|---\
-symbol | string | NO | If the symbol is not sent, all symbols will be returned in an array.\
+Name | Type | Mandatory | Description
+---|---|---|---
+symbol | string | NO | If the symbol is not sent, all symbols will be returned in an array.
 Response:
-Name | Description\
----|---\
-symbol | Symbol\
-bidPrice | Best bid price\
-bidQty | Best bid quantity\
-askPrice | Best ask price\
-askQty | Best ask quantity\\
+Name | Description
+---|---
+symbol | Symbol
+bidPrice | Best bid price
+bidQty | Best bid quantity
+askPrice | Best ask price
+askQty | Best ask quantity

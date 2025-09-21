@@ -41,7 +41,7 @@ Get /api/v3/capital/config/getall
     "depositEnable":true,
     "minConfirm":0,
     "Name":"BTC-BSC",
-    "network":"BEP20(BSC)",
+    "network":"BEP20 (BSC)",
     "withdrawEnable":true,
     "withdrawFee":"0.000010000000000000",
     "withdrawIntegerMultiple":null,
@@ -61,25 +61,25 @@ Get /api/v3/capital/config/getall
 - **GET** `/api/v3/capital/config/getall`
 
 **Permission:** SPOT_WITHDRAW_READ
-**Weight(IP):** 10
+**Weight (IP):** 10
 Query currency details and the smart contract address
 Parameters:
 None
 Response:
-Name | Description\
----|---\
-depositEnable | depositEnable\
-withdrawEnable | withdrawEnable\
-withdrawFee | withdrawFee\
-withdrawMax | Max withdraw amount\
-withdrawMin | Min withdraw amount\
-contract | coin contract\
-withdrawTips | withdrawTips\
-depositTips | depositTips\
-network | withdraw network(previous params,offline soon)\
-netWork | withdraw network(new params,for new withdraw endpoint)
+Name | Description
+---|---
+depositEnable | depositEnable
+withdrawEnable | withdrawEnable
+withdrawFee | withdrawFee
+withdrawMax | Max withdraw amount
+withdrawMin | Min withdraw amount
+contract | coin contract
+withdrawTips | withdrawTips
+depositTips | depositTips
+network | withdraw network (previous params,offline soon)
+netWork | withdraw network (new params,for new withdraw endpoint)
 
-## Withdraw(new)
+## Withdraw (new)
 
 > Request
 
@@ -99,24 +99,24 @@ post /api/v3/capital/withdraw?coin=EOS&address=zzqqqqqqqqqq&amount=10&netWork=EO
 - **POST** `/api/v3/capital/withdraw`
 
 **Permission:** SPOT_WITHDRAW_WRITE
-**Weight(IP):** 1
+**Weight (IP):** 1
 Parameters:
-Name | Type | Mandatory | Description\
----|---|---|---\
-coin | string | YES | coin\
-withdrawOrderId | string | NO | withdrawOrderId\
-netWork | string | NO | withdraw network\
-contractAddress | string | NO | coin contract address\
-address | string | YES | withdraw address\
-memo | string | NO | memo(If memo is required in the address, it must be passed in)\
-amount | string | YES | withdraw amount\
-remark | string | NO | remark\
-timestamp | string | YES | timestamp\
-signature | string | YES | signature\
+Name | Type | Mandatory | Description
+---|---|---|---
+coin | string | YES | coin
+withdrawOrderId | string | NO | withdrawOrderId
+netWork | string | NO | withdraw network
+contractAddress | string | NO | coin contract address
+address | string | YES | withdraw address
+memo | string | NO | memo (If memo is required in the address, it must be passed in)
+amount | string | YES | withdraw amount
+remark | string | NO | remark
+timestamp | string | YES | timestamp
+signature | string | YES | signature
 Can get `netWork` via endpoints `Get /api/v3/capital/config/getall`'s response params `networkList`.
 Response:
-Name | Description\
----|---\
+Name | Description
+---|---
 id | withdraw ID
 
 ## Cancel withdraw
@@ -139,17 +139,17 @@ delete /api/v3/capital/withdraw?id=ca7bd51895134fb5bd749f1cf875b8af&timestamp={{
 - **DELETE** `/api/v3/capital/withdraw`
 
 **Permission:** SPOT_WITHDRAW_W
-**Weight(IP):** 1
+**Weight (IP):** 1
 **Request**
-Name | Type | Mandatory | Description\
----|---|---|---\
-id | string | Yes | withdraw id\
+Name | Type | Mandatory | Description
+---|---|---|---
+id | string | Yes | withdraw id
 **Response**
-Name | Description\
----|---\
+Name | Description
+---|---
 id | withdraw id
 
-## Deposit History(supporting network)
+## Deposit History (supporting network)
 
 > Request
 
@@ -180,16 +180,16 @@ get /api/v3/capital/deposit/hisrec?coin=EOS&timestamp={{timestamp}}&signature={{
 - **GET** `/api/v3/capital/deposit/hisrec`
 
 **Permission:** SPOT_WITHDRAW_READ
-**Weight(IP):** 1
+**Weight (IP):** 1
 Parameters:
-Name | Type | Mandatory | Description\
----|---|---|---\
-coin | string | NO | coin\
-status | string | NO | status\
-startTime | string | NO | default: 7 days ago from current time\
-endTime | string | NO | default:current time\
-limit | string | NO | default:1000,max:1000\
-timestamp | string | YES | timestamp\
+Name | Type | Mandatory | Description
+---|---|---|---
+coin | string | NO | coin
+status | string | NO | status
+startTime | string | NO | default: 7 days ago from current time
+endTime | string | NO | default:current time
+limit | string | NO | default:1000,max:1000
+timestamp | string | YES | timestamp
 signature | string | YES | signature
 
 1. default return the records of the last 7 days.
@@ -197,21 +197,21 @@ signature | string | YES | signature
 1. can query 90 days data at most.
 
 Response:
-Name | Description\
----|---\
-amount | deposit amount\
-coin | coin\
-network | deposit network\
-status | deposit status,1:SMALL,2:TIME_DELAY,3:LARGE_DELAY,\
-4:PENDING,5:SUCCESS,6:AUDITING,7:REJECTED\
-8:REFUND,9:PRE_SUCCESS,10:INVALID,\
-11:RESTRICTED,12:COMPLETED\
-address | deposit adress\
-addressTag | addressTag\
-txId | txId\
-insertTime | insertTime\
-unlockConfirm | unlockConfirm\
-confirmTimes | confirmTimes\
+Name | Description
+---|---
+amount | deposit amount
+coin | coin
+network | deposit network
+status | deposit status,1: SMALL,2: TIME_DELAY,3: LARGE_DELAY,
+4: PENDING,5: SUCCESS,6: AUDITING,7: REJECTED\
+8: REFUND,9: PRE_SUCCESS,10: INVALID,\
+11: RESTRICTED,12: COMPLETED\
+address | deposit adress
+addressTag | addressTag
+txId | txId
+insertTime | insertTime
+unlockConfirm | unlockConfirm
+confirmTimes | confirmTimes
 memo | memo
 
 ## Withdraw History (supporting network)
@@ -252,16 +252,16 @@ get /api/v3/capital/withdraw/history?coin=USDT&timestamp={{timestamp}}&signature
 - **GET** `/api/v3/capital/withdraw/history`
 
 **Permission:** SPOT_WITHDRAW_READ
-**Weight(IP):** 1
+**Weight (IP):** 1
 Parameters:
-Name | Type | Mandatory | Description\
----|---|---|---\
-coin | string | NO | coin\
-status | string | NO | withdraw status\
-limit | string | NO | default:1000, max:1000\
-startTime | string | NO | default: 7 days ago from current time\
-endTime | string | NO | default:current time\
-timestamp | string | YES | timestamp\
+Name | Type | Mandatory | Description
+---|---|---|---
+coin | string | NO | coin
+status | string | NO | withdraw status
+limit | string | NO | default:1000, max:1000
+startTime | string | NO | default: 7 days ago from current time
+endTime | string | NO | default:current time
+timestamp | string | YES | timestamp
 signature | string | YES | signature
 
 1. default return the records of the last 7 days.
@@ -270,25 +270,25 @@ signature | string | YES | signature
 1. Supported multiple network coins's withdraw history may not return the 'network' field.
 
 Response:
-Name | Description\
----|---\
-address | withdraw address\
-amount | withdraw amount\
-applyTime | apply time\
-coin | coin\
-id | withdraw id\
-withdrawOrderId | withdrawOrderId\
-network | withdraw network\
-transferType | transferType, 0: outside transfer,1: inside transfer\
-status | withdraw status,1:APPLY,2:AUDITING,3:WAIT,4:PROCESSING,5:WAIT_PACKAGING,\
-6:WAIT_CONFIRM,7:SUCCESS,8:FAILED,9:CANCEL,10:MANUAL\
-transactionFee | transactionFee\
-confirmNo | confirmNo\
-txId | txId\
-remark | remark\
-memo | memo\
-transHash | transaction Hash\
-coinId | asset id\
+Name | Description
+---|---
+address | withdraw address
+amount | withdraw amount
+applyTime | apply time
+coin | coin
+id | withdraw id
+withdrawOrderId | withdrawOrderId
+network | withdraw network
+transferType | transferType, 0: outside transfer,1: inside transfer
+status | withdraw status,1: APPLY,2: AUDITING,3: WAIT,4: PROCESSING,5: WAIT_PACKAGING,
+6: WAIT_CONFIRM,7: SUCCESS,8: FAILED,9: CANCEL,10: MANUAL\
+transactionFee | transactionFee
+confirmNo | confirmNo
+txId | txId
+remark | remark
+memo | memo
+transHash | transaction Hash
+coinId | asset id
 vcoinId | currency id
 
 ## Generate deposit address (supporting network)
@@ -322,20 +322,20 @@ post /api/v3/capital/deposit/address?coin=EOS&network=EOS&timestamp={{timestamp}
 - **POST** `/api/v3/capital/deposit/address`
 
 **Permission:** SPOT_WITHDRAW_WRITE
-**Weight(IP):** 1
+**Weight (IP):** 1
 Parameters:
-Name | Type | Mandatory | Description\
----|---|---|---\
-coin | string | YES | coin\
-network | string | YES | deposit network\
-timestamp | string | YES | timestamp\
-signature | string | YES | signature\
+Name | Type | Mandatory | Description
+---|---|---|---
+coin | string | YES | coin
+network | string | YES | deposit network
+timestamp | string | YES | timestamp
+signature | string | YES | signature
 Response:
-Name | Description\
----|---\
-address | deposit address\
-coin | coin\
-memo | memo\
+Name | Description
+---|---
+address | deposit address
+coin | coin
+memo | memo
 network | network
 
 ## Deposit Address (supporting network)
@@ -359,7 +359,7 @@ get /api/v3/capital/deposit/address?coin=USDT&timestamp={{timestamp}}&signature=
   },
   {
     "coin": "USDT",
-    "network": "BEP20(BSC)",
+    "network": "BEP20 (BSC)",
     "address": "0xebe4804f7ecc22d5011c42e6ea1f2e6c891d89b",
     "memo": null
   },
@@ -375,20 +375,20 @@ get /api/v3/capital/deposit/address?coin=USDT&timestamp={{timestamp}}&signature=
 - **GET** `/api/v3/capital/deposit/address`
 
 **Permission:** SPOT_WITHDRAW_READ
-**Weight(IP):** 10
+**Weight (IP):** 10
 Parameters:
-Name | Type | Mandatory | Description\
----|---|---|---\
-coin | string | YES | coin\
-network | string | NO | deposit network\
-timestamp | string | YES | timestamp\
-signature | string | YES | signature\
+Name | Type | Mandatory | Description
+---|---|---|---
+coin | string | YES | coin
+network | string | NO | deposit network
+timestamp | string | YES | timestamp
+signature | string | YES | signature
 Response:
-Name | Description\
----|---\
-address | deposit address\
-coin | coin\
-memo | memo\
+Name | Description
+---|---
+address | deposit address
+coin | coin
+memo | memo
 network | network
 
 ## Withdraw Address (supporting network)
@@ -414,7 +414,7 @@ get /api/v3/capital/withdraw/address?coin=USDT&timestamp={{timestamp}}&signature
     },
     {
       "coin": "USDT",
-      "network": "BEP20(BSC)",
+      "network": "BEP20 (BSC)",
       "address": "0xa82898C70BeB5E1b1621fdA62fD17Ba27227BBC5",
       "addressTag": "usdt",
       "memo": null
@@ -429,25 +429,25 @@ get /api/v3/capital/withdraw/address?coin=USDT&timestamp={{timestamp}}&signature
 - **GET** `/api/v3/capital/withdraw/address`
 
 **Permission:** SPOT_WITHDRAW_R
-**Weight(IP):** 10
+**Weight (IP):** 10
 **Request**
-Name | Type | Mandatory | Description\
----|---|---|---\
-coin | string | No | coin\
-page | number | No | page,default 1\
-limit | number | No | limit for per page\
-timestamp | string | Yes | timestamp\
-signature | string | Yes | signature\
+Name | Type | Mandatory | Description
+---|---|---|---
+coin | string | No | coin
+page | number | No | page,default 1
+limit | number | No | limit for per page
+timestamp | string | Yes | timestamp
+signature | string | Yes | signature
 **Response**
-Name | Description\
----|---\
-coin | coin\
-network | network\
-address | address\
-addressTag | addressTag\
-memo | memo\
-totalRecords | totalRecords\
-totalPageNum | totalPageNum\
+Name | Description
+---|---
+coin | coin
+network | network
+address | address
+addressTag | addressTag
+memo | memo
+totalRecords | totalRecords
+totalPageNum | totalPageNum
 page | page
 
 ## User Universal Transfer
@@ -472,19 +472,19 @@ post /api/v3/capital/transfer?fromAccountType=FUTURES&toAccountType=SPOT&asset=U
 - **POST** `/api/v3/capital/transfer`
 
 **Permission:** SPOT_TRANSFER_WRITE
-**Weight(IP):** 1
+**Weight (IP):** 1
 Parameters:
-Name | Type | Mandatory | Description\
----|---|---|---\
-fromAccountType | string | YES | fromAccountType:"SPOT","FUTURES"\
-toAccountType | string | YES | toAccountType:"SPOT","FUTURES"\
-asset | string | YES | asset\
-amount | string | YES | amount\
-timestamp | string | YES | timestamp\
-signature | string | YES | signature\
+Name | Type | Mandatory | Description
+---|---|---|---
+fromAccountType | string | YES | fromAccountType:"SPOT","FUTURES"
+toAccountType | string | YES | toAccountType:"SPOT","FUTURES"
+asset | string | YES | asset
+amount | string | YES | amount
+timestamp | string | YES | timestamp
+signature | string | YES | signature
 Response:
-Name | Description\
----|---\
+Name | Description
+---|---
 tranId | tranId
 
 ## Query User Universal Transfer History
@@ -534,34 +534,34 @@ get /api/v3/capital/transfer
 - **GET** `/api/v3/capital/transfer`
 
 **Permission:** SPOT_TRANSFER_READ
-**Weight(IP):** 1
+**Weight (IP):** 1
 Parameters:
-Name | Type | Mandatory | Description\
----|---|---|---\
-fromAccountType | string | YES | fromAccountType:"SPOT","FUTURES"\
-toAccountType | string | YES | toAccountType:"SPOT","FUTURES"\
-startTime | string | NO | startTime\
-endTime | string | NO | endTime\
-page | string | NO | default:1\
-size | string | NO | default:10, max:100\
-timestamp | string | YES | timestamp\
+Name | Type | Mandatory | Description
+---|---|---|---
+fromAccountType | string | YES | fromAccountType:"SPOT","FUTURES"
+toAccountType | string | YES | toAccountType:"SPOT","FUTURES"
+startTime | string | NO | startTime
+endTime | string | NO | endTime
+page | string | NO | default:1
+size | string | NO | default:10, max:100
+timestamp | string | YES | timestamp
 signature | string | YES | signature
 
 1. Only can quary the data for the last six months
 1. If 'startTime' and 'endTime' are not send, will return the last seven days' data by default
 
 Response:
-Name | Description\
----|---\
-total | total\
-tranId | tranId\
-clientTranId | client ID\
-asset | coin\
-amount | amount\
-fromAccountType | fromAccountType\
-toAccountType | toAccountType\
-symbol | symbol\
-status | status\
+Name | Description
+---|---
+total | total
+tranId | tranId
+clientTranId | client ID
+asset | coin
+amount | amount
+fromAccountType | fromAccountType
+toAccountType | toAccountType
+symbol | symbol
+status | status
 timestamp | timestamp
 
 ## Query User Universal Transfer History （by tranId）
@@ -592,25 +592,25 @@ get /api/v3/capital/transfer/tranId?tranId=cb28c88cd20c42819e4d5148d5fb5742&time
 - **GET** `/api/v3/capital/transfer/tranId`
 
 **Permission:** SPOT_TRANSFER_R
-**Weight(IP):** 1
+**Weight (IP):** 1
 **request**
-Name | Type | Mandatory | Description\
----|---|---|---\
-tranId | string | YES | tranId\
-timestamp | string | YES | timestamp\
-signature | string | YES | signature\
+Name | Type | Mandatory | Description
+---|---|---|---
+tranId | string | YES | tranId
+timestamp | string | YES | timestamp
+signature | string | YES | signature
 Only can quary the data for the last six months
 **response**
-Name | Description\
----|---\
-tranId | tranId\
-clientTranId | client ID\
-asset | coin\
-amount | amount\
-fromAccountType | fromAccountType\
-toAccountType | toAccountType\
-symbol | symbol\
-status | status\
+Name | Description
+---|---
+tranId | tranId
+clientTranId | client ID
+asset | coin
+amount | amount
+fromAccountType | fromAccountType
+toAccountType | toAccountType
+symbol | symbol
+status | status
 timestamp | timestamp
 
 ## Get Assets That Can Be Converted Into MX
@@ -648,20 +648,20 @@ get {{api_url}}/api/v3/capital/convert/list?timestamp={{timestamp}}&signature={{
 - **GET** `/api/v3/capital/convert/list`
 
 **Permission:** SPOT_ACCOUNT_READ
-**Weight(IP):** 1
+**Weight (IP):** 1
 Parameters:
-Name | Type | Mandatory | Description\
----|---|---|---\
-timestamp | string | YES | timestamp\
-signature | string | YES | signature\
+Name | Type | Mandatory | Description
+---|---|---|---
+timestamp | string | YES | timestamp
+signature | string | YES | signature
 Response:
-Name | Description\
----|---\
-convertMx | MX amount（Deducted commission fee）\
-convertUsdt | usdt amount\
-balance | Convertible balance\
-asset | asset\
-code | code\
+Name | Description
+---|---
+convertMx | MX amount（Deducted commission fee）
+convertUsdt | usdt amount
+balance | Convertible balance
+asset | asset
+code | code
 message | message
 
 ## Dust Transfer
@@ -669,7 +669,7 @@ message | message
 > Request
 
 ```
-post {{api_url}}/api/v3/capital/convert?asset=BTC,FIL,ETH&timestamp={{timestamp}}&signature={{signature}}  
+post {{api_url}}/api/v3/capital/convert?asset=BTC, FIL, ETH&timestamp={{timestamp}}&signature={{signature}}  
 
 ```
 
@@ -690,23 +690,23 @@ post {{api_url}}/api/v3/capital/convert?asset=BTC,FIL,ETH&timestamp={{timestamp}
 - **POST** `/api/v3/capital/convert`
 
 **Permission:** SPOT_ACCOUNT_W
-**Weight(IP):** 10
+**Weight (IP):** 10
 Parameters:
-Name | Type | Mandatory | Description\
----|---|---|---\
-asset | string | YES | The asset being converted.(max 15 assert)eg:asset=BTC,FIL,ETH\
-timestamp | string | YES | timestamp\
-signature | string | YES | signature\
+Name | Type | Mandatory | Description
+---|---|---|---
+asset | string | YES | The asset being converted.(max 15 assert) eg:asset=BTC, FIL, ETH
+timestamp | string | YES | timestamp
+signature | string | YES | signature
 Response:
-Name | Description\
----|---\
-totalConvert | Convert MX amount(Deducted commission fee)\
-convertFee | convertFee\
-successList | convert success List\
-failedList | convert failed List\
--asset | asset\
--message | message\
--code | code
+Name | Description
+---|---
+totalConvert | Convert MX amount (Deducted commission fee)
+convertFee | convertFee
+successList | convert success List
+failedList | convert failed List
+- asset | asset
+- message | message
+- code | code
 
 ## DustLog
 
@@ -770,31 +770,31 @@ get {{api_url}}/api/v3/capital/convert?timestamp={{timestamp}}&signature={{signa
 - **GET** `/api/v3/capital/convert`
 
 **Permission:** SPOT_DEAL_READ
-**Weight(IP):** 1
+**Weight (IP):** 1
 Parameters:
-Name | Type | Mandatory | Description\
----|---|---|---\
-startTime | long | NO | startTime\
-endTime | long | NO | endTime\
-page | int | NO | page,default 1\
-limit | int | NO | limit,default 1; max 1000\
-timestamp | string | YES | timestamp\
-signature | string | YES | signature\
+Name | Type | Mandatory | Description
+---|---|---|---
+startTime | long | NO | startTime
+endTime | long | NO | endTime
+page | int | NO | page,default 1
+limit | int | NO | limit,default 1; max 1000
+timestamp | string | YES | timestamp
+signature | string | YES | signature
 Response:
-Name | Type | Description\
----|---|---\
-totalConvert | string | Convert MX amount(Deducted commission fee)\
-totalFee | string | Total fee amount\
-convertTime | long | Convert time\
-convertDetails | object | Convert details\
-id | string | Convert id\
-convert | string | Convert mx\
-fee | string | fee amount\
-amount | string | amount\
-time | long | Convert time\
-asset | string | asset\
-page | int | page\
-totalRecords | int | totalRecords\
+Name | Type | Description
+---|---|---
+totalConvert | string | Convert MX amount (Deducted commission fee)
+totalFee | string | Total fee amount
+convertTime | long | Convert time
+convertDetails | object | Convert details
+id | string | Convert id
+convert | string | Convert mx
+fee | string | fee amount
+amount | string | amount
+time | long | Convert time
+asset | string | asset
+page | int | page
+totalRecords | int | totalRecords
 totalPage | int | totalPage
 
 ## Internal Transfer
@@ -817,20 +817,20 @@ post /api/v3/capital/transfer/internal?&timestamp={{timestamp}}&signature={{sign
 - **POST** `/api/v3/capital/transfer/internal`
 
 **Permission:** SPOT_WITHDRAW_WRITE
-**Weight(IP):** 1
+**Weight (IP):** 1
 **Parameters**
-Name | Type | Mandatory | Description\
----|---|---|---\
-toAccountType | string | Yes | toAccountTyp:EMAIL/UID/MOBILE\
-toAccount | string | Yes | toAccount:EMAIL/UID/MOBILE\
-areaCode | string | No | areaCode of mobile\
-asset | string | Yes | asset\
-amount | string | Yes | amount\
-timestamp | string | Yes | timestamp\
-signature | string | Yes | signature\
+Name | Type | Mandatory | Description
+---|---|---|---
+toAccountType | string | Yes | toAccountTyp: EMAIL/UID/MOBILE
+toAccount | string | Yes | toAccount: EMAIL/UID/MOBILE
+areaCode | string | No | areaCode of mobile
+asset | string | Yes | asset
+amount | string | Yes | amount
+timestamp | string | Yes | timestamp
+signature | string | Yes | signature
 **Response**
-Name | Description\
----|---\
+Name | Description
+---|---
 tranId | tranId
 
 ## Query Internal Transfer history
@@ -874,36 +874,36 @@ get /api/v3/capital/transfer/internal?&timestamp={{timestamp}}&signature={{signa
 }
 ```
 
-- **GET** ` /api/v3/capital/transfer/internal`
+- **GET** `/api/v3/capital/transfer/internal`
 
 **Permission:** SPOT_WITHDRAW_READ
-**Weight(IP):** 1
+**Weight (IP):** 1
 **Parameters**
-Name | Type | Mandatory | Description\
----|---|---|---\
-startTime | long | No |\
-endTime | long | No |\
-page | int | No | default 1\
-limit | int | No | default 10\
-tranId | string | No | tranid\
-timestamp | string | Yes | timestamp\
-signature | string | Yes | signature\
+Name | Type | Mandatory | Description
+---|---|---|---
+startTime | long | No |
+endTime | long | No |
+page | int | No | default 1
+limit | int | No | default 10
+tranId | string | No | tranid
+timestamp | string | Yes | timestamp
+signature | string | Yes | signature
 If startTime and endTime are not provided, will default to returning data from the last 7 days.
 **Response**
-Name | Description\
----|---\
-page | page\
-totalRecords | totalRecords\
-totalPage | totalPage\
-tranId | tranId\
-asset | asset\
-amount | amount\
-fromAccountType | fromAccountType\
-toAccountType | toAccountType\
-status | status:"SUCCESS","FAILED","WAIT"\
+Name | Description
+---|---
+page | page
+totalRecords | totalRecords
+totalPage | totalPage
+tranId | tranId
+asset | asset
+amount | amount
+fromAccountType | fromAccountType
+toAccountType | toAccountType
+status | status:"SUCCESS","FAILED","WAIT"
 timestamp | timestamp
 
-## Withdraw(previous,offline soon)
+## Withdraw (previous,offline soon)
 
 > Request
 
@@ -925,21 +925,21 @@ post /api/v3/capital/withdraw/apply?coin=EOS&address=zzqqqqqqqqqq&amount=10&netw
 - **POST** `/api/v3/capital/withdraw/apply`
 
 **Permission:** SPOT_WITHDRAW_WRITE
-**Weight(IP):** 1
+**Weight (IP):** 1
 Parameters:
-Name | Type | Mandatory | Description\
----|---|---|---\
-coin | string | YES | coin\
-withdrawOrderId | string | NO | withdrawOrderId\
-network | string | NO | withdraw network\
-address | string | YES | withdraw address\
-memo | string | NO | memo(If memo is required in the address, it must be passed in)\
-amount | string | YES | withdraw amount\
-remark | string | NO | remark\
-timestamp | string | YES | timestamp\
-signature | string | YES | signature\
+Name | Type | Mandatory | Description
+---|---|---|---
+coin | string | YES | coin
+withdrawOrderId | string | NO | withdrawOrderId
+network | string | NO | withdraw network
+address | string | YES | withdraw address
+memo | string | NO | memo (If memo is required in the address, it must be passed in)
+amount | string | YES | withdraw amount
+remark | string | NO | remark
+timestamp | string | YES | timestamp
+signature | string | YES | signature
 Can get `network` via endpoints `Get /api/v3/capital/config/getall`'s response params `networkList`.
 Response:
-Name | Description\
----|---\
-id | withdraw ID\\
+Name | Description
+---|---
+id | withdraw ID

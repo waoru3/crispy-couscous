@@ -17,18 +17,18 @@ GET /api/v3/kyc/status?timestamp={{timestamp}}&signature={{signature}}
 }
 ```
 
-**GET** `/api/v3/kyc/status `
+**GET** `/api/v3/kyc/status`
 **Permission:** SPOT_ACCOUNT_READ
-**Weight(IP):** 1
+**Weight (IP):** 1
 **Request**
-Name | Type | Mandatory | Description\
----|---|---|---\
-timestamp | string | Yes | timestamp\
-signature | string | Yes | signature\
+Name | Type | Mandatory | Description
+---|---|---|---
+timestamp | string | Yes | timestamp
+signature | string | Yes | signature
 **Response**
-Name | Type | Description\
----|---|---\
-status | string | 1:Unverified 2:Primary kyc 3:Advanced kyc 4:Institutional kyc
+Name | Type | Description
+---|---|---
+status | string | 1: Unverified 2: Primary kyc 3: Advanced kyc 4: Institutional kyc
 
 ## Query UID
 
@@ -47,17 +47,17 @@ GET /api/v3/uid?timestamp={{timestamp}}&signature={[{signature]}
 }
 ```
 
-**GET** `/api/v3/uid `
+**GET** `/api/v3/uid`
 **Permission:** SPOT_ACCOUNT_READ
-**Weight(IP):** 1
+**Weight (IP):** 1
 **Request**
-Name | Type | Mandatory | Description\
----|---|---|---\
-timestamp | string | Yes | timestamp\
-signature | string | Yes | signature\
+Name | Type | Mandatory | Description
+---|---|---|---
+timestamp | string | Yes | timestamp
+signature | string | Yes | signature
 **Response**
-Name | Type | Description\
----|---|---\
+Name | Type | Description
+---|---|---
 uid | string | account uid
 
 ## User API default symbol
@@ -85,15 +85,15 @@ GET /api/v3/selfSymbols?timestamp={{timestamp}}&signature={{signature}}
 }
 ```
 
-- **GET** `/api/v3/selfSymbols `
+- **GET** `/api/v3/selfSymbols`
 
 **Permission:** SPOT_ACCOUNT_R
-**Weight(IP):** 1
+**Weight (IP):** 1
 **Request**
 NONE
 **Response**
-Name | Type | Description\
----|---|---\
+Name | Type | Description
+---|---|---
 symbol | string | api trade symbol
 
 ## Test New Order
@@ -107,7 +107,7 @@ symbol | string | api trade symbol
 - **POST** `/api/v3/order/test`
 
 **Permission:** SPOT_DEAL_WRITE
-**Weight(IP):** 1
+**Weight (IP):** 1
 Creates and validates a new order but does not send it into the matching engine.
 Parameters:
 equaled POST /api/v3/order
@@ -140,37 +140,37 @@ POST /api/v3/order?symbol=MXUSDT&side=BUY&type=LIMIT&quantity=50&price=0.1&times
 - **POST** `/api/v3/order`
 
 **Permission:** SPOT_DEAL_WRITE
-**Weight(IP):** 1, **Weight(UID):** 1
+**Weight (IP):**1,**Weight (UID):** 1
 Parameters:
-Name | type | Mandatory | Description\
----|---|---|---\
-symbol | STRING | YES |\
-side | ENUM | YES | ENUM:[Order Side](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_side)\
-type | ENUM | YES | ENUM:[Order Type](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_type)\
-quantity | DECIMAL | NO | Quantity\
-quoteOrderQty | DECIMAL | NO | Quote order quantity\
-price | DECIMAL | NO | Price\
-newClientOrderId | STRING | NO |\
-stpMode | STRING | NO | “” - Default value, no restriction on self-trading.“cancel_maker” - Cancel the maker order.“cancel_taker” - Cancel the taker order.“cancel_both” - Cancel both sides.\
-recvWindow | LONG | NO | Max 60000\
-timestamp | LONG | YES |\
+Name | type | Mandatory | Description
+---|---|---|---
+symbol | STRING | YES |
+side | ENUM | YES | ENUM:[Order Side](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_side)
+type | ENUM | YES | ENUM:[Order Type](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_type)
+quantity | DECIMAL | NO | Quantity
+quoteOrderQty | DECIMAL | NO | Quote order quantity
+price | DECIMAL | NO | Price
+newClientOrderId | STRING | NO |
+stpMode | STRING | NO | “” - Default value, no restriction on self-trading.“cancel_maker” - Cancel the maker order.“cancel_taker” - Cancel the taker order.“cancel_both” - Cancel both sides.
+recvWindow | LONG | NO | Max 60000
+timestamp | LONG | YES |
 Response:
-Name | Description\
----|---\
-symbol | Symbol\
-orderId | order id\
-orderListId | order list id\
-price | Price\
-origQty | Original order quantity\
-type | [Order type](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_type)\
-side | [order side](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_side)\
-stpMode | “” - Default value, no restriction on self-trading.“cancel_maker” - Cancel the maker order.“cancel_taker” - Cancel the taker order.“cancel_both” - Cancel both sides.\
-transactTime | transactTime\
+Name | Description
+---|---
+symbol | Symbol
+orderId | order id
+orderListId | order list id
+price | Price
+origQty | Original order quantity
+type | [Order type](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_type)
+side | [order side](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_side)
+stpMode | “” - Default value, no restriction on self-trading.“cancel_maker” - Cancel the maker order.“cancel_taker” - Cancel the taker order.“cancel_both” - Cancel both sides.
+transactTime | transactTime
 Additional mandatory parameters based on `type`:
-Type | Additional mandatory parameters\
----|---\
-`LIMIT` | `quantity`, `price`\
-`MARKET` | `quantity` or `quoteOrderQty`\
+Type | Additional mandatory parameters
+---|---
+`LIMIT` | `quantity`, `price`
+`MARKET` | `quantity` or `quoteOrderQty`
 Other info:
 MARKET: When type is market, `quoteOrderQty` or `quantity` required to choose anyone.
 
@@ -234,30 +234,30 @@ POST /api/v3/batchOrders?batchOrders=[{"type": "LIMIT_ORDER","price": "40000","q
 - **POST** `/api/v3/batchOrders`
 
 **Permission:** SPOT_DEAL_WRITE
-**Weight(IP):** 1,**Weight(UID):** 1
+**Weight (IP):**1,**Weight (UID):** 1
 Parameters:
-Name | type | Mandatory | Description\
----|---|---|---\
-batchOrders | LIST | YES | list of batchOrders,supports max 20 orders\
-symbol | STRING | YES | symbol\
-side | ENUM | YES | [order side](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_side)\
-type | ENUM | YES | [order type](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_type)\
-quantity | DECIMAL | NO | quantity\
-quoteOrderQty | DECIMAL | NO | quoteOrderQty\
-price | DECIMAL | NO | order price\
-newClientOrderId | STRING | NO | ClientOrderId\
-stpMode | STRING | NO | “” - Default value, no restriction on self-trading.“cancel_maker” - Cancel the maker order.“cancel_taker” - Cancel the taker order.“cancel_both” - Cancel both sides.\
-recvWindow | LONG | NO | less than 60000\
-timestamp | LONG | YES | order time\
+Name | type | Mandatory | Description
+---|---|---|---
+batchOrders | LIST | YES | list of batchOrders,supports max 20 orders
+symbol | STRING | YES | symbol
+side | ENUM | YES | [order side](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_side)
+type | ENUM | YES | [order type](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_type)
+quantity | DECIMAL | NO | quantity
+quoteOrderQty | DECIMAL | NO | quoteOrderQty
+price | DECIMAL | NO | order price
+newClientOrderId | STRING | NO | ClientOrderId
+stpMode | STRING | NO | “” - Default value, no restriction on self-trading.“cancel_maker” - Cancel the maker order.“cancel_taker” - Cancel the taker order.“cancel_both” - Cancel both sides.
+recvWindow | LONG | NO | less than 60000
+timestamp | LONG | YES | order time
 base on different`type`,some params are mandatory:
-type | Mandatory params\
----|---\
-`LIMIT` | `quantity`, `price`\
-`MARKET` | `quantity` or `quoteOrderQty`\
+type | Mandatory params
+---|---
+`LIMIT` | `quantity`, `price`
+`MARKET` | `quantity` or `quoteOrderQty`
 Response
-Name | type | Description\
----|---|---\
-symbol | STRING | symbol\
+Name | type | Description
+---|---|---
+symbol | STRING | symbol
 orderId | STRING | orderId
 
 ## Cancel Order
@@ -284,32 +284,32 @@ orderId | STRING | orderId
 - **DELETE** `/api/v3/order`
 
 **Permission:** SPOT_DEAL_WRITE
-**Weight(IP):** 1
+**Weight (IP):** 1
 Cancel an active order.
 Parameters:
-Name | Type | Mandatory | Description\
----|---|---|---\
-symbol | string | YES |\
-orderId | string | NO | Order id\
-origClientOrderId | string | NO |\
-newClientOrderId | string | NO |\
-recvWindow | long | NO |\
-timestamp | long | YES |\
+Name | Type | Mandatory | Description
+---|---|---|---
+symbol | string | YES |
+orderId | string | NO | Order id
+origClientOrderId | string | NO |
+newClientOrderId | string | NO |
+recvWindow | long | NO |
+timestamp | long | YES |
 Either `orderId` or `origClientOrderId` must be sent.
 Response:
-Name | Description\
----|---\
-symbol | Symbol\
-origClientOrderId | Original client order id\
-orderId | order id\
-clientOrderId | client order id\
-price | Price\
-origQty | Original order quantity\
-executedQty | Executed order quantity\
-cummulativeQuoteQty | Cummulative quote quantity\
-status | [order status](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_status)\
-timeInForce |\
-type | [Order type](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_type)\
+Name | Description
+---|---
+symbol | Symbol
+origClientOrderId | Original client order id
+orderId | order id
+clientOrderId | client order id
+price | Price
+origQty | Original order quantity
+executedQty | Executed order quantity
+cummulativeQuoteQty | Cummulative quote quantity
+status | [order status](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_status)
+timeInForce |
+type | [Order type](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_type)
 side | [order side](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_side)
 
 ## Cancel all Open Orders on a Symbol
@@ -354,28 +354,28 @@ side | [order side](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#ord
 - **DELETE** `/api/v3/openOrders`
 
 **Permission:** SPOT_DEAL_WRITE
-**Weight(IP):** 1
+**Weight (IP):** 1
 Cancel all pending orders for a single symbol, including OCO pending orders.
 Parameters:
-Name | Type | Mandatory | Description\
----|---|---|---\
-symbol | string | YES | maximum input 5 symbols,separated by ",". e.g. "BTCUSDT,MXUSDT,ADAUSDT"\
-recvWindow | long | NO |\
-timestamp | long | YES |\
+Name | Type | Mandatory | Description
+---|---|---|---
+symbol | string | YES | maximum input 5 symbols,separated by ",". e.g. "BTCUSDT, MXUSDT, ADAUSDT"
+recvWindow | long | NO |
+timestamp | long | YES |
 Response:
-Name | Description\
----|---\
-symbol | Symbol\
-origClientOrderId | Original client order id\
-orderId | order id\
-clientOrderId | client order id\
-price | Price\
-origQty | Original order quantity\
-executedQty | Executed order quantity\
-cummulativeQuoteQty | Cummulative quote quantity\
-status | [order status](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_status)\
-timeInForce |\
-type | [Order type](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_type)\
+Name | Description
+---|---
+symbol | Symbol
+origClientOrderId | Original client order id
+orderId | order id
+clientOrderId | client order id
+price | Price
+origQty | Original order quantity
+executedQty | Executed order quantity
+cummulativeQuoteQty | Cummulative quote quantity
+status | [order status](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_status)
+timeInForce |
+type | [Order type](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_type)
 side | [order side](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_side)
 
 ## Query Order
@@ -409,36 +409,36 @@ side | [order side](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#ord
 - **GET** `/api/v3/order`
 
 **Permission:** SPOT_DEAL_READ
-**Weight(IP):** 2
+**Weight (IP):** 2
 Check an order's status.
 Parameters:
-Name | Type | Mandatory | Description\
----|---|---|---\
-symbol | String | YES |\
-origClientOrderId | String | NO |\
-orderId | String | NO |\
-recvWindow | long | NO |\
-timestamp | long | YES |\
+Name | Type | Mandatory | Description
+---|---|---|---
+symbol | String | YES |
+origClientOrderId | String | NO |
+orderId | String | NO |
+recvWindow | long | NO |
+timestamp | long | YES |
 Response:
-Name | Description\
----|---\
-symbol | Symbol\
-origClientOrderId | Original client order id\
-orderId | order id\
-clientOrderId | client order id\
-price | Price\
-Qty | Original order quantity\
-executedQty | Executed order quantity\
-cummulativeQuoteQty | Cummulative quote quantity\
-status | [order status](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_status)\
-timeInForce |\
-type | [Order type](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_type)\
-side | [Order side](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_side)\
-stopPrice | stop price\
-time | Order created time\
-updateTime | Last update time\
-isWorking | is orderbook\
-stpMode | “” - Default value, no restriction on self-trading.“cancel_maker” - Cancel the maker order.“cancel_taker” - Cancel the taker order.“cancel_both” - Cancel both sides.\
+Name | Description
+---|---
+symbol | Symbol
+origClientOrderId | Original client order id
+orderId | order id
+clientOrderId | client order id
+price | Price
+Qty | Original order quantity
+executedQty | Executed order quantity
+cummulativeQuoteQty | Cummulative quote quantity
+status | [order status](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_status)
+timeInForce |
+type | [Order type](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_type)
+side | [Order side](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_side)
+stopPrice | stop price
+time | Order created time
+updateTime | Last update time
+isWorking | is orderbook
+stpMode | “” - Default value, no restriction on self-trading.“cancel_maker” - Cancel the maker order.“cancel_taker” - Cancel the taker order.“cancel_both” - Cancel both sides.
 cancelReason | cancel reason.stp_cancel: canceled due to STP rules.
 
 ## Current Open Orders
@@ -475,34 +475,34 @@ cancelReason | cancel reason.stp_cancel: canceled due to STP rules.
 - **GET** `/api/v3/openOrders`
 
 **Permission:** SPOT_DEAL_READ
-**Weight(IP):** 3
+**Weight (IP):** 3
 Get all open orders on a symbol. **Careful** when accessing this with no symbol.
 Parameters:
-Name | Type | Mandatory | Description\
----|---|---|---\
-symbol | string | NO |\
-recvWindow | long | NO |\
-timestamp | long | YES |\
+Name | Type | Mandatory | Description
+---|---|---|---
+symbol | string | NO |
+recvWindow | long | NO |
+timestamp | long | YES |
 Response:
-Name | Description\
----|---\
-symbol | Symbol\
-origClientOrderId | Original client order id\
-orderId | order id\
-clientOrderId | client order id\
-price | Price\
-origQty | Original order quantity\
-executedQty | Executed order quantity\
-cummulativeQuoteQty | Cummulative quote quantity\
-status | [order status](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_status)\
-timeInForce |\
-type | [Order type](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_type)\
-side | [Order side](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_side)\
-stopPrice | stop price\
-time | Order created time\
-updateTime | Last update time\
-isWorking | is orderbook\
-stpMode | “” - Default value, no restriction on self-trading.“cancel_maker” - Cancel the maker order.“cancel_taker” - Cancel the taker order.“cancel_both” - Cancel both sides.\
+Name | Description
+---|---
+symbol | Symbol
+origClientOrderId | Original client order id
+orderId | order id
+clientOrderId | client order id
+price | Price
+origQty | Original order quantity
+executedQty | Executed order quantity
+cummulativeQuoteQty | Cummulative quote quantity
+status | [order status](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_status)
+timeInForce |
+type | [Order type](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_type)
+side | [Order side](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_side)
+stopPrice | stop price
+time | Order created time
+updateTime | Last update time
+isWorking | is orderbook
+stpMode | “” - Default value, no restriction on self-trading.“cancel_maker” - Cancel the maker order.“cancel_taker” - Cancel the taker order.“cancel_both” - Cancel both sides.
 cancelReason | cancel reason.stp_cancel: canceled due to STP rules.
 
 ## All Orders
@@ -539,38 +539,38 @@ cancelReason | cancel reason.stp_cancel: canceled due to STP rules.
 - **GET** `/api/v3/allOrders`
 
 **Permission:** SPOT_DEAL_READ
-**Weight(IP):** 10
-Get all account orders including active, cancelled or completed orders(the query period is the latest 24 hours by default). You can query a maximum of the latest 7 days.
+**Weight (IP):** 10
+Get all account orders including active, cancelled or completed orders (the query period is the latest 24 hours by default). You can query a maximum of the latest 7 days.
 Parameters:
-Name | Type | Mandatory | Description\
----|---|---|---\
-symbol | string | YES | Symbol\
-startTime | long | NO |\
-endTime | long | NO |\
-limit | int | NO | Default 500; max 1000;\
-recvWindow | long | NO |\
-timestamp | long | YES |\
+Name | Type | Mandatory | Description
+---|---|---|---
+symbol | string | YES | Symbol
+startTime | long | NO |
+endTime | long | NO |
+limit | int | NO | Default 500; max 1000;
+recvWindow | long | NO |
+timestamp | long | YES |
 Response:
-Name | Description\
----|---\
-symbol | Symbol\
-origClientOrderId | Original client order id\
-orderId | order id\
-clientOrderId | client order id\
-price | Price\
-origQty | Original order quantity\
-executedQty | Executed order quantity\
-cummulativeQuoteQty | Cummulative quote quantity\
-status | [order status](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_status)\
-timeInForce |\
-type | [Order type](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_type)\
-side | [Order side](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_side)\
-stopPrice | stop price\
-time | Order created time\
-updateTime | Last update time\
-isWorking | is orderbook\
-stpMode | “” - Default value, no restriction on self-trading.“cancel_maker” - Cancel the maker order.“cancel_taker” - Cancel the taker order.“cancel_both” - Cancel both sides.\
-cancelReason | cancel reason.stp_cancel: canceled due to STP rules.\
+Name | Description
+---|---
+symbol | Symbol
+origClientOrderId | Original client order id
+orderId | order id
+clientOrderId | client order id
+price | Price
+origQty | Original order quantity
+executedQty | Executed order quantity
+cummulativeQuoteQty | Cummulative quote quantity
+status | [order status](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_status)
+timeInForce |
+type | [Order type](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_type)
+side | [Order side](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_side)
+stopPrice | stop price
+time | Order created time
+updateTime | Last update time
+isWorking | is orderbook
+stpMode | “” - Default value, no restriction on self-trading.“cancel_maker” - Cancel the maker order.“cancel_taker” - Cancel the taker order.“cancel_both” - Cancel both sides.
+cancelReason | cancel reason.stp_cancel: canceled due to STP rules.
 origQuoteOrderQty |
 
 ## Account Information
@@ -611,26 +611,26 @@ origQuoteOrderQty |
 - **GET** `/api/v3/account`
 
 **Permission:** SPOT_ACCOUNT_READ
-**Weight(IP):** 10
+**Weight (IP):** 10
 Get current account information,rate limit:2 times/s.
 Parameters:
-Name | Type | Mandatory | Description\
----|---|---|---\
-recvWindow | long | NO |\
-timestamp | long | YES |\
+Name | Type | Mandatory | Description
+---|---|---|---
+recvWindow | long | NO |
+timestamp | long | YES |
 Response:
-Name | Description\
----|---\
-canTrade | Can Trade\
-canWithdraw | Can Withdraw\
-canDeposit | Can Deposit\
-updateTime | Update Time\
-accountType | Account type\
-balances | Balance\
-asset | Asset coin\
-free | Free coin\
-locked | Forzen coin\
-available | Available coin\
+Name | Description
+---|---
+canTrade | Can Trade
+canWithdraw | Can Withdraw
+canDeposit | Can Deposit
+updateTime | Update Time
+accountType | Account type
+balances | Balance
+asset | Asset coin
+free | Free coin
+locked | Forzen coin
+available | Available coin
 permissions | Permission
 
 ## Account Trade List
@@ -662,34 +662,34 @@ permissions | Permission
 - **GET** `/api/v3/myTrades`
 
 **Permission:** SPOT_ACCOUNT_READ
-**Weight(IP):** 10
-Get trades for a specific account and symbol,Only the transaction records in the past 1 month can be queried. If you want to view more transaction records, please use the export function on the web side, which supports exporting transaction records of the past 3 years at most.
+**Weight (IP):** 10
+Get trades for a specific account and symbol, Only the transaction records in the past 1 month can be queried. If you want to view more transaction records, please use the export function on the web side, which supports exporting transaction records of the past 3 years at most.
 Parameters:
-Name | Type | Mandatory | Description\
----|---|---|---\
-symbol | string | YES |\
-orderId | string | NO | order Id\
-startTime | long | NO |\
-endTime | long | NO |\
-limit | int | NO | Default 100; max 100;\
-recvWindow | long | NO |\
-timestamp | long | YES |\
+Name | Type | Mandatory | Description
+---|---|---|---
+symbol | string | YES |
+orderId | string | NO | order Id
+startTime | long | NO |
+endTime | long | NO |
+limit | int | NO | Default 100; max 100;
+recvWindow | long | NO |
+timestamp | long | YES |
 Response:
-Name | Description\
----|---\
-symbol |\
-id | deal id\
-orderId | order id\
-price | Price\
-qty | Quantity\
-quoteQty | Deal quantity\
-time | Deal time\
-commission |\
-commissionAsset |\
-time | trade time\
-isBuyerMaker |\
-isBestMatch |\
-isSelfTrade | isSelfTrade\
+Name | Description
+---|---
+symbol |
+id | deal id
+orderId | order id
+price | Price
+qty | Quantity
+quoteQty | Deal quantity
+time | Deal time
+commission |
+commissionAsset |
+time | trade time
+isBuyerMaker |
+isBestMatch |
+isSelfTrade | isSelfTrade
 clientOrderId | clientOrderId
 
 ## Enable MX Deduct
@@ -719,17 +719,17 @@ post api/v3/mxDeduct/enable
 - **POST** `api/v3/mxDeduct/enable`
 
 **Permission:** SPOT_DEAL_WRITE
-**Weight(IP):** 1
+**Weight (IP):** 1
 **Parameters:**
-Name | Type | Mandatory | Description\
----|---|---|---\
-mxDeductEnable | boolean | yes | true:enable,false:disable\
-recvWindow | long | no | recvWindow\
-timestamp | long | yes | timestamp\
-signature | string | yes | signature\
+Name | Type | Mandatory | Description
+---|---|---|---
+mxDeductEnable | boolean | yes | true:enable,false:disable
+recvWindow | long | no | recvWindow
+timestamp | long | yes | timestamp
+signature | string | yes | signature
 **Response:**
-Name | Type | Description\
----|---|---\
+Name | Type | Description
+---|---|---
 mxDeductEnable | boolean | true:enable,false:disable
 
 ## Query MX Deduct Status
@@ -757,16 +757,16 @@ get api/v3/mxDeduct/enable
 - **GET** `api/v3/mxDeduct/enable`
 
 **Permission:** SPOT_DEAL_READ
-**Weight(IP):** 1
+**Weight (IP):** 1
 **Parameters:**
-Name | Type | Mandatory | Description\
----|---|---|---\
-recvWindow | long | no | recvWindow\
-timestamp | long | yes | timestamp\
-signature | string | yes | signature\
+Name | Type | Mandatory | Description
+---|---|---|---
+recvWindow | long | no | recvWindow
+timestamp | long | yes | timestamp
+signature | string | yes | signature
 **Response:**
-Name | Type | Description\
----|---|---\
+Name | Type | Description
+---|---|---
 mxDeductEnable | boolean | true:enable,false:disable
 
 ## Query Symbol Commission
@@ -795,18 +795,18 @@ get api/v3/tradeFee?symbol=MXUSDT&timestamp={{timestamp}}&signature={{signature}
 - **GET** `api/v3/tradeFee`
 
 **Permission:** SPOT_ACCOUNT_READ
-**Weight(IP):** 20
+**Weight (IP):** 20
 **request**
-Name | Type | Mandatory | Description\
----|---|---|---\
-symbol | string | yes | symbol\
-recvWindow | long | no | recvWindow\
-timestamp | long | yes | timestamp\
-signature | string | yes | signature\
+Name | Type | Mandatory | Description
+---|---|---|---
+symbol | string | yes | symbol
+recvWindow | long | no | recvWindow
+timestamp | long | yes | timestamp
+signature | string | yes | signature
 **return**
-Name | Type | Description\
----|---|---\
-makerCommission | long | User Maker Commission\
+Name | Type | Description
+---|---|---
+makerCommission | long | User Maker Commission
 takerCommission | long | User Taker Commission
 
 ## Create STP strategy group
@@ -837,19 +837,19 @@ post /api/v3/strategy/group?tradeGroupName=tradeGroupOne&timestamp={{timestamp}}
 - **POST** `/api/v3/strategy/group`
 
 **Permission:** SPOT_ACCOUNT_WRITE
-**Weight(IP):** 20
+**Weight (IP):** 20
 **request**
-Name | Type | Mandatory | Description\
----|---|---|---\
-tradeGroupName | string | yes | stp strategy group name\
-timestamp | long | yes | timestamp\
-signature | string | yes | signature\
+Name | Type | Mandatory | Description
+---|---|---|---
+tradeGroupName | string | yes | stp strategy group name
+timestamp | long | yes | timestamp
+signature | string | yes | signature
 **return**
-Name | Type | Description\
----|---|---\
-tradeGroupName | string | stp strategy group name\
-tradeGroupId | string | stp strategy group id\
-createTime | long | create time\
+Name | Type | Description
+---|---|---
+tradeGroupName | string | stp strategy group name
+tradeGroupId | string | stp strategy group id
+createTime | long | create time
 Precautions:
 
 - Only the master account is allowed to create; sub-accounts cannot operate this endpoint
@@ -887,20 +887,20 @@ get /api/v3/strategy/group?tradeGroupName=tradeGroupOne&timestamp={{timestamp}}&
 - **GET** `/api/v3/strategy/group`
 
 **Permission:** SPOT_ACCOUNT_READ
-**Weight(IP):** 20
+**Weight (IP):** 20
 **request**
-Name | Type | Mandatory | Description\
----|---|---|---\
-tradeGroupName | string | yes | stp strategy group name\
-timestamp | long | yes | timestamp\
-signature | string | yes | signature\
+Name | Type | Mandatory | Description
+---|---|---|---
+tradeGroupName | string | yes | stp strategy group name
+timestamp | long | yes | timestamp
+signature | string | yes | signature
 **return**
-Name | Type | Description\
----|---|---\
-tradeGroupName | string | stp strategy group name\
-tradeGroupId | string | stp strategy group id\
-tradeGroupUid | string | UIDs contained in stp strategy group, separated by ,\
-updateTime | long | update time\
+Name | Type | Description
+---|---|---
+tradeGroupName | string | stp strategy group name
+tradeGroupId | string | stp strategy group id
+tradeGroupUid | string | UIDs contained in stp strategy group, separated by ,
+updateTime | long | update time
 createTime | long | create time
 
 ## Delete STP strategy group
@@ -926,17 +926,17 @@ delete /api/v3/strategy/group?tradeGroupId=91&timestamp={{timestamp}}&signature=
 - **DELETE** `/api/v3/strategy/group`
 
 **Permission:** SPOT_ACCOUNT_W
-**Weight(IP):** 20
+**Weight (IP):** 20
 **request**
-Name | Type | Mandatory | Description\
----|---|---|---\
-tradeGroupId | string | yes | stp strategy group id\
-timestamp | long | yes | timestamp\
-signature | string | yes | signature\
+Name | Type | Mandatory | Description
+---|---|---|---
+tradeGroupId | string | yes | stp strategy group id
+timestamp | long | yes | timestamp
+signature | string | yes | signature
 **return**
-Name | Type | Description\
----|---|---\
-msg | string | delete status\
+Name | Type | Description
+---|---|---
+msg | string | delete status
 Precautions:
 
 - Only the master account is allowed to delete; sub-accounts cannot access
@@ -971,21 +971,21 @@ post /api/v3/strategy/group/uid?uid=49910594&ttradeGroupId=92&timestamp={{timest
 - **GET** `/api/v3/strategy/group/uid`
 
 **Permission:** SPOT_ACCOUNT_WRITE
-**Weight(IP):** 20
+**Weight (IP):** 20
 **request**
-Name | Type | Mandatory | Description\
----|---|---|---\
-uid | string | yes | separated by ,\
-tradeGroupId | string | yes | stp strategy group id\
-timestamp | long | yes | timestamp\
-signature | string | yes | signature\
+Name | Type | Mandatory | Description
+---|---|---|---
+uid | string | yes | separated by ,
+tradeGroupId | string | yes | stp strategy group id
+timestamp | long | yes | timestamp
+signature | string | yes | signature
 **return**
-Name | Type | Description\
----|---|---\
-tradeGroupName | string | stp strategy group name\
-tradeGroupId | string | stp strategy group id\
-tradeGroupUid | string | UIDs just add, separated by ,\
-updateTime | long | update time\
+Name | Type | Description
+---|---|---
+tradeGroupName | string | stp strategy group name
+tradeGroupId | string | stp strategy group id
+tradeGroupUid | string | UIDs just add, separated by ,
+updateTime | long | update time
 Precautions:
 
 - Only the master account is allowed to add uid; sub-accounts cannot access
@@ -1014,18 +1014,18 @@ delete /api/v3/strategy/group/uid?uid=49910594&ttradeGroupId=92&timestamp={{time
 - **DELETE** `/api/v3/strategy/group/uid`
 
 **Permission:** SPOT_ACCOUNT_WRITE
-**Weight(IP):** 20
+**Weight (IP):** 20
 **request**
-Name | Type | Mandatory | Description\
----|---|---|---\
-uid | string | yes | separated by ,\
-tradeGroupId | string | yes | stp strategy group id\
-timestamp | long | yes | timestamp\
-signature | string | yes | signature\
+Name | Type | Mandatory | Description
+---|---|---|---
+uid | string | yes | separated by ,
+tradeGroupId | string | yes | stp strategy group id
+timestamp | long | yes | timestamp
+signature | string | yes | signature
 **return**
-Name | Type | Description\
----|---|---\
-msg | string | delete status\
+Name | Type | Description
+---|---|---
+msg | string | delete status
 Precautions:
 
 - Only the main account is allowed to delete; sub-accounts cannot access

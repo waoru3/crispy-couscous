@@ -20,7 +20,7 @@ After exceeding the interface access frequency limit, you will not be able to co
 
 Each account can hold up to 500 valid orders that are not completely filled.
 
-## Q6:Why does WebSocket always disconnect?
+## Q6: Why does WebSocket always disconnect?
 
 1. If there is no valid subscription, it will disconnect in 30 seconds.
 1. If the subscription is successful, and there is no traffic in 60 seconds, it will automatically disconnect.

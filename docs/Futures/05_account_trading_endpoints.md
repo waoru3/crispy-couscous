@@ -52,14 +52,14 @@ Rate limit:20 times/2 seconds
 **Request parameters:**
 None
 **Response parameters:**
-Parameter | Data Type | Description\
----|---|---\
-currency | string | currency\
-positionMargin | decimal | position margin\
-frozenBalance | decimal | frozen balance\
-availableBalance | decimal | available balance\
-cashBalance | decimal | drawable balance\
-equity | decimal | total equity\
+Parameter | Data Type | Description
+---|---|---
+currency | string | currency
+positionMargin | decimal | position margin
+frozenBalance | decimal | frozen balance
+availableBalance | decimal | available balance
+cashBalance | decimal | drawable balance
+equity | decimal | total equity
 unrealized | decimal | unrealized profit and loss
 
 ## Get the user's single currency asset information
@@ -88,18 +88,18 @@ unrealized | decimal | unrealized profit and loss
 **Required permissions:** Account reading permission
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-currency | string | true | currency\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+currency | string | true | currency
 **Response parameters:**
-Parameter | Data Type | Description\
----|---|---\
-currency | string | currency\
-positionMargin | decimal | position margin\
-frozenBalance | decimal | frozen balance\
-availableBalance | decimal | available balance\
-cashBalance | decimal | drawable balance\
-equity | decimal | total equity\
+Parameter | Data Type | Description
+---|---|---
+currency | string | currency
+positionMargin | decimal | position margin
+frozenBalance | decimal | frozen balance
+availableBalance | decimal | available balance
+cashBalance | decimal | drawable balance
+equity | decimal | total equity
 unrealized | decimal | unrealized profit and loss
 
 ## Get the user's asset transfer records
@@ -146,28 +146,28 @@ unrealized | decimal | unrealized profit and loss
 **Required permissions:** Account reading permission
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-currency | string | false | currency\
-state | string | false | state:WAIT 、SUCCESS 、FAILED\
-type | string | false | type:IN 、OUT\
-page_num | int | true | current page number, default is 1\
-page_size | int | true | page size, default 20, maximum 100\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+currency | string | false | currency
+state | string | false | state: WAIT 、SUCCESS 、FAILED
+type | string | false | type: IN 、OUT
+page_num | int | true | current page number, default is 1
+page_size | int | true | page size, default 20, maximum 100
 **Response parameters:**
-Parameter | Data Type | Description\
----|---|---\
-pageSize | int | page size\
-totalCount | int | the total count\
-totalPage | int | the total page\
-currentPage | int | the current page\
-resultList | list | data consequence set\
-id | long | id\
-txid | string | flow number\
-currency | string | currency\
-amount | decimal | transfer amount\
-type | string | type:IN 、OUT\
-state | string | state:WAIT 、SUCCESS 、FAILED\
-createTime | long | create time\
+Parameter | Data Type | Description
+---|---|---
+pageSize | int | page size
+totalCount | int | the total count
+totalPage | int | the total page
+currentPage | int | the current page
+resultList | list | data consequence set
+id | long | id
+txid | string | flow number
+currency | string | currency
+amount | decimal | transfer amount
+type | string | type: IN 、OUT
+state | string | state: WAIT 、SUCCESS 、FAILED
+createTime | long | create time
 updateTime | long | update time
 
 ## Get the user's history position information
@@ -212,35 +212,35 @@ updateTime | long | update time
 **Required permissions:** Trade reading permissions
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-symbol | string | false | the name of the contract\
-type | int | false | position type， 1long 2short\
-page_num | int | true | current page number , default is 1\
-page_size | int | true | page size , default 20, maximum 100\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+symbol | string | false | the name of the contract
+type | int | false | position type， 1long 2short
+page_num | int | true | current page number , default is 1
+page_size | int | true | page size , default 20, maximum 100
 **Response parameters:**
-Parameter | Data Type | Description\
----|---|---\
-code | number | Status code\
-message | string | Misdescription (If there has )\
-positionId | long | position id\
-symbol | string | the name of the contract\
-positionType | int | position type， 1 long 2 short\
-openType | int | open type， 1isolated 2cross\
-state | int | position state,1holding 2 system auto-holding 3closed\
-holdVol | decimal | holding volume\
-frozenVol | decimal | frozen volume\
-closeAvgPrice | decimal | close average price\
-openAvgPrice | decimal | open average price\
-liquidatePrice | decimal | liquidation price\
-oim | decimal | original initial margin\
-im | decimal | initial margin， add or subtract items can be used to adjust the liquidate price\
-holdFee | decimal | holding fee, positive means get it, negative means lost it\
-realised | decimal | realized profit and loss\
-adlLevel | int | adl level\
-leverage | int | leverage multiple\
-createTime | date | create time\
-updateTime | date | update time\
+Parameter | Data Type | Description
+---|---|---
+code | number | Status code
+message | string | Misdescription (If there has )
+positionId | long | position id
+symbol | string | the name of the contract
+positionType | int | position type， 1 long 2 short
+openType | int | open type， 1isolated 2cross
+state | int | position state,1holding 2 system auto-holding 3closed
+holdVol | decimal | holding volume
+frozenVol | decimal | frozen volume
+closeAvgPrice | decimal | close average price
+openAvgPrice | decimal | open average price
+liquidatePrice | decimal | liquidation price
+oim | decimal | original initial margin
+im | decimal | initial margin， add or subtract items can be used to adjust the liquidate price
+holdFee | decimal | holding fee, positive means get it, negative means lost it
+realised | decimal | realized profit and loss
+adlLevel | int | adl level
+leverage | int | leverage multiple
+createTime | date | create time
+updateTime | date | update time
 autoAddIm | boolean | automatic margin
 
 ## Get the user's current holding position
@@ -283,30 +283,30 @@ autoAddIm | boolean | automatic margin
 **Required permissions:** Trade reading permission
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-symbol | string | false | the name of the contract\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+symbol | string | false | the name of the contract
 **Response parameters:**
-Parameter | Data Type | Description\
----|---|---\
-positionId | long | position id\
-symbol | string | the name of the contract\
-holdVol | decimal | holding volume\
-positionType | int | position type， 1 long 2 short\
-openType | int | open type， 1 isolated 2 cross\
-state | int | position state,1holding. 2 system auto-holding 3 closed\
-frozenVol | decimal | frozen volume\
-closeVol | decimal | close volume\
-holdAvgPrice | decimal | holdings average price\
-closeAvgPrice | decimal | close average price\
-openAvgPrice | decimal | open average price\
-liquidatePrice | decimal | liquidate price\
-oim | decimal | original initial margin\
-adlLevel | int | the value of ADL is 1-5. If it is empty, wait for the refresh\
-im | decimal | initial margin， add or subtract items can be used to adjust the liquidate price\
-holdFee | decimal | holding fee, positive means get it, negative means lost it\
-realised | decimal | realized profit and loss\
-createTime | date | create time\
+Parameter | Data Type | Description
+---|---|---
+positionId | long | position id
+symbol | string | the name of the contract
+holdVol | decimal | holding volume
+positionType | int | position type， 1 long 2 short
+openType | int | open type， 1 isolated 2 cross
+state | int | position state,1holding. 2 system auto-holding 3 closed
+frozenVol | decimal | frozen volume
+closeVol | decimal | close volume
+holdAvgPrice | decimal | holdings average price
+closeAvgPrice | decimal | close average price
+openAvgPrice | decimal | open average price
+liquidatePrice | decimal | liquidate price
+oim | decimal | original initial margin
+adlLevel | int | the value of ADL is 1-5. If it is empty, wait for the refresh
+im | decimal | initial margin， add or subtract items can be used to adjust the liquidate price
+holdFee | decimal | holding fee, positive means get it, negative means lost it
+realised | decimal | realized profit and loss
+createTime | date | create time
 updateTime | date | update time
 
 ## Get details of user's funding rate
@@ -351,27 +351,27 @@ updateTime | date | update time
 **Required permissions:** Trade reading permission
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-symbol | string | false | the name of the contract\
-position_id | int | false | position id\
-page_num | int | true | current page number, default is 1\
-page_size | int | true | page size, default 20, maximum 100\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+symbol | string | false | the name of the contract
+position_id | int | false | position id
+page_num | int | true | current page number, default is 1
+page_size | int | true | page size, default 20, maximum 100
 **Response parameters:**
-Parameter | Data Type | Description\
----|---|---\
-pageSize | int | page size\
-totalCount | int | the total count\
-totalPage | int | the total page\
-currentPage | int | the current page\
-resultList | list | data consequence list\
-id | long | id\
-symbol | string | the name of the contract\
-positionId | long | position id\
-positionType | int | 1 long 2 short\
-positionValue | decimal | position value\
-funding | decimal | funding\
-rate | decimal | funding rate\
+Parameter | Data Type | Description
+---|---|---
+pageSize | int | page size
+totalCount | int | the total count
+totalPage | int | the total page
+currentPage | int | the current page
+resultList | list | data consequence list
+id | long | id
+symbol | string | the name of the contract
+positionId | long | position id
+positionType | int | 1 long 2 short
+positionValue | decimal | position value
+funding | decimal | funding
+rate | decimal | funding rate
 settleTime | date | liquidation time
 
 ## Get the user's current pending order
@@ -420,40 +420,40 @@ settleTime | date | liquidation time
 **Required permissions:** Trade reading permission
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-symbol | string | false | the name of the contract, return all the contract parameters if there no fill in\
-page_num | int | true | current page number, default is 1\
-page_size | int | true | page size default 20, maximum 100\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+symbol | string | false | the name of the contract, return all the contract parameters if there no fill in
+page_num | int | true | current page number, default is 1
+page_size | int | true | page size default 20, maximum 100
 **Response parameters:**
-Parameter | Data Type | Description\
----|---|---\
-code | number | Status code\
-message | string | Misdescription (If there has )\
-orderId | long | orderid\
-symbol | string | the name of the contract\
-positionId | long | position id\
-price | decimal | trigger price\
-vol | decimal | trigger volume\
-leverage | long | leverage\
-side | int | order direction 1open long,2close short,3open short, 4 close long\
-category | int | order category:1limit order, 2 system take-over delegate, 3 close delegate 4 ADL reduction\
-orderType | int | 1:price limited order,2:post only Maker,3:transact or cancel instantly ,4 : transact completely or cancel completely，5:market orders,6 convert market price to current price\
-dealAvgPrice | decimal | deal average price\
-dealVol | decimal | transaction volume\
-orderMargin | decimal | order margin\
-usedMargin | decimal | used margin\
-takerFee | decimal | taker fee\
-makerFee | decimal | maker fee\
-profit | decimal | close profit\
-feeCurrency | string | fee currency\
-openType | int | open type,1 isolated,2 cross\
-state | int | order state,1 uninformed, 2uncompleted, 3completed, 4cancelled, 5invalid\
-errorCode | int | error code,0:normal，1：parameter errors，2：account balance is insufficient，3：the position does not exist，4： position insufficient，5：For long positions, the order price is less than the close price, while for short positions, the order price is more than the close rice，6：When opening long, the close price is more than the fair price, while when opening short, the close price is less than the fair price ,7:exceed risk quota restrictions, 8: system canceled\
-externalOid | string | external order ID\
-createTime | date | create time\
-updateTime | date | update time\
-stopLossPrice | decimal | stop-loss price\
+Parameter | Data Type | Description
+---|---|---
+code | number | Status code
+message | string | Misdescription (If there has )
+orderId | long | orderid
+symbol | string | the name of the contract
+positionId | long | position id
+price | decimal | trigger price
+vol | decimal | trigger volume
+leverage | long | leverage
+side | int | order direction 1open long,2close short,3open short, 4 close long
+category | int | order category:1limit order, 2 system take-over delegate, 3 close delegate 4 ADL reduction
+orderType | int | 1:price limited order,2:post only Maker,3:transact or cancel instantly ,4 : transact completely or cancel completely，5:market orders,6 convert market price to current price
+dealAvgPrice | decimal | deal average price
+dealVol | decimal | transaction volume
+orderMargin | decimal | order margin
+usedMargin | decimal | used margin
+takerFee | decimal | taker fee
+makerFee | decimal | maker fee
+profit | decimal | close profit
+feeCurrency | string | fee currency
+openType | int | open type,1 isolated,2 cross
+state | int | order state,1 uninformed, 2uncompleted, 3completed, 4cancelled, 5invalid
+errorCode | int | error code,0:normal，1：parameter errors，2：account balance is insufficient，3：the position does not exist，4： position insufficient，5：For long positions, the order price is less than the close price, while for short positions, the order price is more than the close rice，6：When opening long, the close price is more than the fair price, while when opening short, the close price is less than the fair price ,7:exceed risk quota restrictions, 8: system canceled
+externalOid | string | external order ID
+createTime | date | create time
+updateTime | date | update time
+stopLossPrice | decimal | stop-loss price
 takeProfitPrice | decimal | take-profit price
 
 ## Get all of the user's historical orders
@@ -502,46 +502,46 @@ takeProfitPrice | decimal | take-profit price
 **Required permissions:** Trade reading permission
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-symbol | string | false | the name of the contract\
-states | string | false | order state,1 1 uninformed, 2uncompleted, 3completed, 4cancelled, 5invalid; multiple separate by ','\
-category | int | false | order category:1limit order, 2 system take-over delegate, 3 close delegate 4 ADL reduction\
-start_time | long | false | start time, start time and end time span can only check 90 days at a time, default return the last 7 days of data without fill in\
-end_time | long | false | end time, start time, and end time spans can only be checked for 90 days at a time\
-side | int | false | order direction long,2close short,3open short 4 close long\
-page_num | int | true | current page number, default is 1\
-page_size | int | true | page size, default 20, maximum 100\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+symbol | string | false | the name of the contract
+states | string | false | order state,1 1 uninformed, 2uncompleted, 3completed, 4cancelled, 5invalid; multiple separate by ','
+category | int | false | order category:1limit order, 2 system take-over delegate, 3 close delegate 4 ADL reduction
+start_time | long | false | start time, start time and end time span can only check 90 days at a time, default return the last 7 days of data without fill in
+end_time | long | false | end time, start time, and end time spans can only be checked for 90 days at a time
+side | int | false | order direction long,2close short,3open short 4 close long
+page_num | int | true | current page number, default is 1
+page_size | int | true | page size, default 20, maximum 100
 **Response parameters:**
-Parameter | Data Type | Description\
----|---|---\
-code | number | Status code\
-message | string | Misdescription (If there has )\
-orderId | long | orderid\
-symbol | string | the name of the contract\
-positionId | long | position id\
-price | decimal | trigger price\
-vol | decimal | trigger volume\
-leverage | long | leverage\
-side | int | order direction 1open long,2close short,3open short 4 close long\
-category | int | order category:1limit order, 2 system take-over delegate, 3 close delegate 4 ADL reduction\
-orderType | int | 1:price limited order,2:Post Only Maker,3:transact or cancel instantly ,4 : transact completely or cancel completely，5:market orders,6 convert market price to current price\
-dealAvgPrice | decimal | transaction average price\
-dealVol | decimal | transaction volume\
-orderMargin | decimal | order margin\
-takerFee | decimal | taker fee\
-makerFee | decimal | maker fee\
-profit | decimal | close profit\
-feeCurrency | string | fee currency\
-openType | int | open type,1 isolated,2 cross\
-state | int | order state,1 uninformed, 2 uncompleted, 3 completed, 4 cancelled, 5 invalid\
-errorCode | int | error code,0:normal，1：parameter errors，2：account balance is insufficient，3：the position does not exist，4： position insufficient，5：For long positions, the order price is less than the close price, while for short positions, the order price is more than the close rice.，6：When opening long, the close price is more than the fair price, while when opening short, the close price is less than the fair price.\
-externalOid | string | external order ID\
-usedMargin | decimal | used margin\
-createTime | date | create time\
-updateTime | date | update tine\
-stopLossPrice | decimal | stop-loss price\
-takeProfitPrice | decimal | take-profit price\
+Parameter | Data Type | Description
+---|---|---
+code | number | Status code
+message | string | Misdescription (If there has )
+orderId | long | orderid
+symbol | string | the name of the contract
+positionId | long | position id
+price | decimal | trigger price
+vol | decimal | trigger volume
+leverage | long | leverage
+side | int | order direction 1open long,2close short,3open short 4 close long
+category | int | order category:1limit order, 2 system take-over delegate, 3 close delegate 4 ADL reduction
+orderType | int | 1:price limited order,2: Post Only Maker,3:transact or cancel instantly ,4 : transact completely or cancel completely，5:market orders,6 convert market price to current price
+dealAvgPrice | decimal | transaction average price
+dealVol | decimal | transaction volume
+orderMargin | decimal | order margin
+takerFee | decimal | taker fee
+makerFee | decimal | maker fee
+profit | decimal | close profit
+feeCurrency | string | fee currency
+openType | int | open type,1 isolated,2 cross
+state | int | order state,1 uninformed, 2 uncompleted, 3 completed, 4 cancelled, 5 invalid
+errorCode | int | error code,0:normal，1：parameter errors，2：account balance is insufficient，3：the position does not exist，4： position insufficient，5：For long positions, the order price is less than the close price, while for short positions, the order price is more than the close rice.，6：When opening long, the close price is more than the fair price, while when opening short, the close price is less than the fair price.
+externalOid | string | external order ID
+usedMargin | decimal | used margin
+createTime | date | create time
+updateTime | date | update tine
+stopLossPrice | decimal | stop-loss price
+takeProfitPrice | decimal | take-profit price
 **Note: The price returned from this interface is the platform's takeover price. If you want to query the liquidation price of a liquidation order, you can do so through the[Get the user's current holding position](https://mexcdevelop.github.io/apidocs/contract_v1_en/#get-the-user-39-s-current-holding-position) interface. For liquidation orders, the price will be the platform's takeover price, which may differ from the liquidation price. For more information, please refer to [Liquidation and Risk Limit](https://www.mexc.com/support/articles/360044646391).**
 
 ## Query the order based on the external number
@@ -585,33 +585,33 @@ takeProfitPrice | decimal | take-profit price\
 **Required permissions:** Trade reading permission
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-symbol | string | true | the name of the contract\
-external_oid | string | true | external order ID\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+symbol | string | true | the name of the contract
+external_oid | string | true | external order ID
 **Response parameters:**
-Parameter | Data Type | Description\
----|---|---\
-orderId | long | orderid\
-symbol | string | the name of the contract\
-positionId | long | position id\
-price | decimal | trigger price\
-vol | decimal | trigger volume\
-leverage | long | leverage\
-side | int | order direction 1open long,2close short,3open short 4 close long\
-category | int | order category:1limit order, 2 system take-over delegate, 3 close delegate 4 ADL reduction\
-orderType | int | 1:price limited order,2:Post Only Maker,3:transact or cancel instantly ,4 : transact completely or cancel completely，5:market orders,6 convert market price to current price\
-dealAvgPrice | decimal | transaction average price\
-dealVol | decimal | transaction volume\
-orderMargin | decimal | order margin\
-takerFee | decimal | taker fee\
-makerFee | decimal | maker fee\
-profit | decimal | close profit\
-feeCurrency | string | fee currency\
-openType | int | open type,1isolated,2cross\
-state | int | order state,1: uninformed,2uncompleted,3completed,4canceled,5invalid\
-externalOid | string | external order ID\
-createTime | date | create time\
+Parameter | Data Type | Description
+---|---|---
+orderId | long | orderid
+symbol | string | the name of the contract
+positionId | long | position id
+price | decimal | trigger price
+vol | decimal | trigger volume
+leverage | long | leverage
+side | int | order direction 1open long,2close short,3open short 4 close long
+category | int | order category:1limit order, 2 system take-over delegate, 3 close delegate 4 ADL reduction
+orderType | int | 1:price limited order,2: Post Only Maker,3:transact or cancel instantly ,4 : transact completely or cancel completely，5:market orders,6 convert market price to current price
+dealAvgPrice | decimal | transaction average price
+dealVol | decimal | transaction volume
+orderMargin | decimal | order margin
+takerFee | decimal | taker fee
+makerFee | decimal | maker fee
+profit | decimal | close profit
+feeCurrency | string | fee currency
+openType | int | open type,1isolated,2cross
+state | int | order state,1: uninformed,2uncompleted,3completed,4canceled,5invalid
+externalOid | string | external order ID
+createTime | date | create time
 updateTime | date | update time
 
 ## Query the order based on the order number
@@ -655,32 +655,32 @@ updateTime | date | update time
 **Required permissions:** Trade reading permission
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-order_id | long | true | order ID\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+order_id | long | true | order ID
 **Response parameters:**
-Parameter | Data Type | Description\
----|---|---\
-orderId | long | orderid\
-symbol | string | the name of the contract\
-positionId | long | position id\
-price | decimal | trigger price\
-vol | decimal | trigger volume\
-leverage | long | leverage\
-side | int | order direction :1 open long,2close short,3open short, 4 close long\
-category | int | order category:1limit order, 2 system take-over delegate, 3 close delegate 4 ADL reduction\
-orderType | int | 1:price limited order,2:Post Only Maker,3:transact or cancel instantly ,4 : transact completely or cancel completely，5:market orders,6 convert market price to current price\
-dealAvgPrice | decimal | transaction average price\
-dealVol | decimal | transaction volume\
-orderMargin | decimal | order margin\
-takerFee | decimal | taker fee\
-makerFee | decimal | maker fee\
-profit | decimal | close profit\
-feeCurrency | string | fee currency\
-openType | int | open type,1isolated,2cross\
-state | int | order state,1 uninformed, 2 uncompleted, 3completed, 4cancelled, 5 invalid\
-externalOid | string | External order ID\
-createTime | date | create time\
+Parameter | Data Type | Description
+---|---|---
+orderId | long | orderid
+symbol | string | the name of the contract
+positionId | long | position id
+price | decimal | trigger price
+vol | decimal | trigger volume
+leverage | long | leverage
+side | int | order direction :1 open long,2close short,3open short, 4 close long
+category | int | order category:1limit order, 2 system take-over delegate, 3 close delegate 4 ADL reduction
+orderType | int | 1:price limited order,2: Post Only Maker,3:transact or cancel instantly ,4 : transact completely or cancel completely，5:market orders,6 convert market price to current price
+dealAvgPrice | decimal | transaction average price
+dealVol | decimal | transaction volume
+orderMargin | decimal | order margin
+takerFee | decimal | taker fee
+makerFee | decimal | maker fee
+profit | decimal | close profit
+feeCurrency | string | fee currency
+openType | int | open type,1isolated,2cross
+state | int | order state,1 uninformed, 2 uncompleted, 3completed, 4cancelled, 5 invalid
+externalOid | string | External order ID
+createTime | date | create time
 updateTime | date | update time
 
 ## Query the order in bulk based on the order number
@@ -690,32 +690,32 @@ updateTime | date | update time
 **Required permissions:** Trade reading permission
 Rate limit:5 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-order_ids | long | true | order number array，can be separated by "," for example :order_ids = 1,2,3(maximum 50 orders):\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+order_ids | long | true | order number array，can be separated by "," for example :order_ids = 1,2,3 (maximum 50 orders):
 **Response parameters:**
-Parameter | Data Type | Description\
----|---|---\
-orderId | long | orderid\
-symbol | string | the name of the contract\
-positionId | long | position id\
-price | decimal | trigger price\
-vol | decimal | trigger volume\
-leverage | long | leverage\
-side | int | order direction 1open long,2close short,3open short, 4 close long\
-category | int | order category:1limit order, 2 system take-over delegate, 3 close delegate 4 ADL reduction\
-orderType | int | 1:price limited order,2:Post Only Maker,3:transact or cancel instantly ,4 : transact completely or cancel completely，5:market orders,6 convert market price to current price\
-dealAvgPrice | decimal | transaction average price\
-dealVol | decimal | transaction volume\
-orderMargin | decimal | order margin\
-takerFee | decimal | taker fee\
-makerFee | decimal | maker fee\
-profit | decimal | close profit\
-feeCurrency | string | fee currency\
-openType | int | open type,1isolated,2cross\
-state | int | order state,1: uninformed, 2uncompleted 3 completed, 4cancelled, 5invalid\
-externalOid | string | external order ID\
-createTime | date | create time\
+Parameter | Data Type | Description
+---|---|---
+orderId | long | orderid
+symbol | string | the name of the contract
+positionId | long | position id
+price | decimal | trigger price
+vol | decimal | trigger volume
+leverage | long | leverage
+side | int | order direction 1open long,2close short,3open short, 4 close long
+category | int | order category:1limit order, 2 system take-over delegate, 3 close delegate 4 ADL reduction
+orderType | int | 1:price limited order,2: Post Only Maker,3:transact or cancel instantly ,4 : transact completely or cancel completely，5:market orders,6 convert market price to current price
+dealAvgPrice | decimal | transaction average price
+dealVol | decimal | transaction volume
+orderMargin | decimal | order margin
+takerFee | decimal | taker fee
+makerFee | decimal | maker fee
+profit | decimal | close profit
+feeCurrency | string | fee currency
+openType | int | open type,1isolated,2cross
+state | int | order state,1: uninformed, 2uncompleted 3 completed, 4cancelled, 5invalid
+externalOid | string | external order ID
+createTime | date | create time
 updateTime | date | update time
 
 ## Get order transaction details based on the order ID
@@ -750,23 +750,23 @@ updateTime | date | update time
 **Required permissions:** Trade reading permission
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-order_id | long | true | order id\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+order_id | long | true | order id
 **Response parameters:**
-Parameter | Data Type | Description\
----|---|---\
-id | long | transactionid\
-symbol | string | the name of the contract\
-side | int | order direction 1open long,2close short,3open short 4 close long\
-vol | decimal | transaction volume\
-price | decimal | transaction price\
-fee | decimal | fee\
-feeCurrency | string | fee currency\
-profit | decimal | profit\
-isTaker | boolean | Is it taker order\
-category | int | order category:1limit order, 2 system take-over delegate, 3 close delegate 4 ADL reduction\
-orderId | long | order id\
+Parameter | Data Type | Description
+---|---|---
+id | long | transactionid
+symbol | string | the name of the contract
+side | int | order direction 1open long,2close short,3open short 4 close long
+vol | decimal | transaction volume
+price | decimal | transaction price
+fee | decimal | fee
+feeCurrency | string | fee currency
+profit | decimal | profit
+isTaker | boolean | Is it taker order
+category | int | order category:1limit order, 2 system take-over delegate, 3 close delegate 4 ADL reduction
+orderId | long | order id
 timestamp | long | transaction timestamp
 
 ## Get all transaction details of the user's order
@@ -800,29 +800,29 @@ timestamp | long | transaction timestamp
 
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-symbol | string | true | the name of the contact\
-start_time | long | false | the starting time, the default is to push forward 7 days, and the maximum span is 90 days\
-end_time | long | false | the end time, start and end time span is 90 days\
-page_num | int | true | current page number, default is 1\
-page_size | int | true | page size , default 20, maximum 100\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+symbol | string | true | the name of the contact
+start_time | long | false | the starting time, the default is to push forward 7 days, and the maximum span is 90 days
+end_time | long | false | the end time, start and end time span is 90 days
+page_num | int | true | current page number, default is 1
+page_size | int | true | page size , default 20, maximum 100
 **Response parameters:**
-Parameter | Data Type | Description\
----|---|---\
-code | number | Status code\
-message | string | Misdescription (If there has )\
-id | long | order id\
-symbol | string | the name of the contact\
-side | int | order direction 1open long,2close short,3open short 4 close long\
-vol | decimal | transaction volume\
-price | decimal | transaction price\
-fee | decimal | fee\
-feeCurrency | string | currency\
-profit | decimal | profit\
-isTaker | boolean | is it taker order\
-category | int | order category:1limit order, 2 system take-over delegate, 3 close delegate 4 ADL reduction\
-orderId | long | order id\
+Parameter | Data Type | Description
+---|---|---
+code | number | Status code
+message | string | Misdescription (If there has )
+id | long | order id
+symbol | string | the name of the contact
+side | int | order direction 1open long,2close short,3open short 4 close long
+vol | decimal | transaction volume
+price | decimal | transaction price
+fee | decimal | fee
+feeCurrency | string | currency
+profit | decimal | profit
+isTaker | boolean | is it taker order
+category | int | order category:1limit order, 2 system take-over delegate, 3 close delegate 4 ADL reduction
+orderId | long | order id
 timestamp | long | transaction timestamp
 
 ## Gets the trigger order list
@@ -862,35 +862,35 @@ timestamp | long | transaction timestamp
 
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-symbol | string | false | the name of the contract\
-states | string | false | order state,1 uninformed, 2uncompleted,3completed,4cancelled, 5invalid; Multiple separate by ','\
-start_time | long | false | start time, start time and end time span can only check 90 days at a time, default return the last 7 days of data without fill in\
-end_time | long | false | end time, start time, and end time spans can only be checked for 90 days at a time\
-page_num | int | true | current page number, default is 1\
-page_size | int | true | page size, default 20, maximum 100\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+symbol | string | false | the name of the contract
+states | string | false | order state,1 uninformed, 2uncompleted,3completed,4cancelled, 5invalid; Multiple separate by ','
+start_time | long | false | start time, start time and end time span can only check 90 days at a time, default return the last 7 days of data without fill in
+end_time | long | false | end time, start time, and end time spans can only be checked for 90 days at a time
+page_num | int | true | current page number, default is 1
+page_size | int | true | page size, default 20, maximum 100
 **Response parameters:**
-Parameter | Data Type | Description\
----|---|---\
-code | number | Status code\
-message | string | Misdescription (If there has )\
-id | int | trigger order id\
-symbol | string | the name of the contract\
-leverage | long | leverage\
-side | int | order direction 1open long, 3open short\
-triggerPrice | decimal | trigger price\
-price | decimal | execute price\
-vol | decimal | order volume\
-openType | int | open type， 1isolated 2cross\
-triggerType | int | trigger type,1: more than or equal, 2: less than or equal\
-state | int | status,1: untriggered, 2: cancelled, 3: executed,4: invalid,5: execution failed\
-executeCycle | int | execution cycle, unit: hours\
-trend | int | trigger price type,1: latest price, 2: fair price, 3: index price\
-errorCode | int | error code on failed execution, 0: normal\
-orderId | long | order ID, Return on successful execution\
-orderType | int | order type,1: limit order,2:Post Only Maker,3: close or cancel instantly 4: close or cancel completely,5: Market order\
-createTime | long | create time\
+Parameter | Data Type | Description
+---|---|---
+code | number | Status code
+message | string | Misdescription (If there has )
+id | int | trigger order id
+symbol | string | the name of the contract
+leverage | long | leverage
+side | int | order direction 1open long, 3open short
+triggerPrice | decimal | trigger price
+price | decimal | execute price
+vol | decimal | order volume
+openType | int | open type， 1isolated 2cross
+triggerType | int | trigger type,1: more than or equal, 2: less than or equal
+state | int | status,1: untriggered, 2: cancelled, 3: executed,4: invalid,5: execution failed
+executeCycle | int | execution cycle, unit: hours
+trend | int | trigger price type,1: latest price, 2: fair price, 3: index price
+errorCode | int | error code on failed execution, 0: normal
+orderId | long | order ID, Return on successful execution
+orderType | int | order type,1: limit order,2: Post Only Maker,3: close or cancel instantly 4: close or cancel completely,5: Market order
+createTime | long | create time
 updateTime | long | update time
 
 ## Get the Stop-Limit order list
@@ -930,35 +930,35 @@ updateTime | long | update time
 
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-symbol | string | false | the name of the contact\
-is_finished | int | false | final state indicator :0: uncompleted, 1: completed\
-start_time | long | false | start time, start time and end time span can only check 90 days at a time, default return the last 7 days of data without fill in\
-end_time | long | false | end time, start time, and end time spans can only be checked for 90 days at a time\
-page_num | int | true | current page number, default is 1\
-page_size | int | true | page size, default 20, maximum 100\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+symbol | string | false | the name of the contact
+is_finished | int | false | final state indicator :0: uncompleted, 1: completed
+start_time | long | false | start time, start time and end time span can only check 90 days at a time, default return the last 7 days of data without fill in
+end_time | long | false | end time, start time, and end time spans can only be checked for 90 days at a time
+page_num | int | true | current page number, default is 1
+page_size | int | true | page size, default 20, maximum 100
 **Response parameters:**
-Parameter | Data Type | Description\
----|---|---\
-code | number | Status code\
-message | string | Misdescription (If there has )\
-id | long | Stop-Limit order ID\
-symbol | string | the name of the contract\
-orderId | long | limit order ID, which is 0 if it is based on a position\
-positionId | long | position id\
-stopLossPrice | decimal | stop-loss price\
-takeProfitPrice | decimal | take-profit price\
-state | int | status,1: untriggered, 2: cancelled, 3: executed,4: invalid,5: execution failed\
-triggerSide | int | trigger direction, 0: untriggered , 1: taker-profit , 2: stop-loss\
-positionType | int | position type,1: long, 2: short\
-vol | decimal | trigger volume\
-realityVol | decimal | actual number of orders\
-placeOrderId | long | order id after successful delegation\
-errorCode | int | errorCode,0: normal, other errorCode details\
-isFinished | int | whether the order status is the end-state identifier (for query),0. Non-terminal, 1. Terminal\
-version | int | version\
-createTime | long | createTime\
+Parameter | Data Type | Description
+---|---|---
+code | number | Status code
+message | string | Misdescription (If there has )
+id | long | Stop-Limit order ID
+symbol | string | the name of the contract
+orderId | long | limit order ID, which is 0 if it is based on a position
+positionId | long | position id
+stopLossPrice | decimal | stop-loss price
+takeProfitPrice | decimal | take-profit price
+state | int | status,1: untriggered, 2: cancelled, 3: executed,4: invalid,5: execution failed
+triggerSide | int | trigger direction, 0: untriggered , 1: taker-profit , 2: stop-loss
+positionType | int | position type,1: long, 2: short
+vol | decimal | trigger volume
+realityVol | decimal | actual number of orders
+placeOrderId | long | order id after successful delegation
+errorCode | int | errorCode,0: normal, other errorCode details
+isFinished | int | whether the order status is the end-state identifier (for query),0. Non-terminal, 1. Terminal
+version | int | version
+createTime | long | createTime
 updateTime | long | update time
 
 ## Get risk limits
@@ -999,18 +999,18 @@ updateTime | long | update time
 **Required permissions:** Trade reading permission
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-symbol | string | false | the name of the contract , not uploaded will return all\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+symbol | string | false | the name of the contract , not uploaded will return all
 **Response parameters:**
-Parameter | Data Type | Description\
----|---|---\
-symbol | string | the name of the contract\
-positionType | int | position type 1:long，2:short\
-level | int | current risk level\
-maxVol | decimal | maximum position volume\
-maxLeverage | int | maximum leverage rate\
-mmr | decimal | maintenance margin rate\
+Parameter | Data Type | Description
+---|---|---
+symbol | string | the name of the contract
+positionType | int | position type 1:long，2:short
+level | int | current risk level
+maxVol | decimal | maximum position volume
+maxLeverage | int | maximum leverage rate
+mmr | decimal | maintenance margin rate
 imr | decimal | initial margin rate
 
 ## Gets the user's current trading fee rate
@@ -1038,18 +1038,18 @@ imr | decimal | initial margin rate
 **Required permissions:** Trade reading permission
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-symbol | string | true | the name of the contract\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+symbol | string | true | the name of the contract
 **Response parameters:**
-Parameter | Data Type | Description\
----|---|---\
-level | int | tiered trading fee rate\
-dealAmount | int | the last 30 days' turnover\
-walletBalance | int | wallet balance of yesterday\
-makerFee | decimal | makerFee\
-takerFee | int | takerFee\
-makerFeeDiscount | decimal | makerFee discount\
+Parameter | Data Type | Description
+---|---|---
+level | int | tiered trading fee rate
+dealAmount | int | the last 30 days' turnover
+walletBalance | int | wallet balance of yesterday
+makerFee | decimal | makerFee
+takerFee | int | takerFee
+makerFeeDiscount | decimal | makerFee discount
 takerFeeDiscount | decimal | takerFee discount
 
 ## Increase or decrease margin
@@ -1068,11 +1068,11 @@ takerFeeDiscount | decimal | takerFee discount
 **Required permissions:** Trading permission
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-positionId | long | true | position id\
-amount | decimal | true | amount\
-type | string | true | type ,ADD: increase,SUB: decrease\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+positionId | long | true | position id
+amount | decimal | true | amount
+type | string | true | type , ADD: increase, SUB: decrease
 **Response parameters:**
 public parameters, success: true, success, false ,failure
 
@@ -1083,16 +1083,16 @@ public parameters, success: true, success, false ,failure
 **Required permissions:** Trading permission
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-symbol | string | true | symbol\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+symbol | string | true | symbol
 **Response parameters:**
-Parameter | Type | Description\
----|---|---\
-positionType | int | positon type， 1:long 2:short\
-level | int | risk level\
-imr | decimal | The leverage risk limit level corresponds to initial margin rate\
-mmr | decimal | Leverage risk limit level corresponds to maintenance margin rate\
+Parameter | Type | Description
+---|---|---
+positionType | int | positon type， 1:long 2:short
+level | int | risk level
+imr | decimal | The leverage risk limit level corresponds to initial margin rate
+mmr | decimal | Leverage risk limit level corresponds to maintenance margin rate
 leverage | int | leverage
 
 ## Switch leverage
@@ -1102,13 +1102,13 @@ leverage | int | leverage
 **Required permissions:** Trading permission
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-positionId | long | true | position id\
-leverage | int | true | leverage\
-openType | int | false | Required when there is no position, openType, 1: isolated position, 2: full position\
-symbol | string | false | equired when there is no position，symbol\
-positionType | int | false | equired when there is no position, positionType: 1 Long 2:short\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+positionId | long | true | position id
+leverage | int | true | leverage
+openType | int | false | Required when there is no position, openType, 1: isolated position, 2: full position
+symbol | string | false | equired when there is no position，symbol
+positionType | int | false | equired when there is no position, positionType: 1 Long 2:short
 **Response parameters:**
 public parameters, success: true, success, false ,failure
 **request parameters example:**
@@ -1161,9 +1161,9 @@ position mode,1:hedge，2:one-way
 **Required permissions:** Trading permission
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-positionMode | int | true | 1: Hedge，2, 2: One-way, the modification of the position mode must ensure that there are no active orders, planned orders, or unfinished positions, otherwise it cannot be modified. When switching the one-way mode in both directions, the risk limit level will be reset to level 1. If you need to change the call interface, modify\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+positionMode | int | true | 1: Hedge，2, 2: One-way, the modification of the position mode must ensure that there are no active orders, planned orders, or unfinished positions, otherwise it cannot be modified. When switching the one-way mode in both directions, the risk limit level will be reset to level 1. If you need to change the call interface, modify
 **Response parameters:**
 public parameters, success: true, success, false ,failure
 **request parameters example:**
@@ -1194,21 +1194,21 @@ USDT perpetual contract trading offers limit and market orders. You can place an
 **Required permissions:** Trading permission
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-symbol | string | true | the name of the contract\
-price | decimal | true | price\
-vol | decimal | true | volume\
-leverage | int | false | leverage ,Leverage is necessary on Isolated Margin\
-side | int | true | order direction 1 open long ,2close short,3open short ,4 close l\
-type | int | true | orderType,1:price limited order,2:Post Only Maker,3:transact or cancel instantly ,4 : transact completely or cancel completely，5:market orders,6 convert market price to current price\
-openType | int | true | open type,1:isolated,2:cross\
-positionId | long | false | position Id，It is recommended to fill in this parameter when closing a position\
-externalOid | string | false | external order ID\
-stopLossPrice | decimal | false | stop-loss price\
-takeProfitPrice | decimal | false | take-profit price\
-positionMode | int | false | position mode,1:hedge,2:one-way,default: the user's current config\
-reduceOnly | boolean | false | Default false,For one-way positions, if you need to only reduce positions, pass in true, and two-way positions will not accept this parameter.\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+symbol | string | true | the name of the contract
+price | decimal | true | price
+vol | decimal | true | volume
+leverage | int | false | leverage , Leverage is necessary on Isolated Margin
+side | int | true | order direction 1 open long ,2close short,3open short ,4 close l
+type | int | true | orderType,1:price limited order,2: Post Only Maker,3:transact or cancel instantly ,4 : transact completely or cancel completely，5:market orders,6 convert market price to current price
+openType | int | true | open type,1:isolated,2:cross
+positionId | long | false | position Id，It is recommended to fill in this parameter when closing a position
+externalOid | string | false | external order ID
+stopLossPrice | decimal | false | stop-loss price
+takeProfitPrice | decimal | false | take-profit price
+positionMode | int | false | position mode,1:hedge,2:one-way,default: the user's current config
+reduceOnly | boolean | false | Default false, For one-way positions, if you need to only reduce positions, pass in true, and two-way positions will not accept this parameter.
 **Response parameters:**
 success, success =true, data represent the order id success =false, failure data=null
 
@@ -1248,25 +1248,25 @@ Order the contract in batch. Each contract can place 50 orders in the batch. Thi
 **Required permissions:** Trading permission
 Rate limit:1/2 seconds
 **Request parameters:**(maximum 50 )
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-symbol | string | true | the name of the contract\
-price | decimal | true | price\
-vol | decimal | true | volume\
-leverage | int | false | leverage ,Leverage is necessary on Isolated Margin\
-side | int | true | order side 1open long,2close short,3open short, 4 close long\
-type | int | true | order type :1 price limited order,2:Post Only Maker,3:transact or cancel instantly ,4 : transact completely or cancel completely，5:market orders,6 convert market price to current price\
-openType | int | true | open type,1:isolated,2:cross\
-positionId | long | false | position Id，It is recommended to fill in this parameter when closing a position\
-externalOid | string | false | external order ID, return the existing order ID if it already exists\
-stopLossPrice | decimal | false | stop-loss price\
-takeProfitPrice | decimal | false | take-profit price\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+symbol | string | true | the name of the contract
+price | decimal | true | price
+vol | decimal | true | volume
+leverage | int | false | leverage , Leverage is necessary on Isolated Margin
+side | int | true | order side 1open long,2close short,3open short, 4 close long
+type | int | true | order type :1 price limited order,2: Post Only Maker,3:transact or cancel instantly ,4 : transact completely or cancel completely，5:market orders,6 convert market price to current price
+openType | int | true | open type,1:isolated,2:cross
+positionId | long | false | position Id，It is recommended to fill in this parameter when closing a position
+externalOid | string | false | external order ID, return the existing order ID if it already exists
+stopLossPrice | decimal | false | stop-loss price
+takeProfitPrice | decimal | false | take-profit price
 **Response parameters:**
-Parameter | Data Type | Description\
----|---|---\
-externalOid | string | external order ID\
-orderId | long | order ID, null on failure\
-errorMsg | string | error message, not null when failed\
+Parameter | Data Type | Description
+---|---|---
+externalOid | string | external order ID
+orderId | long | order ID, null on failure
+errorMsg | string | error message, not null when failed
 errorCode | int | error code, default is 0
 
 ## Cancel the order (Under maintenance)
@@ -1304,14 +1304,14 @@ Cancel the pending order placed before, each time can cancel up to 50 orders.
 **Required permissions:** Trading permission
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-None | List | true | order id list, maximum 50\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+None | List | true | order id list, maximum 50
 **Response parameters:**
-Parameter | Data Type | Description\
----|---|---\
-orderId | long | order ID\
-errorMsg | string | error message\
+Parameter | Data Type | Description
+---|---|---
+orderId | long | order ID
+errorMsg | string | error message
 errorCode | int | error code，Not 0 means the revoke failed
 
 ## Cancel the order according to the external order ID (Under maintenance)
@@ -1331,9 +1331,9 @@ Cancel the uncompleted order under a contract according to the specified externa
 
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-symbol | string | true | the name of the contract\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+symbol | string | true | the name of the contract
 externalOid | string | true | external orderid
 
 ## Cancel all orders under a contract (Under maintenance)
@@ -1345,9 +1345,9 @@ Cancel all uncompleted orders under a contract.
 **Required permissions:** Trading permission
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-symbol | string | false | the name of the contract, cancel specific orders placed under this contract when fill the symbol , otherwise , cancel all orders without filling\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+symbol | string | false | the name of the contract, cancel specific orders placed under this contract when fill the symbol , otherwise , cancel all orders without filling
 **Response parameters:**
 public parameters , success: true success, false failure
 
@@ -1362,19 +1362,19 @@ public parameters , success: true success, false failure
 
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-symbol | string | true | the name of the contract\
-price | decimal | false | execut price, market price may not fill in\
-vol | decimal | true | volume\
-leverage | int | false | leverage , Leverage is necessary on Isolated Margin\
-side | int | true | 1open long,2close short,3open short 4 close long\
-openType | int | true | open type,1:isolated,2:cross\
-triggerPrice | decimal | true | trigger price\
-triggerType | int | true | trigger type,1: more than or equal, 2: less than or equal\
-executeCycle | int | true | execution cycle,1: 24 hours,2: 7 days\
-orderType | int | true | order type,1: limit order,2:Post Only Maker,3: close or cancel instantly ,4: close or cancel completely,5: Market order\
-trend | int | true | trigger price type,1: latest price, 2: fair price, 3: index price\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+symbol | string | true | the name of the contract
+price | decimal | false | execut price, market price may not fill in
+vol | decimal | true | volume
+leverage | int | false | leverage , Leverage is necessary on Isolated Margin
+side | int | true | 1open long,2close short,3open short 4 close long
+openType | int | true | open type,1:isolated,2:cross
+triggerPrice | decimal | true | trigger price
+triggerType | int | true | trigger type,1: more than or equal, 2: less than or equal
+executeCycle | int | true | execution cycle,1: 24 hours,2: 7 days
+orderType | int | true | order type,1: limit order,2: Post Only Maker,3: close or cancel instantly ,4: close or cancel completely,5: Market order
+trend | int | true | trigger price type,1: latest price, 2: fair price, 3: index price
 **Response parameters:**
 success, success =true, data value is the order ID, success =false, failure data=null
 
@@ -1399,14 +1399,14 @@ success, success =true, data value is the order ID, success =false, failure data
 
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-None | List | true | cancel the order list, maximum 50\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+None | List | true | cancel the order list, maximum 50
 **CancelOrderRequest:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-symbol | string | true | the name of the contract\
-orderId | string | true | orderId\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+symbol | string | true | the name of the contract
+orderId | string | true | orderId
 **Response parameters:**
 public parameters, Success: true success, false failure
 
@@ -1416,9 +1416,9 @@ public parameters, Success: true success, false failure
 
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-symbol | string | false | the name of the contract, cancel specific orders placed under this contract when fill the symbol , otherwise , cancel all orders without filling\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+symbol | string | false | the name of the contract, cancel specific orders placed under this contract when fill the symbol , otherwise , cancel all orders without filling
 **Response parameters:**
 public parameters, Success: true success, false failure
 
@@ -1441,12 +1441,12 @@ public parameters, Success: true success, false failure
 
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-none | List | true | cancel order list, maximum 50\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+none | List | true | cancel order list, maximum 50
 **CancelOrderRequest:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
 stopPlanOrderId | long | true | the Stop-Limit trigger order ID
 
 ## Cancel all Stop-Limit price trigger orders (Under maintenance)
@@ -1455,10 +1455,10 @@ stopPlanOrderId | long | true | the Stop-Limit trigger order ID
 
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-positionId | long | false | position id, fill in positionId，only cancel the trigger order of the corresponding position, and check the symbol without filling\
-symbol | string | false | the name of the contact ,only cancels the delegate order under this contract based on the symbol, cancel all orders without filling the symbol\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+positionId | long | false | position id, fill in positionId，only cancel the trigger order of the corresponding position, and check the symbol without filling
+symbol | string | false | the name of the contact ,only cancels the delegate order under this contract based on the symbol, cancel all orders without filling the symbol
 **Response parameters:**
 public parameters, success: true success ,false failure
 
@@ -1468,11 +1468,11 @@ public parameters, success: true success ,false failure
 
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-orderId | long | true | limit order id\
-stopLossPrice | decimal | false | stop-loss price, take-profit and stop-loss price are empty or 0 at the same time, indicating to cancel and take profit\
-takeProfitPrice | decimal | false | take-profit price，take-profit and stop-loss price are empty or 0 at the same time, indicating to cancel stop-loss and take profit\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+orderId | long | true | limit order id
+stopLossPrice | decimal | false | stop-loss price, take-profit and stop-loss price are empty or 0 at the same time, indicating to cancel and take profit
+takeProfitPrice | decimal | false | take-profit price，take-profit and stop-loss price are empty or 0 at the same time, indicating to cancel stop-loss and take profit
 **Response parameters:**
 public parameters, success: true success ,false failure
 
@@ -1482,10 +1482,10 @@ public parameters, success: true success ,false failure
 
 Rate limit:20 times/2 seconds
 **Request parameters:**
-Parameter | Data Type | Mandatory | Description\
----|---|---|---\
-stopPlanOrderId | long | true | the Stop-Limit price of trigger order id\
-stopLossPrice | decimal | false | at least one stop-loss price and one take-profit price is not empty and must be more than 0\
-takeProfitPrice | decimal | false | at least one take-profit price and stop-loss price is not empty and must be more than 0\
+Parameter | Data Type | Mandatory | Description
+---|---|---|---
+stopPlanOrderId | long | true | the Stop-Limit price of trigger order id
+stopLossPrice | decimal | false | at least one stop-loss price and one take-profit price is not empty and must be more than 0
+takeProfitPrice | decimal | false | at least one take-profit price and stop-loss price is not empty and must be more than 0
 **Response parameters:**
 public parameters, success: true success ,false failure

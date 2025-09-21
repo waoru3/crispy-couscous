@@ -15,7 +15,7 @@ Check the required permissions when creating an API Key
 ## API Library
 
 We provide developers with SDKs in five languages: Python, DotNET, Java, Javascript, and Go, and provide users with methods to call APIs directly through the SDK. Currently supports all interfaces in spot.
-[](https://github.com/mexcdevelop/mexc-api-sdk)<https://github.com/mexcdevelop/mexc-api-sdk>
+[mexc-api-sdk](https://github.com/mexcdevelop/mexc-api-sdk)
 Any problem please submit [feedback](https://github.com/mexcdevelop/mexc-api-sdk/issues)
 
 ## MEXC Broker Introduction

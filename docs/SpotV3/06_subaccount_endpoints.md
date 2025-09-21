@@ -1,6 +1,6 @@
 # Sub-Account Endpoints
 
-## Create a Sub-account(For Master Account)
+## Create a Sub-account (For Master Account)
 
 Create a sub-account from the master account.
 
@@ -16,13 +16,13 @@ Create a sub-account from the master account.
 - POST / api/v3/sub-account/virtualSubAccount
 
 **Permission:** SPOT_ACCOUNT_READ
-**Weight(IP):** 1
+**Weight (IP):** 1
 Parameters:
-Name | Type | Mandatory | Description\
----|---|---|---\
-subAccount | STRING | YES | Sub-account Name\
-note | STRING | YES | Sub-account notes\
-recvWindow | LONG | NO |\
+Name | Type | Mandatory | Description
+---|---|---|---
+subAccount | STRING | YES | Sub-account Name
+note | STRING | YES | Sub-account notes
+recvWindow | LONG | NO |
 timestamp | LONG | YES |
 
 ## Query Sub-account List (For Master Account)
@@ -53,22 +53,22 @@ Get details of the sub-account list
 - GET / api/v3/sub-account/list
 
 **Permission:** SPOT_ACCOUNT_READ
-**Weight(IP):** 1
+**Weight (IP):** 1
 Parameters:
-Name | Type | Mandatory | Description\
----|---|---|---\
-subAccount | STRING | NO | Sub-account Name\
-isFreeze | STRING | NO | true or false\
-page | INT | NO | Default value: 1\
-limit | INT | NO | Default value: 10, Max value: 200\
-timestamp | LONG | YES |\
-recvWindow | LONG | NO |\
+Name | Type | Mandatory | Description
+---|---|---|---
+subAccount | STRING | NO | Sub-account Name
+isFreeze | STRING | NO | true or false
+page | INT | NO | Default value: 1
+limit | INT | NO | Default value: 10, Max value: 200
+timestamp | LONG | YES |
+recvWindow | LONG | NO |
 Response:
-Name | Description\
----|---\
-subAccount | subAccount name\
-isFreeze | isFreeze\
-createTime | createTime\
+Name | Description
+---|---
+subAccount | subAccount name
+isFreeze | isFreeze
+createTime | createTime
 uid | subaccount uid
 
 ## Create an APIKey for a sub-account (For Master Account)
@@ -90,13 +90,13 @@ uid | subaccount uid
 - POST /api/v3/sub-account/apiKey
 
 **Permission:** SPOT_ACCOUNT_READ
-**Weight(IP):** 1
+**Weight (IP):** 1
 Parameters:
-Name | Type | Mandatory | Description\
----|---|---|---\
-subAccount | STRING | YES | Sub-account Name\
-note | STRING | YES | APIKey note\
-permissions | STRING | YES | Permission of APIKey:\
+Name | Type | Mandatory | Description
+---|---|---|---
+subAccount | STRING | YES | Sub-account Name
+note | STRING | YES | APIKey note
+permissions | STRING | YES | Permission of APIKey:
 SPOT_ACCOUNT_READ,\
 SPOT_ACCOUNT_WRITE,\
 SPOT_DEAL_READ,\
@@ -107,8 +107,8 @@ CONTRACT_DEAL_READ,\
 CONTRACT_DEAL_WRITE,\
 SPOT_TRANSFER_READ,\
 SPOT_TRANSFER_WRITE\
-ip | STRING | NO | Link IP addresses, separate with commas if more than one. Support up to 20 addresses.\
-recvWindow | LONG | NO |\
+ip | STRING | NO | Link IP addresses, separate with commas if more than one. Support up to 20 addresses.
+recvWindow | LONG | NO |
 timestamp | LONG | YES |
 
 ## Query the APIKey of a sub-account (For Master Account)
@@ -123,14 +123,14 @@ Applies to master accounts only
     {
       "note": "v5",
       "apiKey": "arg13sdfgs",
-      "permissions": "SPOT_ACCOUNT_READ,SPOT_ACCOUNT_WRITE",
+      "permissions": "SPOT_ACCOUNT_READ, SPOT_ACCOUNT_WRITE",
       "ip": "1.1.1.1,2.2.2.2",
       "creatTime": 1597026383085
     },
     {
       "note": "v5.1",
       "apiKey": "arg13sdfgs12",
-      "permissions": "SPOT_ACCOUNT_READ,SPOT_ACCOUNT_WRITE",
+      "permissions": "SPOT_ACCOUNT_READ, SPOT_ACCOUNT_WRITE",
       "ip": "1.1.1.1,2.2.2.2",
       "creatTime": 1597026383085
     }
@@ -141,12 +141,12 @@ Applies to master accounts only
 - GET/api/v3/sub-account/apiKey
 
 **Permission:** SPOT_ACCOUNT_READ
-**Weight(IP):** 1
+**Weight (IP):** 1
 Parameters:
-Name | Type | Mandatory | Description\
----|---|---|---\
-subAccount | STRING | YES | Sub-account Name\
-recvWindow | LONG | NO |\
+Name | Type | Mandatory | Description
+---|---|---|---
+subAccount | STRING | YES | Sub-account Name
+recvWindow | LONG | NO |
 timestamp | LONG | YES |
 
 ## Delete the APIKey of a sub-account (For Master Account)
@@ -162,13 +162,13 @@ timestamp | LONG | YES |
 - DELETE /api/v3/sub-account/apiKey
 
 **Permission:** SPOT_ACCOUNT_READ
-**Weight(IP):** 1
+**Weight (IP):** 1
 Parameters:
-Name | Type | Mandatory | Description\
----|---|---|---\
-subAccount | STRING | YES | Sub-account Name\
-apiKey | STRING | YES | API public key\
-recvWindow | LONG | NO |\
+Name | Type | Mandatory | Description
+---|---|---|---
+subAccount | STRING | YES | Sub-account Name
+apiKey | STRING | YES | API public key
+recvWindow | LONG | NO |
 timestamp | LONG | YES |
 
 ## Universal Transfer (For Master Account)
@@ -191,21 +191,21 @@ post /api/v3/capital/sub-account/universalTransfer
 - **POST** `/api/v3/capital/sub-account/universalTransfer`
 
 **Permission:** SPOT_TRANSFER_WRITE
-**Weight(IP):** 1
+**Weight (IP):** 1
 **Parameters:**
-Name | Type | Mandatory | Description\
----|---|---|---\
-fromAccount | string | NO | Transfer from master account by default if fromAccount is not sent\
-toAccount | string | NO | Transfer to master account by default if toAccount is not sent\
-fromAccountType | string | YES | fromAccountType:"SPOT","FUTURES"\
-toAccountType | string | YES | toAccountType:"SPOT","FUTURES"\
-asset | string | YES | asset,eg:USDT\
-amount | string | YES | amount,eg:1.82938475\
-timestamp | string | YES | timestamp\
-signature | string | YES | sign\
+Name | Type | Mandatory | Description
+---|---|---|---
+fromAccount | string | NO | Transfer from master account by default if fromAccount is not sent
+toAccount | string | NO | Transfer to master account by default if toAccount is not sent
+fromAccountType | string | YES | fromAccountType:"SPOT","FUTURES"
+toAccountType | string | YES | toAccountType:"SPOT","FUTURES"
+asset | string | YES | asset,eg: USDT
+amount | string | YES | amount,eg:1.82938475
+timestamp | string | YES | timestamp
+signature | string | YES | sign
 **Response:**
-Name | Type | Description\
----|---|---\
+Name | Type | Description
+---|---|---
 tranId | string | transfer ID
 
 ## Query Universal Transfer History (For Master Account)
@@ -239,34 +239,34 @@ get /api/v3/capital/sub-account/universalTransfer
 - **GET** `/api/v3/capital/sub-account/universalTransfer`
 
 **Permission:** SPOT_TRANSFER_READ
-**Weight(IP):** 1
+**Weight (IP):** 1
 **Parameters:**
-Name | Type | Mandatory | Description\
----|---|---|---\
-fromAccount | string | NO | Transfer from master account by default if fromAccount is not sent\
-toAccount | string | NO | Transfer to master account by default if toAccount is not sent\
-fromAccountType | string | YES | fromAccountType:"SPOT","FUTURES"\
-toAccountType | string | YES | toAccountType:"SPOT","FUTURES"\
-startTime | string | NO | startTime\
-endTime | string | NO | endTime\
-page | string | NO | default 1\
-limit | string | NO | default 500, max 500\
-timestamp | string | YES | timestamp\
-signature | string | YES | sign\
+Name | Type | Mandatory | Description
+---|---|---|---
+fromAccount | string | NO | Transfer from master account by default if fromAccount is not sent
+toAccount | string | NO | Transfer to master account by default if toAccount is not sent
+fromAccountType | string | YES | fromAccountType:"SPOT","FUTURES"
+toAccountType | string | YES | toAccountType:"SPOT","FUTURES"
+startTime | string | NO | startTime
+endTime | string | NO | endTime
+page | string | NO | default 1
+limit | string | NO | default 500, max 500
+timestamp | string | YES | timestamp
+signature | string | YES | sign
 **Response:**
-Name | Type | Description\
----|---|---\
-tranId | string | transfer ID\
-fromAccount | string | fromAccount\
-toAccount | string | toAccount\
-clientTranId | string | clientTranId\
-asset | string | asset\
-amount | string | transfer amount\
-fromAccountType | string | fromAccountType\
-toAccountType | string | toAccountType\
-fromSymbol | string | fromSymbol\
-toSymbol | string | toSymbol\
-status | string | status\
+Name | Type | Description
+---|---|---
+tranId | string | transfer ID
+fromAccount | string | fromAccount
+toAccount | string | toAccount
+clientTranId | string | clientTranId
+asset | string | asset
+amount | string | transfer amount
+fromAccountType | string | fromAccountType
+toAccountType | string | toAccountType
+fromSymbol | string | fromSymbol
+toSymbol | string | toSymbol
+status | string | status
 timestamp | number | timestamp
 
 ## Query Sub-account Asset
@@ -300,18 +300,18 @@ get /api/v3/sub-account/asset?subAccount=account1&accountType=SPOT&timestamp={{t
 - **GET** `/api/v3/sub-account/asset`
 
 **Permission:** SPOT_TRANSFER_READ
-**Weight(IP):** 1
+**Weight (IP):** 1
 **request**
-Name | Type | Mandatory | Description\
----|---|---|---\
-subAccount | string | Yes | subAccount name,only support query for single subaccount\
-accountType | string | Yes | account type:"SPOT","FUTURES",only support SPOT currently\
-timestamp | string | Yes | timestamp\
-signature | string | Yes | signature\
+Name | Type | Mandatory | Description
+---|---|---|---
+subAccount | string | Yes | subAccount name,only support query for single subaccount
+accountType | string | Yes | account type:"SPOT","FUTURES",only support SPOT currently
+timestamp | string | Yes | timestamp
+signature | string | Yes | signature
 **response**
-Name | Type | Description\
----|---|---\
-balances | string | balance\
-asset | string | asset\
-free | string | free\
-locked | string | locked\\
+Name | Type | Description
+---|---|---
+balances | string | balance
+asset | string | asset
+free | string | free
+locked | string | locked

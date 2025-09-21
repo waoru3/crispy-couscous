@@ -169,7 +169,7 @@ The ping message and server return are shown on the right
 All private data will be pushed after login:order、order.deal、position、plan.order、stop.order、stop.planorder、risk.limit、adl.level、asset.
 
 1. If want to cancel the default push,add params when login: `"subscribe":false`.
-1. after login sucess,send "personal.filter" to filter the subscription，if want all data be pushed,send: `{"method":"personal.filter"} `or `{"method":"personal.filter","param":{"filters":[]}}`.
+1. after login sucess,send "personal.filter" to filter the subscription，if want all data be pushed,send: `{"method":"personal.filter"}`or `{"method":"personal.filter","param":{"filters":[]}}`.
 1. available key for filter:order、order.deal、position、plan.order、stop.order、stop.planorder、risk.limit、adl.level、asset.
 
 only asset and adl.level not support for filter single currency or single future.
@@ -235,12 +235,12 @@ The filter event sent later will overwrites the previous one.
 Get the latest transaction price, buy-price, sell-price and 24 transaction volume of all the perpetual contracts on the platform without login. Send once a second after subscribing.
 subscribe , unsubscribe, example is shown on the right.
 **Response parameters:**
-Parameter | Data Type | Description\
----|---|---\
-symbol | string | the name of the contract\
-lastPrice | decimal | the last price\
-volume24 | decimal | 24 hours trading volume, according to the statistics count\
-riseFallRate | decimal | rise/fall rate\
+Parameter | Data Type | Description
+---|---|---
+symbol | string | the name of the contract
+lastPrice | decimal | the last price
+volume24 | decimal | 24 hours trading volume, according to the statistics count
+riseFallRate | decimal | rise/fall rate
 fairPrice | decimal | fair price
 
 ### Ticker
@@ -299,21 +299,21 @@ fairPrice | decimal | fair price
 Get the latest transaction price, buy price, sell price and 24 transaction volume of a contract, send the transaction data without users' login, and send once a second after subscription.
 subscribe , unsubscribe, example is shown on the right.
 **Response parameters:**
-Parameter | Data Type | Description\
----|---|---\
-symbol | string | the name of the contract\
-lastPrice | decimal | last price\
-bid1 | decimal | bid/price\
-ask1 | decimal | ask/price\
-volume24 | decimal | 24 hours transaction volume, according to the statistical count\
-holdVol | decimal | hold volume\
-lower24Price | decimal | lowest price within 24 hours\
-high24Price | decimal | highest price in 24 hours\
-riseFallRate | decimal | rise fall rate\
-riseFallValue | decimal | rise fall value\
-indexPrice | decimal | index price\
-fairPrice | decimal | fair price\
-fundingRate | decimal | funding fee\
+Parameter | Data Type | Description
+---|---|---
+symbol | string | the name of the contract
+lastPrice | decimal | last price
+bid1 | decimal | bid/price
+ask1 | decimal | ask/price
+volume24 | decimal | 24 hours transaction volume, according to the statistical count
+holdVol | decimal | hold volume
+lower24Price | decimal | lowest price within 24 hours
+high24Price | decimal | highest price in 24 hours
+riseFallRate | decimal | rise fall rate
+riseFallValue | decimal | rise fall value
+indexPrice | decimal | index price
+fairPrice | decimal | fair price
+fundingRate | decimal | funding fee
 timestamp | long | system timestamp
 
 ### Deal
@@ -371,13 +371,13 @@ timestamp | long | system timestamp
 Access to the latest data without login, and keep updating.
 Zipped push by default,if want all deal data push,please set `compress` to `false`
 **Response parameters:**
-Parameter | Data Type | Description\
----|---|---\
-p | decimal | transaction price\
-v | decimal | volume\
-T | int | transaction direction,1:purchase,2:sell\
-O | int | open position, 1: open position,2:close position,3:position no change,volume is the additional position when O is 1\
-M | int | Is it auto-transact ? 1: Yes,2: No\
+Parameter | Data Type | Description
+---|---|---
+p | decimal | transaction price
+v | decimal | volume
+T | int | transaction direction,1:purchase,2:sell
+O | int | open position, 1: open position,2:close position,3:position no change,volume is the additional position when O is 1
+M | int | Is it auto-transact ? 1: Yes,2: No
 t | long | transaction time
 
 ### Depth
@@ -405,7 +405,7 @@ t | long | transaction time
 }
 ```
 
-> Full subscription(Limit could be 5, 10 or 20, default 20 without define., only subscribe to the full amount of one gear)
+> Full subscription (Limit could be 5, 10 or 20, default 20 without define., only subscribe to the full amount of one gear)
 
 ```json
 {
@@ -447,7 +447,7 @@ t | long | transaction time
   "data": {
     "asks": [
       [
-        6859.5,
+        6859. 5,
         3251,
         1
       ]
@@ -462,11 +462,11 @@ t | long | transaction time
 
 subscribe , unsubscribe, example is shown on the right. Incremental depth subscription has merging enabled by default. If you do not want to enable it, please set `compress` to `false` when subscribing.
 **Response Parameter:**
-Parameter | Data Type | Description\
----|---|---\
-asks | List | seller depth\
-bids | List | buyer depth\
-version | long | the version number\
+Parameter | Data Type | Description
+---|---|---
+asks | List | seller depth
+bids | List | buyer depth
+version | long | the version number
 Tip: [411.8, 10, 1] 411.8 is price，10 is the order numbers of the contract ,1 is the order quantity
 
 ### K-line
@@ -519,16 +519,16 @@ Get the k-line data of the contract and keep updating.
 subscribe , unsubscribe, example is shown on the right.
 interval optional parameters: Min1、Min5、Min15、Min30、Min60、Hour4、Hour8、Day1、Week1、Month1
 **Response parameters:**
-Parameter | Data Type | Description\
----|---|---\
-symbol | string | the name of the contract\
-a | decimal | total transaction amount\
-c | decimal | the closing price\
-interval | string | interval: Min1、Min5、Min15、Min30、Min60、Hour4、Hour8、Day1、Week1、Month1\
-l | decimal | the lowest price\
-o | decimal | the opening price\
-q | decimal | total transaction volume\
-h | decimal | the highest price\
+Parameter | Data Type | Description
+---|---|---
+symbol | string | the name of the contract
+a | decimal | total transaction amount
+c | decimal | the closing price
+interval | string | interval: Min1、Min5、Min15、Min30、Min60、Hour4、Hour8、Day1、Week1、Month1
+l | decimal | the lowest price
+o | decimal | the opening price
+q | decimal | total transaction volume
+h | decimal | the highest price
 t | long | trading time，unit：second（s）， the start time of the window（windowStart）
 
 ### Funding rate
@@ -572,10 +572,10 @@ t | long | trading time，unit：second（s）， the start time of the window�
 Get the contract funding rate, and keep updating.
 subscribe , unsubscribe, example is shown on the right.
 **Response parameters:**
-Parameter | Data Type | Description\
----|---|---\
-symbol | string | the name of the contract\
-fundingRate | decimal | funding rate\
+Parameter | Data Type | Description
+---|---|---
+symbol | string | the name of the contract
+fundingRate | decimal | funding rate
 nextSettleTime | long | next liquidate time
 
 ### Index price
@@ -619,9 +619,9 @@ nextSettleTime | long | next liquidate time
 Get the index price, and will keep updating if there is any changes.
 subscribe , unsubscribe, example is shown on the right.
 **Response parameters:**
-Parameter | Data Type | Description\
----|---|---\
-symbol | string | the name of the contract\
+Parameter | Data Type | Description
+---|---|---
+symbol | string | the name of the contract
 price | decimal | price
 
 ### Fair price
@@ -664,15 +664,15 @@ price | decimal | price
 
 subscribe , unsubscribe, example is shown on the right.
 **Response parameters**
-Parameter | Data Type | Description\
----|---|---\
-symbol | string | the name of the contract\
+Parameter | Data Type | Description
+---|---|---
+symbol | string | the name of the contract
 price | decimal | price
 
 ## Private Channels
 
 **Signature:**
-The signature target string is: accessKey + timestamp,The HMAC SHA256 algorithm is used to sign the target string.
+The signature target string is: accessKey + timestamp, The HMAC SHA256 algorithm is used to sign the target string.
 **Signature String:**
 `"mx0aBYs33eIilxBW5C1657186536762"`
 
@@ -742,30 +742,30 @@ Login successful (channel = rs.login)
 ```
 
 `channel = push.personal.order`
-Parameter | Data Type | Description\
----|---|---\
-orderId | long | orderid\
-symbol | string | the name of the contract\
-positionId | long | position id\
-price | decimal | trigger price\
-vol | decimal | trigger volume\
-leverage | long | leverage\
-side | int | order side 1open long,2close short,3open short 4 close long\
-category | int | order category:1limit order, 2 system take-over delegate, 3 close delegate 4 ADL reduction\
-orderType | int | true\
-dealAvgPrice | decimal | transaction average price\
-dealVol | decimal | transaction volume\
-orderMargin | decimal | order margin\
-usedMargin | decimal | used margin\
-takerFee | decimal | taker fee\
-makerFee | decimal | maker fee\
-profit | decimal | close profit\
-feeCurrency | string | fee currency\
-openType | int | open type,1:isolated,2:cross\
-state | int | order state,1 uninformed,2 uncompleted,3 completed,4 cancelled,5 invalid\
-errorCode | int | error code, 0:normal, 1:param_invalid, 2:insufficient_balance, 3:position_not_exists, 4:position_not_enough, 5:position_liq, 6:order_liq, 7:risk_level_limit, 8:sys_cancel, 9:position_mode_not_match, 10:reduce_only_liq, 11:contract_not_enable, 12:delivery_cancel, 13:position_liq_cancel, 14:adl_cancel, 15:black_user_cancel, 16:settle_funding_cancel, 17:position_im_change_cancel, 18:ioc_cancel, 19:fok_cancel, 20:post_only_cancel, 21:market_cancel\
-externalOid | string | external order id\
-createTime | date | create time\
+Parameter | Data Type | Description
+---|---|---
+orderId | long | orderid
+symbol | string | the name of the contract
+positionId | long | position id
+price | decimal | trigger price
+vol | decimal | trigger volume
+leverage | long | leverage
+side | int | order side 1open long,2close short,3open short 4 close long
+category | int | order category:1limit order, 2 system take-over delegate, 3 close delegate 4 ADL reduction
+orderType | int | true
+dealAvgPrice | decimal | transaction average price
+dealVol | decimal | transaction volume
+orderMargin | decimal | order margin
+usedMargin | decimal | used margin
+takerFee | decimal | taker fee
+makerFee | decimal | maker fee
+profit | decimal | close profit
+feeCurrency | string | fee currency
+openType | int | open type,1:isolated,2:cross
+state | int | order state,1 uninformed,2 uncompleted,3 completed,4 cancelled,5 invalid
+errorCode | int | error code, 0:normal, 1:param_invalid, 2:insufficient_balance, 3:position_not_exists, 4:position_not_enough, 5:position_liq, 6:order_liq, 7:risk_level_limit, 8:sys_cancel, 9:position_mode_not_match, 10:reduce_only_liq, 11:contract_not_enable, 12:delivery_cancel, 13:position_liq_cancel, 14:adl_cancel, 15:black_user_cancel, 16:settle_funding_cancel, 17:position_im_change_cancel, 18:ioc_cancel, 19:fok_cancel, 20:post_only_cancel, 21:market_cancel
+externalOid | string | external order id
+createTime | date | create time
 updateTime | date | update time
 
 ### Asset
@@ -787,12 +787,12 @@ updateTime | date | update time
 ```
 
 `channel = push.personal.asset`
-Parameter | Data Type | Description\
----|---|---\
-currency | string | currency\
-positionMargin | decimal | position margin\
-frozenBalance | decimal | frozen balance\
-availableBalance | decimal | available balance\
+Parameter | Data Type | Description
+---|---|---
+currency | string | currency
+positionMargin | decimal | position margin
+frozenBalance | decimal | frozen balance
+availableBalance | decimal | available balance
 cashBalance | decimal | drawable balance
 
 ### Position
@@ -827,40 +827,40 @@ cashBalance | decimal | drawable balance
 ```
 
 `channel = push.personal.position`
-Parameter | Data Type | Description\
----|---|---\
-positionId | long | position id\
-symbol | string | the name of the contract\
-holdVol | decimal | hold volume\
-positionType | int | position type， 1long 2short\
-openType | int | open type， 1isolated 2cross\
-state | int | position state,1holding2system holding 3closed\
-frozenVol | decimal | frozen volume\
-closeVol | decimal | close volume\
-holdAvgPrice | decimal | hold average price\
-closeAvgPrice | decimal | close average price\
-openAvgPrice | decimal | open average price\
-liquidatePrice | decimal | liquidate price\
-oim | decimal | original initial margin\
-adlLevel | int | the value of ADL is 1-5. If it is empty, wait for the refresh\
-im | decimal | initial margin， add or subtract this item can be used to adjust the liquidate price\
-holdFee | decimal | hold fee, positive means u get it, negative means lose it\
-realised | decimal | realized profit and loss\
-createTime | date | create time\
+Parameter | Data Type | Description
+---|---|---
+positionId | long | position id
+symbol | string | the name of the contract
+holdVol | decimal | hold volume
+positionType | int | position type， 1long 2short
+openType | int | open type， 1isolated 2cross
+state | int | position state,1holding2system holding 3closed
+frozenVol | decimal | frozen volume
+closeVol | decimal | close volume
+holdAvgPrice | decimal | hold average price
+closeAvgPrice | decimal | close average price
+openAvgPrice | decimal | open average price
+liquidatePrice | decimal | liquidate price
+oim | decimal | original initial margin
+adlLevel | int | the value of ADL is 1-5. If it is empty, wait for the refresh
+im | decimal | initial margin， add or subtract this item can be used to adjust the liquidate price
+holdFee | decimal | hold fee, positive means u get it, negative means lose it
+realised | decimal | realized profit and loss
+createTime | date | create time
 updateTime | date | update time
 
 ### Risk limitation
 
 `channel = push.personal.risk.limit`
-Parameter | Data Type | Description\
----|---|---\
-symbol | string | the name of the contract\
-positionType | int | position type 1:long，2:short\
-riskSource | int | Source of risk 0:other 1:Liquidation Service\
-level | int | current risk level\
-maxVol | decimal | maximum position volume\
-maxLeverage | int | maximum leverage ratio\
-mmr | decimal | maintenance margin rate\
+Parameter | Data Type | Description
+---|---|---
+symbol | string | the name of the contract
+positionType | int | position type 1:long，2:short
+riskSource | int | Source of risk 0:other 1: Liquidation Service
+level | int | current risk level
+maxVol | decimal | maximum position volume
+maxLeverage | int | maximum leverage ratio
+mmr | decimal | maintenance margin rate
 imr | decimal | initial margin rate
 
 ### Adl automatic reduction of position level
@@ -879,9 +879,9 @@ imr | decimal | initial margin rate
 ```
 
 `channel = push.personal.adl.level`
-Parameter | Data Type | Description\
----|---|---\
-adlLevel | int | the current adl level ：1-5\
+Parameter | Data Type | Description
+---|---|---
+adlLevel | int | the current adl level ：1-5
 positionId | long | position id
 
 ### Position Mode
@@ -897,8 +897,8 @@ positionId | long | position id
 ```
 
 `channel = push.personal.position.mode`
-Parameter | Data Type | Description\
----|---|---\
+Parameter | Data Type | Description
+---|---|---
 positionMode | int | position mode,1:hedge，2:one-way
 
 ## How is depth information maintained
@@ -939,7 +939,7 @@ positionMode | int | position mode,1:hedge，2:one-way
 1. Though /api/v1/contract/depth/BTC_USDT to get full amount of depth information, save the current version.
 1. Subscribe to ws depth information, if the received data version more than the current version after update, the later received update cover the previous one at the same price.
 1. Through /api/v1/contract/depth_commits/BTC_USDT/1000 get the latest 1000 depth snapshots.
-1. Discard version data from the snapshot obtained by Version (less than step 3 )for the same price in the current cached depth information
+1. Discard version data from the snapshot obtained by Version (less than step 3 ) for the same price in the current cached depth information
 1. Update the contents of the deep snapshots to the local cache and keep updating from the event received by the WS
 1. The version of each new event should be exactly equal to version+1 of the previous event, otherwise packet loss may occur. In case of packet loss or discontinuous version of the event retrieved, please re-initialize from Step 3.
 1. The amount of hanging orders in each event represents the absolute value of the current hanging orders of the price, rather than the relative change.
