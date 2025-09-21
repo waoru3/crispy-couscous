@@ -20,11 +20,11 @@ async def crawl_and_save_page(crawler, url, filename):
 
         if result.success:
             # Create docs directory if it doesn't exist
-            docs_dir = Path("docs")
+            docs_dir = Path("docs/Futures")
             docs_dir.mkdir(exist_ok=True)
 
             # Save the markdown content
-            file_path = docs_dir / f"futures_{filename}.md"
+            file_path = docs_dir / f"{filename}.md"
             with open(file_path, 'w', encoding='utf-8') as f:
                 f.write(result.markdown)
 

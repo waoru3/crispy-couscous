@@ -6,5 +6,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "crawl4ai>=0.7.4",
+    "mdformat>=0.7.22",
     "playwright>=1.55.0",
+    "ruff>=0.13.1",
 ]
