@@ -942,4 +942,4 @@ Can get `network` via endpoints `Get /api/v3/capital/config/getall`'s response p
 Response:
 Name | Description\
 ---|---\
-id | withdraw ID\
+id | withdraw ID\\

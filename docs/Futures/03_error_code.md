@@ -77,4 +77,4 @@ code | description\
 6002 | Open forbidden\
 6003 | Time range error\
 6004 | The trading pair and status should be fill in\
-6005 | The trading pair is not available\
+6005 | The trading pair is not available\\

@@ -872,4 +872,4 @@ currentPage | int | the current page\
 resultList | list | data consequence set\
 symbol | string | the name of the contract\
 fundingRate | decimal | funding rate\
-settleTime | long | liquidation time\
+settleTime | long | liquidation time\\

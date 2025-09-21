@@ -314,4 +314,4 @@ Name | Type | Description\
 balances | string | balance\
 asset | string | asset\
 free | string | free\
-locked | string | locked\
+locked | string | locked\\

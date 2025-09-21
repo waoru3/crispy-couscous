@@ -536,4 +536,4 @@ symbol | Symbol\
 bidPrice | Best bid price\
 bidQty | Best bid quantity\
 askPrice | Best ask price\
-askQty | Best ask quantity\
+askQty | Best ask quantity\\

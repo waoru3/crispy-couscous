@@ -268,4 +268,4 @@ remainQuantity | bigDecimal | Remaining quantity\
 cumulativeQuantity | bigDecimal | Cumulative trade quantity\
 cumulativeAmount | bigDecimal | Cumulative trade amount\
 status | int | Order status: 1: Not traded, 2: Fully traded, 3: Partially traded, 4: Canceled, 5: Partially canceled\
-createTime | long | Order creation time\
+createTime | long | Order creation time\\
