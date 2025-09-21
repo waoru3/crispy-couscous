@@ -1,0 +1,6 @@
+.claude/
+.mcp.json
+.serena/
+settings.local.json
+.venv/
+.vscode/
