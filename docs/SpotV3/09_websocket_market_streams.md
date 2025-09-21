@@ -1,60 +1,26 @@
-[Skip to main content](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#__docusaurus_skipToContent_fallback "Skip to main content")
-[![MEXC Logo](https://www.mexc.com/api-docs-assets/img/mexc-logo.svg)](https://www.mexc.com/ "https://www.mexc.com/")[SpotV3](https://www.mexc.com/api-docs/spot-v3/introduction "SpotV3")[Futures](https://www.mexc.com/api-docs/futures/update-log "Futures")[Broker](https://www.mexc.com/api-docs/broker/mexc-broker-introduction "Broker")
-[](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams "English")
-
-- [English](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams "English")
-
-- [中文](https://www.mexc.com/zh-MY/api-docs/spot-v3/websocket-market-streams "中文")
-
-- [Introduction](https://www.mexc.com/api-docs/spot-v3/introduction "Introduction")
-
-- [Change Log](https://www.mexc.com/api-docs/spot-v3/change-log "Change Log")
-
-- [FAQs](https://www.mexc.com/api-docs/spot-v3/faqs "FAQs")
-
-- [General Info](https://www.mexc.com/api-docs/spot-v3/general-info "General Info")
-
-- [Market Data Endpoints](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints "Market Data Endpoints")
-
-- [Sub-Account Endpoints](https://www.mexc.com/api-docs/spot-v3/subaccount-endpoints "Sub-Account Endpoints")
-
-- [Spot Account/Trade](https://www.mexc.com/api-docs/spot-v3/spot-account-trade "Spot Account/Trade")
-
-- [Wallet Endpoints](https://www.mexc.com/api-docs/spot-v3/wallet-endpoints "Wallet Endpoints")
-
-- [Websocket Market Streams](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams "Websocket Market Streams")
-
-- [Websocket User Data Streams](https://www.mexc.com/api-docs/spot-v3/websocket-user-data-streams "Websocket User Data Streams")
-
-- [Rebate Endpoints](https://www.mexc.com/api-docs/spot-v3/rebate-endpoints "Rebate Endpoints")
-
-- [Public API Definitions](https://www.mexc.com/api-docs/spot-v3/public-api-definitions "Public API Definitions")
-
-On this page
-
 # Websocket Market Streams
 
-- The base endpoint is: **[wss://wbs-api.mexc.com/ws](https://wbs-api.mexc.com/ws "wss://wbs-api.mexc.com/ws")**
-- Each connection to **[wss://wbs-api.mexc.com/ws](https://wbs-api.mexc.com/ws "wss://wbs-api.mexc.com/ws")** is valid for no more than 24 hours. Please handle disconnections and reconnections properly.
+- The base endpoint is: **[wss://wbs-api.mexc.com/ws](https://wbs-api.mexc.com/ws)**
+- Each connection to **[wss://wbs-api.mexc.com/ws](https://wbs-api.mexc.com/ws)** is valid for no more than 24 hours. Please handle disconnections and reconnections properly.
 - All trading pair names in the symbol must be in **uppercase**. For example: `spot@public.aggre.deals.v3.api.pb@&lt;symbol&gt;`\
   Example: `spot@public.aggre.deals.v3.api.pb@100ms@BTCUSDT`
 - If there is no valid subscription on the websocket, the server will actively disconnect after **30 seconds**. If the subscription is successful but there is no data flow, the server will disconnect after **one minute**. The client can send a ping to keep the connection alive.
 - One ws connection supports a maximum of 30 subscriptions.
 - Please process the data according to the parameters returned in the documentation. Parameters not returned in the documentation will be optimized soon, so please do not use them.
 
-## Live Subscription/Unsubscription to Data Streams[​](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#live-subscriptionunsubscription-to-data-streams "Direct link to Live Subscription/Unsubscription to Data Streams")
+## Live Subscription/Unsubscription to Data Streams
 
 - The following data can be sent via websocket to subscribe or unsubscribe from data streams. Examples are provided below.
 - The `id` in the response is an unsigned integer and serves as the unique identifier for communication.
 - If the `msg` in the response matches the corresponding request field, it indicates that the request was sent successfully.
 
-## Protocol Buffers Integration[​](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#protocol-buffers-integration "Direct link to Protocol Buffers Integration")
+## Protocol Buffers Integration
 
 The current websocket push uses the protobuf format. The specific integration process is as follows:
 1.**PB File Definition**\
-The PB definition files can be obtained via the provided link:[](https://github.com/mexcdevelop/websocket-proto "https://github.com/mexcdevelop/websocket-proto")<https://github.com/mexcdevelop/websocket-proto>
+The PB definition files can be obtained via the provided link:[](https://github.com/mexcdevelop/websocket-proto)<https://github.com/mexcdevelop/websocket-proto>
 2.**Generate Deserialization Code**\
-Use the tool available at [](https://github.com/protocolbuffers/protobuf "https://github.com/protocolbuffers/protobuf")<https://github.com/protocolbuffers/protobuf> to compile the .proto files and generate deserialization code.
+Use the tool available at [](https://github.com/protocolbuffers/protobuf)<https://github.com/protocolbuffers/protobuf> to compile the .proto files and generate deserialization code.
 
 > **Java**
 
@@ -134,112 +100,110 @@ print(result)
 
 ______________________________________________________________________
 
-### Subscribe to a Data Stream[​](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#subscribe-to-a-data-stream "Direct link to Subscribe to a Data Stream")
+### Subscribe to a Data Stream
 
 > **Subscription Channel Response**
 
-```
-{  
-"id":0,  
-"code":0,  
-"msg":"spot@public.aggre.deals.v3.api.pb@100ms@BTCUSDT"  
-}  
-
+```json
+{
+  "id": 0,
+  "code": 0,
+  "msg": "spot@public.aggre.deals.v3.api.pb@100ms@BTCUSDT"
+}
 ```
 
 - **Request**
 
-```
-{  
-"method":"SUBSCRIPTION",  
-"params":["spot@public.aggre.deals.v3.api.pb@100ms@BTCUSDT"]  
-}  
-
+```json
+{
+  "method": "SUBSCRIPTION",
+  "params": [
+    "spot@public.aggre.deals.v3.api.pb@100ms@BTCUSDT"
+  ]
+}
 ```
 
 ______________________________________________________________________
 
-### Unsubscribe from a Data Stream[​](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#unsubscribe-from-a-data-stream "Direct link to Unsubscribe from a Data Stream")
+### Unsubscribe from a Data Stream
 
 > **Unsubscription Response**
 
-```
-{  
-"id":0,  
-"code":0,  
-"msg":"spot@public.aggre.deals.v3.api.pb@100ms@BTCUSDT"  
-}  
-
+```json
+{
+  "id": 0,
+  "code": 0,
+  "msg": "spot@public.aggre.deals.v3.api.pb@100ms@BTCUSDT"
+}
 ```
 
 - **Request**
 
-```
-{  
-"method":"UNSUBSCRIPTION",  
-"params":["spot@public.aggre.deals.v3.api.pb@100ms@BTCUSDT"]  
-}  
-
+```json
+{
+  "method": "UNSUBSCRIPTION",
+  "params": [
+    "spot@public.aggre.deals.v3.api.pb@100ms@BTCUSDT"
+  ]
+}
 ```
 
 ______________________________________________________________________
 
-### PING/PONG Mechanism[​](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#pingpong-mechanism "Direct link to PING/PONG Mechanism")
+### PING/PONG Mechanism
 
 > **PING/PONG Response**
 
-```
-{  
-"id":0,  
-"code":0,  
-"msg":"PONG"  
-}  
-
+```json
+{
+  "id": 0,
+  "code": 0,
+  "msg": "PONG"
+}
 ```
 
 - **Request**
 
-```
-{"method":"PING"}  
-
+```json
+{
+  "method": "PING"
+}
 ```
 
 ______________________________________________________________________
 
-## Trade Streams[​](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#trade-streams "Direct link to Trade Streams")
+## Trade Streams
 
 > **Request:**
 
-```
-{  
-"method":"SUBSCRIPTION",  
-"params":[  
-"spot@public.aggre.deals.v3.api.pb@100ms@BTCUSDT"  
-]  
-}  
-
+```json
+{
+  "method": "SUBSCRIPTION",
+  "params": [
+    "spot@public.aggre.deals.v3.api.pb@100ms@BTCUSDT"
+  ]
+}
 ```
 
 > **Response:**
 
-```
-{  
-"channel":"spot@public.aggre.deals.v3.api.pb@100ms@BTCUSDT",  
-"publicdeals":{  
-"dealsList":[  
-{  
-"price":"93220.00",// Trade price  
-"quantity":"0.04438243",// Trade quantity  
-"tradetype":2,// Trade type (1: Buy, 2: Sell)  
-"time":1736409765051// Trade time  
-}  
-],  
-"eventtype":"spot@public.aggre.deals.v3.api.pb@100ms"// Event type   
-},  
-"symbol":"BTCUSDT",// Trading pair  
-"sendtime":1736409765052// Event time  
-}  
-
+```json
+{
+  "channel":"spot@public.aggre.deals.v3.api.pb@100ms@BTCUSDT",
+  "publicdeals":{
+    "dealsList":[
+    {
+      "price":"93220.00",// Trade price
+      "quantity":"0.04438243",// Trade quantity
+      "tradetype":2,// Trade type (1: Buy, 2: Sell)
+      "time":1736409765051// Trade time
+    }
+    ],
+    "eventtype":"spot@public.aggre.deals.v3.api.pb@100ms"// Event type
+  },
+  "symbol":"BTCUSDT",// Trading pair
+  "sendtime":1736409765052// Event time
+}
 ```
 
 **Request Parameter:** `spot@public.aggre.deals.v3.api.pb@(100ms|10ms)@&lt;symbol&gt;`
@@ -258,41 +222,39 @@ sendtime | long | Event time
 
 ______________________________________________________________________
 
-## K-line Streams[​](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#k-line-streams "Direct link to K-line Streams")
+## K-line Streams
 
 > **Request:**
 
-```
-{  
-"method":"SUBSCRIPTION",  
-"params":[  
-"spot@public.kline.v3.api.pb@BTCUSDT@Min15"  
-]  
-}  
-
+```json
+{
+  "method": "SUBSCRIPTION",
+  "params": [
+    "spot@public.kline.v3.api.pb@BTCUSDT@Min15"
+  ]
+}
 ```
 
 > **Response:**
 
-```
-{  
-"channel":"spot@public.kline.v3.api.pb@BTCUSDT@Min15",  
-"publicspotkline":{  
-"interval":"Min15",// K-line interval  
-"windowstart":1736410500,// Start time of the K-line  
-"openingprice":"92925",// Opening trade price during this K-line  
-"closingprice":"93158.47",// Closing trade price during this K-line  
-"highestprice":"93158.47",// Highest trade price during this K-line  
-"lowestprice":"92800",// Lowest trade price during this K-line  
-"volume":"36.83803224",// Trade volume during this K-line  
-"amount":"3424811.05",// Trade amount during this K-line  
-"windowend":1736411400// End time of the K-line     
-},  
-"symbol":"BTCUSDT",  
-"symbolid":"2fb942154ef44a4ab2ef98c8afb6a4a7",  
-"createtime":1736410707571  
-}  
-
+```json
+{
+  "channel":"spot@public.kline.v3.api.pb@BTCUSDT@Min15",
+  "publicspotkline":{
+    "interval":"Min15",// K-line interval
+    "windowstart":1736410500,// Start time of the K-line
+    "openingprice":"92925",// Opening trade price during this K-line
+    "closingprice":"93158.47",// Closing trade price during this K-line
+    "highestprice":"93158.47",// Highest trade price during this K-line
+    "lowestprice":"92800",// Lowest trade price during this K-line
+    "volume":"36.83803224",// Trade volume during this K-line
+    "amount":"3424811.05",// Trade amount during this K-line
+    "windowend":1736411400// End time of the K-line
+  },
+  "symbol":"BTCUSDT",
+  "symbolid":"2fb942154ef44a4ab2ef98c8afb6a4a7",
+  "createtime":1736410707571
+}
 ```
 
 The Kline/Candlestick Stream push updates to the current klines/candlestick every second.
@@ -332,41 +294,39 @@ Available intervals:
 
 ______________________________________________________________________
 
-## Diff.Depth Stream[​](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#diffdepth-stream "Direct link to Diff.Depth Stream")
+## Diff.Depth Stream
 
 > **Request:**
 
-```
-{  
-"method":"SUBSCRIPTION",  
-"params":[  
-"spot@public.aggre.depth.v3.api.pb@100ms@BTCUSDT"  
-]  
-}  
-
+```json
+{
+  "method": "SUBSCRIPTION",
+  "params": [
+    "spot@public.aggre.depth.v3.api.pb@100ms@BTCUSDT"
+  ]
+}
 ```
 
 > **Response:**
 
-```
-{  
-"channel":"spot@public.aggre.depth.v3.api.pb@100ms@BTCUSDT",  
-"publicincreasedepths":{  
-"asksList":[],// asks: Sell orders  
-"bidsList":[// bids: Buy orders  
-{  
-"price":"92877.58",// Price level of change  
-"quantity":"0.00000000"// Quantity  
-}  
-],  
-"eventtype":"spot@public.aggre.depth.v3.api.pb@100ms",// Event type  
-"fromVersion":"10589632359",// from version  
-"toVersion":"10589632359"// to version  
-},  
-"symbol":"BTCUSDT",// Trading pair  
-"sendtime":1736411507002// Event time  
-}  
-
+```json
+{
+  "channel":"spot@public.aggre.depth.v3.api.pb@100ms@BTCUSDT",
+  "publicincreasedepths":{
+    "asksList":[],// asks: Sell orders
+    "bidsList":[// bids: Buy orders
+    {
+      "price":"92877.58",// Price level of change
+      "quantity":"0.00000000"// Quantity
+    }
+    ],
+    "eventtype":"spot@public.aggre.depth.v3.api.pb@100ms",// Event type
+    "fromVersion":"10589632359",// from version
+    "toVersion":"10589632359"// to version
+  },
+  "symbol":"BTCUSDT",// Trading pair
+  "sendtime":1736411507002// Event time
+}
 ```
 
 If the order quantity (`quantity`) for a price level is 0, it indicates that the order at that price has been canceled or executed, and that price level should be removed.
@@ -383,47 +343,45 @@ sendtime | long | Event time
 
 ______________________________________________________________________
 
-## Partial Book Depth Streams[​](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#partial-book-depth-streams "Direct link to Partial Book Depth Streams")
+## Partial Book Depth Streams
 
 This stream pushes limited level depth information. The "levels" indicate the number of order levels for buy and sell orders, which can be 5, 10, or 20 levels.
 
 > **Request:**
 
-```
-{  
-"method":"SUBSCRIPTION",  
-"params":[  
-"spot@public.limit.depth.v3.api.pb@BTCUSDT@5"  
-]  
-}  
-
+```json
+{
+  "method": "SUBSCRIPTION",
+  "params": [
+    "spot@public.limit.depth.v3.api.pb@BTCUSDT@5"
+  ]
+}
 ```
 
 > **Response:**
 
-```
-{  
-"channel":"spot@public.limit.depth.v3.api.pb@BTCUSDT@5",  
-"publiclimitdepths":{  
-"asksList":[// asks: Sell orders  
-{  
-"price":"93180.18",// Price level of change  
-"quantity":"0.21976424"// Quantity  
-}  
-],  
-"bidsList":[// bids: Buy orders  
-{  
-"price":"93179.98",  
-"quantity":"2.82651000"  
-}  
-],  
-"eventtype":"spot@public.limit.depth.v3.api.pb",// Event type  
-"version":"36913565463"// Version number   
-},  
-"symbol":"BTCUSDT",// Trading pair  
-"sendtime":1736411838730// Event time  
-}  
-
+```json
+{
+  "channel":"spot@public.limit.depth.v3.api.pb@BTCUSDT@5",
+  "publiclimitdepths":{
+    "asksList":[// asks: Sell orders
+    {
+      "price":"93180.18",// Price level of change
+      "quantity":"0.21976424"// Quantity
+    }
+    ],
+    "bidsList":[// bids: Buy orders
+    {
+      "price":"93179.98",
+      "quantity":"2.82651000"
+    }
+    ],
+    "eventtype":"spot@public.limit.depth.v3.api.pb",// Event type
+    "version":"36913565463"// Version number
+  },
+  "symbol":"BTCUSDT",// Trading pair
+  "sendtime":1736411838730// Event time
+}
 ```
 
 **Request Parameter:** `spot@public.limit.depth.v3.api.pb@&lt;symbol&gt;@&lt;level&gt;`
@@ -439,37 +397,35 @@ sendtime | long | Event time
 
 ______________________________________________________________________
 
-## Individual Symbol Book Ticker Streams[​](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#individual-symbol-book-ticker-streams "Direct link to Individual Symbol Book Ticker Streams")
+## Individual Symbol Book Ticker Streams
 
 Pushes any update to the best bid or ask's price or quantity in real-time for a specified symbol.
 
 > **Request:**
 
-```
-{  
-"method":"SUBSCRIPTION",  
-"params":[  
-"spot@public.aggre.bookTicker.v3.api.pb@100ms@BTCUSDT"  
-]  
-}  
-
+```json
+{
+  "method": "SUBSCRIPTION",
+  "params": [
+    "spot@public.aggre.bookTicker.v3.api.pb@100ms@BTCUSDT"
+  ]
+}
 ```
 
 > **Response:**
 
-```
-{  
-"channel":"spot@public.aggre.bookTicker.v3.api.pb@100ms@BTCUSDT",  
-"publicbookticker":{  
-"bidprice":"93387.28",// Best bid price  
-"bidquantity":"3.73485",// Best bid quantity  
-"askprice":"93387.29",// Best ask price  
-"askquantity":"7.669875"// Best ask quantity  
-},  
-"symbol":"BTCUSDT",// Trading pair  
-"sendtime":1736412092433// Event time  
-}  
-
+```json
+{
+  "channel":"spot@public.aggre.bookTicker.v3.api.pb@100ms@BTCUSDT",
+  "publicbookticker":{
+    "bidprice":"93387.28",// Best bid price
+    "bidquantity":"3.73485",// Best bid quantity
+    "askprice":"93387.29",// Best ask price
+    "askquantity":"7.669875"// Best ask quantity
+  },
+  "symbol":"BTCUSDT",// Trading pair
+  "sendtime":1736412092433// Event time
+}
 ```
 
 **Request Parameter:** `spot@public.aggre.bookTicker.v3.api.pb@(100ms|10ms)@&lt;symbol&gt;`
@@ -485,39 +441,39 @@ sendtime | long | Event time
 
 ______________________________________________________________________
 
-## Individual Symbol Book Ticker Streams(Batch Aggregation)[​](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#individual-symbol-book-ticker-streamsbatch-aggregation "Direct link to Individual Symbol Book Ticker Streams(Batch Aggregation)")
+## Individual Symbol Book Ticker Streams(Batch Aggregation)
 
 This batch aggregation version pushes the best order information for a specified trading pair.
 
 > **Request:**
 
-```
-{  
-"method":"SUBSCRIPTION",  
-"params":[  
-"spot@public.bookTicker.batch.v3.api.pb@BTCUSDT"  
-]  
-}  
-
+```json
+{
+  "method": "SUBSCRIPTION",
+  "params": [
+    "spot@public.bookTicker.batch.v3.api.pb@BTCUSDT"
+  ]
+}
 ```
 
 > **Response:**
 
-```
-{  
-"channel":"spot@public.bookTicker.batch.v3.api.pb@BTCUSDT",  
-"symbol":"BTCUSDT",  
-"sendTime":"1739503249114",  
-"publicBookTickerBatch":{  
-"items":[{  
-"bidPrice":"96567.37",  
-"bidQuantity":"3.362925",  
-"askPrice":"96567.38",  
-"askQuantity":"1.545255"  
-}]  
-}  
-}  
-
+```json
+{
+  "channel": "spot@public.bookTicker.batch.v3.api.pb@BTCUSDT",
+  "symbol": "BTCUSDT",
+  "sendTime": "1739503249114",
+  "publicBookTickerBatch": {
+    "items": [
+      {
+        "bidPrice": "96567.37",
+        "bidQuantity": "3.362925",
+        "askPrice": "96567.38",
+        "askQuantity": "1.545255"
+      }
+    ]
+  }
+}
 ```
 
 **Request Parameter:** `spot@public.bookTicker.batch.v3.api.pb@&lt;symbol&gt;`
@@ -533,79 +489,75 @@ sendtime | long | Event time
 
 ______________________________________________________________________
 
-## MiniTickers[​](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#minitickers "Direct link to MiniTickers")
+## MiniTickers
 
 minitickers of all trading pairs in the specified timezone, pushed every 3 seconds.\
 UTC value range: 24H, UTC-10, UTC-8, UTC-7, UTC-6, UTC-5, UTC-4, UTC-3, UTC+0, UTC+1, UTC+2, UTC+3, UTC+4, UTC+4:30, UTC+5, UTC+5:30, UTC+6, UTC+7, UTC+8, UTC+9, UTC+10, UTC+11, UTC+12, UTC+12:45, UTC+13
 
 > **Request:**
 
-```
-{  
-"method":"SUBSCRIPTION",  
-"params":[  
-"spot@public.miniTickers.v3.api.pb@UTC+8"  
-]  
-}  
-
+```json
+{
+  "method": "SUBSCRIPTION",
+  "params": [
+    "spot@public.miniTickers.v3.api.pb@UTC+8"
+  ]
+}
 ```
 
 > **Response:**
 
-```
-{  
-"channel":"spot@public.miniTickers.v3.api.pb@UTC+8",  
-"sendTime":"1755076614201",  
-"publicMiniTickers":  
-{  
-"items":  
-[  
-{  
-"symbol":"METAUSDT",  
-"price":"0.055",  
-"rate":"-0.2361",  
-"zonedRate":"-0.2361",  
-"high":"0.119",  
-"low":"0.053",  
-"volume":"814864.474",  
-"quantity":"10764997.16",  
-"lastCloseRate":"-0.2567",  
-"lastCloseZonedRate":"-0.2567",  
-"lastCloseHigh":"0.119",  
-"lastCloseLow":"0.053"  
-},  
-{  
-"symbol":"FCATUSDT",  
-"price":"0.0000031",  
-"rate":"-0.4464",  
-"zonedRate":"-0.4464",  
-"high":"0.0000066",  
-"low":"0.0000025",  
-"volume":"2825.4350195",  
-"quantity":"654649950.75",  
-"lastCloseRate":"-0.4464",  
-"lastCloseZonedRate":"-0.4464",  
-"lastCloseHigh":"0.0000066",  
-"lastCloseLow":"0.0000025"  
-},  
-{  
-"symbol":"CRVETH",  
-"price":"0.00022592",  
-"rate":"0.028",  
-"zonedRate":"0.028",  
-"high":"0.00022856",  
-"low":"0.00021024",  
-"volume":"1062.48406269",  
-"quantity":"4884456.998",  
-"lastCloseRate":"0.0276",  
-"lastCloseZonedRate":"0.0276",  
-"lastCloseHigh":"0.00022856",  
-"lastCloseLow":"0.00021024"  
-}  
-]  
-}  
-}  
-
+```json
+{
+  "channel": "spot@public.miniTickers.v3.api.pb@UTC+8",
+  "sendTime": "1755076614201",
+  "publicMiniTickers": {
+    "items": [
+      {
+        "symbol": "METAUSDT",
+        "price": "0.055",
+        "rate": "-0.2361",
+        "zonedRate": "-0.2361",
+        "high": "0.119",
+        "low": "0.053",
+        "volume": "814864.474",
+        "quantity": "10764997.16",
+        "lastCloseRate": "-0.2567",
+        "lastCloseZonedRate": "-0.2567",
+        "lastCloseHigh": "0.119",
+        "lastCloseLow": "0.053"
+      },
+      {
+        "symbol": "FCATUSDT",
+        "price": "0.0000031",
+        "rate": "-0.4464",
+        "zonedRate": "-0.4464",
+        "high": "0.0000066",
+        "low": "0.0000025",
+        "volume": "2825.4350195",
+        "quantity": "654649950.75",
+        "lastCloseRate": "-0.4464",
+        "lastCloseZonedRate": "-0.4464",
+        "lastCloseHigh": "0.0000066",
+        "lastCloseLow": "0.0000025"
+      },
+      {
+        "symbol": "CRVETH",
+        "price": "0.00022592",
+        "rate": "0.028",
+        "zonedRate": "0.028",
+        "high": "0.00022856",
+        "low": "0.00021024",
+        "volume": "1062.48406269",
+        "quantity": "4884456.998",
+        "lastCloseRate": "0.0276",
+        "lastCloseZonedRate": "0.0276",
+        "lastCloseHigh": "0.00022856",
+        "lastCloseLow": "0.00021024"
+      }
+    ]
+  }
+}
 ```
 
 **Request Parameter:** `spot@public.miniTickers.v3.api.pb@&lt;timezone&gt;`
@@ -627,46 +579,44 @@ lastCloseLow | string | Previous close rolling lowest price
 
 ______________________________________________________________________
 
-## MiniTicker[​](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#miniticker "Direct link to MiniTicker")
+## MiniTicker
 
 miniticker of the specified trading pair in the specified timezone, pushed every 3 seconds.\
 UTC value range: 24H, UTC-10, UTC-8, UTC-7, UTC-6, UTC-5, UTC-4, UTC-3, UTC+0, UTC+1, UTC+2, UTC+3, UTC+4, UTC+4:30, UTC+5, UTC+5:30, UTC+6, UTC+7, UTC+8, UTC+9, UTC+10, UTC+11, UTC+12, UTC+12:45, UTC+13
 
 > **Request:**
 
-```
-{  
-"method":"SUBSCRIPTION",  
-"params":[  
-"spot@public.miniTicker.v3.api.pb@MXUSDT@UTC+8"  
-]  
-}  
-
+```json
+{
+  "method": "SUBSCRIPTION",
+  "params": [
+    "spot@public.miniTicker.v3.api.pb@MXUSDT@UTC+8"
+  ]
+}
 ```
 
 > **Response:**
 
-```
-{  
-"channel":"spot@public.miniTicker.v3.api.pb@MXUSDT@UTC+8",  
-"symbol":"MXUSDT",  
-"sendTime":"1755076752201",  
-"publicMiniTicker":{  
-"symbol":"MXUSDT",  
-"price":"2.5174",  
-"rate":"0.0766",  
-"zonedRate":"0.0766",  
-"high":"2.6299",  
-"low":"2.302",  
-"volume":"11336518.0264",  
-"quantity":"4638390.17",  
-"lastCloseRate":"0.0767",  
-"lastCloseZonedRate":"0.0767",  
-"lastCloseHigh":"2.6299",  
-"lastCloseLow":"2.302"  
-}  
-}  
-
+```json
+{
+  "channel": "spot@public.miniTicker.v3.api.pb@MXUSDT@UTC+8",
+  "symbol": "MXUSDT",
+  "sendTime": "1755076752201",
+  "publicMiniTicker": {
+    "symbol": "MXUSDT",
+    "price": "2.5174",
+    "rate": "0.0766",
+    "zonedRate": "0.0766",
+    "high": "2.6299",
+    "low": "2.302",
+    "volume": "11336518.0264",
+    "quantity": "4638390.17",
+    "lastCloseRate": "0.0767",
+    "lastCloseZonedRate": "0.0767",
+    "lastCloseHigh": "2.6299",
+    "lastCloseLow": "2.302"
+  }
+}
 ```
 
 **Request Parameter:** `spot@public.miniTicker.v3.api.pb@&lt;symbol&gt;@&lt;timezone&gt;`
@@ -688,7 +638,7 @@ lastCloseLow | string | Previous close rolling lowest price
 
 ______________________________________________________________________
 
-## How to Properly Maintain a Local Copy of the Order Book[​](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#how-to-properly-maintain-a-local-copy-of-the-order-book "Direct link to How to Properly Maintain a Local Copy of the Order Book")
+## How to Properly Maintain a Local Copy of the Order Book
 
 1. Connect to the WebSocket and subscribe to `spot@public.aggre.depth.v3.api.pb@(100ms|10ms)@MXBTC` to obtain incremental aggregated depth information.
 1. Access the REST API `https://api.mexc.com/api/v3/depth?symbol=MXBTC&limit=1000` to obtain a depth snapshot with 1000 levels.
@@ -704,20 +654,3 @@ ______________________________________________________________________
 **Note:** Since the depth snapshot has a limitation on the number of price levels, price levels outside the initial snapshot that have not changed in quantity will not appear in incremental push messages. Therefore, the local order book may differ slightly from the real order book. However, for most use cases, the 5000-depth limit is sufficient to effectively understand the market and trading activity.
 
 ______________________________________________________________________
-
-[Previous Wallet Endpoints](https://www.mexc.com/api-docs/spot-v3/wallet-endpoints "PreviousWallet Endpoints")[Next Websocket User Data Streams](https://www.mexc.com/api-docs/spot-v3/websocket-user-data-streams "NextWebsocket User Data Streams")
-
-- [Live Subscription/Unsubscription to Data Streams](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#live-subscriptionunsubscription-to-data-streams "Live Subscription/Unsubscription to Data Streams")
-- [Protocol Buffers Integration](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#protocol-buffers-integration "Protocol Buffers Integration")
-  - [Subscribe to a Data Stream](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#subscribe-to-a-data-stream "Subscribe to a Data Stream")
-  - [Unsubscribe from a Data Stream](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#unsubscribe-from-a-data-stream "Unsubscribe from a Data Stream")
-  - [PING/PONG Mechanism](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#pingpong-mechanism "PING/PONG Mechanism")
-- [Trade Streams](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#trade-streams "Trade Streams")
-- [K-line Streams](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#k-line-streams "K-line Streams")
-- [Diff.Depth Stream](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#diffdepth-stream "Diff.Depth Stream")
-- [Partial Book Depth Streams](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#partial-book-depth-streams "Partial Book Depth Streams")
-- [Individual Symbol Book Ticker Streams](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#individual-symbol-book-ticker-streams "Individual Symbol Book Ticker Streams")
-- [Individual Symbol Book Ticker Streams(Batch Aggregation)](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#individual-symbol-book-ticker-streamsbatch-aggregation "Individual Symbol Book Ticker Streams(Batch Aggregation)")
-- [MiniTickers](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#minitickers "MiniTickers")
-- [MiniTicker](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#miniticker "MiniTicker")
-- [How to Properly Maintain a Local Copy of the Order Book](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams#how-to-properly-maintain-a-local-copy-of-the-order-book "How to Properly Maintain a Local Copy of the Order Book")

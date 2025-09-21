@@ -1,28 +1,6 @@
-[Skip to main content](https://www.mexc.com/api-docs/futures/error-code#__docusaurus_skipToContent_fallback "Skip to main content")
-[![MEXC Logo](https://www.mexc.com/api-docs-assets/img/mexc-logo.svg)](https://www.mexc.com/ "https://www.mexc.com/")[SpotV3](https://www.mexc.com/api-docs/spot-v3/introduction "SpotV3")[Futures](https://www.mexc.com/api-docs/futures/update-log "Futures")[Broker](https://www.mexc.com/api-docs/broker/mexc-broker-introduction "Broker")
-[](https://www.mexc.com/api-docs/futures/error-code "English")
-
-- [English](https://www.mexc.com/api-docs/futures/error-code "English")
-
-- [中文](https://www.mexc.com/zh-MY/api-docs/futures/error-code "中文")
-
-- [Update log](https://www.mexc.com/api-docs/futures/update-log "Update log")
-
-- [Integration guide](https://www.mexc.com/api-docs/futures/integration-guide "Integration guide")
-
-- [Error code](https://www.mexc.com/api-docs/futures/error-code "Error code")
-
-- [Market endpoints](https://www.mexc.com/api-docs/futures/market-endpoints "Market endpoints")
-
-- [Account and trading endpoints](https://www.mexc.com/api-docs/futures/account-and-trading-endpoints "Account and trading endpoints")
-
-- [WebSocket API](https://www.mexc.com/api-docs/futures/websocket-api "WebSocket API")
-
-On this page
-
 # Error code
 
-## Error code Example[​](https://www.mexc.com/api-docs/futures/error-code#error-code-example "Direct link to Error code Example")
+## Error code Example
 
 Every endpoint has the potential for abnormalities.
 The following is the error code information that the endpoint might return
@@ -100,6 +78,3 @@ code | description\
 6003 | Time range error\
 6004 | The trading pair and status should be fill in\
 6005 | The trading pair is not available\
-[Previous Integration guide](https://www.mexc.com/api-docs/futures/integration-guide "PreviousIntegration guide")[Next Market endpoints](https://www.mexc.com/api-docs/futures/market-endpoints "NextMarket endpoints")
-
-- [Error code Example](https://www.mexc.com/api-docs/futures/error-code#error-code-example "Error code Example")

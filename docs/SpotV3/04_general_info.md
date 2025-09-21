@@ -1,53 +1,19 @@
-[Skip to main content](https://www.mexc.com/api-docs/spot-v3/general-info#__docusaurus_skipToContent_fallback)
-[ ![MEXC Logo](https://www.mexc.com/api-docs-assets/img/mexc-logo.svg)![MEXC Logo](https://www.mexc.com/api-docs-assets/img/mexc-logo.svg) ](https://www.mexc.com/)[SpotV3](https://www.mexc.com/api-docs/spot-v3/introduction)[Futures](https://www.mexc.com/api-docs/futures/update-log)[Broker](https://www.mexc.com/api-docs/broker/mexc-broker-introduction)
-[](https://www.mexc.com/api-docs/spot-v3/general-info)
-
-- [English](https://www.mexc.com/api-docs/spot-v3/general-info)
-
-- [中文](https://www.mexc.com/zh-MY/api-docs/spot-v3/general-info)
-
-- [Introduction](https://www.mexc.com/api-docs/spot-v3/introduction)
-
-- [Change Log](https://www.mexc.com/api-docs/spot-v3/change-log)
-
-- [FAQs](https://www.mexc.com/api-docs/spot-v3/faqs)
-
-- [General Info](https://www.mexc.com/api-docs/spot-v3/general-info)
-
-- [Market Data Endpoints](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints)
-
-- [Sub-Account Endpoints](https://www.mexc.com/api-docs/spot-v3/subaccount-endpoints)
-
-- [Spot Account/Trade](https://www.mexc.com/api-docs/spot-v3/spot-account-trade)
-
-- [Wallet Endpoints](https://www.mexc.com/api-docs/spot-v3/wallet-endpoints)
-
-- [Websocket Market Streams](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams)
-
-- [Websocket User Data Streams](https://www.mexc.com/api-docs/spot-v3/websocket-user-data-streams)
-
-- [Rebate Endpoints](https://www.mexc.com/api-docs/spot-v3/rebate-endpoints)
-
-- [Public API Definitions](https://www.mexc.com/api-docs/spot-v3/public-api-definitions)
-
-On this page
-
 # General Info
 
-## Base endpoint[​](https://www.mexc.com/api-docs/spot-v3/general-info#base-endpoint "Direct link to Base endpoint")
+## Base endpoint
 
 The base endpoint is:
 
 - `https://api.mexc.com`
 
-## HTTP Return Codes[​](https://www.mexc.com/api-docs/spot-v3/general-info#http-return-codes "Direct link to HTTP Return Codes")
+## HTTP Return Codes
 
 - HTTP 4XX return codes are used for malformed requests; the issue is on the sender's side.
 - HTTP 403 return code is used when the WAF Limit (Web Application Firewall) has been violated.
 - HTTP 429 return code is used when breaking a request rate limit.
 - HTTP 5XX return codes are used for internal errors; the issue is on MEXC's side. It is important to NOT treat this as a failure operation; the execution status is UNKNOWN and could have been a success.
 
-## General Information on Endpoints[​](https://www.mexc.com/api-docs/spot-v3/general-info#general-information-on-endpoints "Direct link to General Information on Endpoints")
+## General Information on Endpoints
 
 The API accepts requests of type GET, POST or DELETE
 
@@ -56,7 +22,7 @@ The API accepts requests of type GET, POST or DELETE
 - Parameters may be sent in any order.
 - If a parameter sent in both the query string and request body, the query string parameter will be used.
 
-## Header[​](https://www.mexc.com/api-docs/spot-v3/general-info#header "Direct link to Header")
+## Header
 
 Relevant parameters in the header
 key | Description\
@@ -64,14 +30,14 @@ key | Description\
 `X-MEXC-APIKEY` | Access key\
 `Content-Type` | `application/json`
 
-## SIGNED[​](https://www.mexc.com/api-docs/spot-v3/general-info#signed "Direct link to SIGNED")
+## SIGNED
 
 - SIGNED endpoints require an additional parameter, signature, to be sent in the query string or request body(in the API of batch operation, if there are special symbols such as comma in the parameter value, these symbols need to be URL encoded when signing,and encode only support uppercase).
 - Endpoints use HMAC SHA256 signatures. The HMAC SHA256 signature is a keyed HMAC SHA256 operation. Use your secretKey as the key and totalParams as the value for the HMAC operation.
 - The signature is support lowercase only.
 - totalParams is defined as the query string concatenated with the request body.
 
-### Timing security[​](https://www.mexc.com/api-docs/spot-v3/general-info#timing-security "Direct link to Timing security")
+### Timing security
 
 > The logic is as follows:
 
@@ -93,7 +59,7 @@ key | Description\
 Serious trading is about timing. Networks can be unstable and unreliable, which can lead to requests taking varying amounts of time to reach the servers. With recvWindow, you can specify that the request must be processed within a certain number of milliseconds or be rejected by the server.
 It is recommended to use a small recvWindow of 5000 or less! The max cannot go beyond 60,000!
 
-### SIGNED Endpoint Examples for POST /api/v3/order[​](https://www.mexc.com/api-docs/spot-v3/general-info#signed-endpoint-examples-for-post-apiv3order "Direct link to SIGNED Endpoint Examples for POST /api/v3/order")
+### SIGNED Endpoint Examples for POST /api/v3/order
 
 > Example 1
 
@@ -167,7 +133,7 @@ price | 11\
 recvWindow | 5000\
 timestamp | 1644489390087
 
-#### **Example 1: As a request body**[​](https://www.mexc.com/api-docs/spot-v3/general-info#example-1-as-a-request-body "Direct link to example-1-as-a-request-body")
+#### **Example 1: As a request body**
 
 - requestBody: symbol=BTCUSDT&side=BUY&type=LIMIT&quantity=1&price=11&recvWindow=5000&timestamp=1644489390087
 
@@ -182,7 +148,7 @@ timestamp | 1644489390087
 
 Note that the signature is different in example 3. There is no & between "LIMIT" and "quantity=1".
 
-### Timing security[​](https://www.mexc.com/api-docs/spot-v3/general-info#timing-security-1 "Direct link to Timing security")
+### Timing security
 
 -A SIGNED endpoint also requires a parameter, timestamp, to be sent which should be the millisecond timestamp of when the request was created and sent. -An additional parameter, recvWindow, may be sent to specify the number of milliseconds after timestamp the request is valid for. If recvWindow is not sent, it defaults to 5000.
 Serious trading is about timing. Networks can be unstable and unreliable, which can lead to requests taking varying amounts of time to reach the servers. With recvWindow, you can specify that the request must be processed within a certain number of milliseconds or be rejected by the server.
@@ -198,7 +164,7 @@ if(timestamp < serverTime +1000&& serverTime - timestamp <= recvWindow){
 
 ```
 
-### SIGNED Endpoint Examples for POST /api/v3/order[​](https://www.mexc.com/api-docs/spot-v3/general-info#signed-endpoint-examples-for-post-apiv3order-1 "Direct link to SIGNED Endpoint Examples for POST /api/v3/order")
+### SIGNED Endpoint Examples for POST /api/v3/order
 
 Here is a step-by-step example of how to send a vaild signed payload from the Linux command line using echo, openssl, and curl.
 key | value\
@@ -215,7 +181,7 @@ price | 11\
 recvWindow | 5000\
 timestamp | 1644489390087
 
-#### Example 1: As a request body[​](https://www.mexc.com/api-docs/spot-v3/general-info#example-1-as-a-request-body-1 "Direct link to Example 1: As a request body")
+#### Example 1: As a request body
 
 - requestBody: symbol=BTCUSDT&side=BUY&type=LIMIT&quantity=1&price=11&recvWindow=5000&timestamp=1644489390087
 
@@ -232,7 +198,7 @@ curl command:
 
 ```
 
-#### Example 2: As a query string[​](https://www.mexc.com/api-docs/spot-v3/general-info#example-2-as-a-query-string "Direct link to Example 2: As a query string")
+#### Example 2: As a query string
 
 - queryString: symbol=BTCUSDT&side=BUY&type=LIMIT&quantity=1&price=11&recvWindow=5000&timestamp=1644489390087
 
@@ -249,7 +215,7 @@ curl command:
 
 ```
 
-#### Example 3: Mixed query string and request body[​](https://www.mexc.com/api-docs/spot-v3/general-info#example-3-mixed-query-string-and-request-body "Direct link to Example 3: Mixed query string and request body")
+#### Example 3: Mixed query string and request body
 
 - queryString: symbol=BTCUSDT&side=BUY&type=LIMIT
 - requestBody: quantity=1&price=11&recvWindow=5000&timestamp=1644489390087
@@ -267,31 +233,31 @@ curl command:
 
 ```
 
-## LIMITS[​](https://www.mexc.com/api-docs/spot-v3/general-info#limits "Direct link to LIMITS")
+## LIMITS
 
 There is rate limit for API access frequency, upon exceed client will get code 429: Too many requests. The account is used as the basic unit of speed limit for the endpoints that need to carry access keys. For endpoints that do not need to carry access keys, IP addresses are used as the basic unit of rate limiting.
 
-### Limits Description[​](https://www.mexc.com/api-docs/spot-v3/general-info#limits-description "Direct link to Limits Description")
+### Limits Description
 
 - According to the two modes of IP and UID (account) limit, each are independent.
 - Endpoints are marked according to IP or UID limit and their corresponding weight value.
 - Each endpoint with IP limits has an independent 500 every 10 second limit.
 - Each endpoint with UID limits has an independent 500 every 10 second limit.
 
-### Limits Error[​](https://www.mexc.com/api-docs/spot-v3/general-info#limits-error "Direct link to Limits Error")
+### Limits Error
 
 - When a 429 is received, it's your obligation as an API to back off and not spam the API.
 - Repeatedly violating rate limits and/or failing to back off after receiving 429s will result in an automated IP ban .
 - IP bans are tracked and scale in duration for repeat offenders, from 2 minutes to 3 days.
 - A Retry-After header is sent with a 418 or 429 responses and will give the number of seconds required to wait, in the case of a 429, to prevent a ban, or, in the case of a 418, until the ban is over.
 
-### Websocket Limits[​](https://www.mexc.com/api-docs/spot-v3/general-info#websocket-limits "Direct link to Websocket Limits")
+### Websocket Limits
 
 - The Websocket limits is: 100times/s.
 - A connection that goes beyond the limit will be disconnected; IPs that are repeatedly disconnected may be banned.
 - A single connection can listen to a maximum of 30 streams.
 
-## Error Code[​](https://www.mexc.com/api-docs/spot-v3/general-info#error-code "Direct link to Error Code")
+## Error Code
 
 The following error information can be returend
 Code | Description\
@@ -389,19 +355,3 @@ Code | Description\
 730101 | The user Name already exists\
 140001 | sub account does not exist\
 140002 | sub account is forbidden\
-[Previous FAQs](https://www.mexc.com/api-docs/spot-v3/faqs)[Next Market Data Endpoints](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints)
-
-- [Base endpoint](https://www.mexc.com/api-docs/spot-v3/general-info#base-endpoint)
-- [HTTP Return Codes](https://www.mexc.com/api-docs/spot-v3/general-info#http-return-codes)
-- [General Information on Endpoints](https://www.mexc.com/api-docs/spot-v3/general-info#general-information-on-endpoints)
-- [Header](https://www.mexc.com/api-docs/spot-v3/general-info#header)
-- [SIGNED](https://www.mexc.com/api-docs/spot-v3/general-info#signed)
-  - [Timing security](https://www.mexc.com/api-docs/spot-v3/general-info#timing-security)
-  - [SIGNED Endpoint Examples for POST /api/v3/order](https://www.mexc.com/api-docs/spot-v3/general-info#signed-endpoint-examples-for-post-apiv3order)
-  - [Timing security](https://www.mexc.com/api-docs/spot-v3/general-info#timing-security-1)
-  - [SIGNED Endpoint Examples for POST /api/v3/order](https://www.mexc.com/api-docs/spot-v3/general-info#signed-endpoint-examples-for-post-apiv3order-1)
-- [LIMITS](https://www.mexc.com/api-docs/spot-v3/general-info#limits)
-  - [Limits Description](https://www.mexc.com/api-docs/spot-v3/general-info#limits-description)
-  - [Limits Error](https://www.mexc.com/api-docs/spot-v3/general-info#limits-error)
-  - [Websocket Limits](https://www.mexc.com/api-docs/spot-v3/general-info#websocket-limits)
-- [Error Code](https://www.mexc.com/api-docs/spot-v3/general-info#error-code)

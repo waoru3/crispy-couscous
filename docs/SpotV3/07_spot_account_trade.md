@@ -1,40 +1,6 @@
-[Skip to main content](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#__docusaurus_skipToContent_fallback "Skip to main content")
-[![MEXC Logo](https://www.mexc.com/api-docs-assets/img/mexc-logo.svg)](https://www.mexc.com/ "https://www.mexc.com/")[SpotV3](https://www.mexc.com/api-docs/spot-v3/introduction "SpotV3")[Futures](https://www.mexc.com/api-docs/futures/update-log "Futures")[Broker](https://www.mexc.com/api-docs/broker/mexc-broker-introduction "Broker")
-[](https://www.mexc.com/api-docs/spot-v3/spot-account-trade "English")
-
-- [English](https://www.mexc.com/api-docs/spot-v3/spot-account-trade "English")
-
-- [中文](https://www.mexc.com/zh-MY/api-docs/spot-v3/spot-account-trade "中文")
-
-- [Introduction](https://www.mexc.com/api-docs/spot-v3/introduction "Introduction")
-
-- [Change Log](https://www.mexc.com/api-docs/spot-v3/change-log "Change Log")
-
-- [FAQs](https://www.mexc.com/api-docs/spot-v3/faqs "FAQs")
-
-- [General Info](https://www.mexc.com/api-docs/spot-v3/general-info "General Info")
-
-- [Market Data Endpoints](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints "Market Data Endpoints")
-
-- [Sub-Account Endpoints](https://www.mexc.com/api-docs/spot-v3/subaccount-endpoints "Sub-Account Endpoints")
-
-- [Spot Account/Trade](https://www.mexc.com/api-docs/spot-v3/spot-account-trade "Spot Account/Trade")
-
-- [Wallet Endpoints](https://www.mexc.com/api-docs/spot-v3/wallet-endpoints "Wallet Endpoints")
-
-- [Websocket Market Streams](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams "Websocket Market Streams")
-
-- [Websocket User Data Streams](https://www.mexc.com/api-docs/spot-v3/websocket-user-data-streams "Websocket User Data Streams")
-
-- [Rebate Endpoints](https://www.mexc.com/api-docs/spot-v3/rebate-endpoints "Rebate Endpoints")
-
-- [Public API Definitions](https://www.mexc.com/api-docs/spot-v3/public-api-definitions "Public API Definitions")
-
-On this page
-
 # Spot Account/Trade
 
-## Query KYC status[​](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#query-kyc-status "Direct link to Query KYC status")
+## Query KYC status
 
 > request
 
@@ -45,11 +11,10 @@ GET /api/v3/kyc/status?timestamp={{timestamp}}&signature={{signature}}
 
 > response
 
-```
-{  
-"status":"1"  
-}  
-
+```json
+{
+  "status": "1"
+}
 ```
 
 **GET** `/api/v3/kyc/status `
@@ -65,7 +30,7 @@ Name | Type | Description\
 ---|---|---\
 status | string | 1:Unverified 2:Primary kyc 3:Advanced kyc 4:Institutional kyc
 
-## Query UID[​](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#query-uid "Direct link to Query UID")
+## Query UID
 
 > request
 
@@ -76,11 +41,10 @@ GET /api/v3/uid?timestamp={{timestamp}}&signature={[{signature]}
 
 > response
 
-```
-{  
-"uid":"209302839"  
-}  
-
+```json
+{
+  "uid": "209302839"
+}
 ```
 
 **GET** `/api/v3/uid `
@@ -96,7 +60,7 @@ Name | Type | Description\
 ---|---|---\
 uid | string | account uid
 
-## User API default symbol[​](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#user-api-default-symbol "Direct link to User API default symbol")
+## User API default symbol
 
 > Request
 
@@ -107,19 +71,18 @@ GET /api/v3/selfSymbols?timestamp={{timestamp}}&signature={{signature}}
 
 > Response
 
-```
-{  
-"code":200,  
-"data":[  
-"GENE1USDT",  
-"SNTUSDT",  
-"SQUAWKUSDT",  
-"HEGICUSDT",  
-"GUMUSDT"  
-],  
-"msg":null  
-}  
-
+```json
+{
+  "code": 200,
+  "data": [
+    "GENE1USDT",
+    "SNTUSDT",
+    "SQUAWKUSDT",
+    "HEGICUSDT",
+    "GUMUSDT"
+  ],
+  "msg": null
+}
 ```
 
 - **GET** `/api/v3/selfSymbols `
@@ -133,13 +96,12 @@ Name | Type | Description\
 ---|---|---\
 symbol | string | api trade symbol
 
-## Test New Order[​](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#test-new-order "Direct link to Test New Order")
+## Test New Order
 
 > Response
 
-```
-{}  
-
+```json
+{}
 ```
 
 - **POST** `/api/v3/order/test`
@@ -150,7 +112,7 @@ Creates and validates a new order but does not send it into the matching engine.
 Parameters:
 equaled POST /api/v3/order
 
-## New Order[​](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#new-order "Direct link to New Order")
+## New Order
 
 > Request
 
@@ -161,19 +123,18 @@ POST /api/v3/order?symbol=MXUSDT&side=BUY&type=LIMIT&quantity=50&price=0.1&times
 
 > Response
 
-```
-{  
-"symbol":"MXUSDT",  
-"orderId":"06a480e69e604477bfb48dddd5f0b750",  
-"orderListId":-1,  
-"price":"0.1",  
-"origQty":"50",  
-"type":"LIMIT",  
-"side":"BUY",  
-"stpMode":"",  
-"transactTime":1666676533741  
-}  
-
+```json
+{
+  "symbol": "MXUSDT",
+  "orderId": "06a480e69e604477bfb48dddd5f0b750",
+  "orderListId": -1,
+  "price": "0.1",
+  "origQty": "50",
+  "type": "LIMIT",
+  "side": "BUY",
+  "stpMode": "",
+  "transactTime": 1666676533741
+}
 ```
 
 - **POST** `/api/v3/order`
@@ -184,8 +145,8 @@ Parameters:
 Name | type | Mandatory | Description\
 ---|---|---|---\
 symbol | STRING | YES |\
-side | ENUM | YES | ENUM:[Order Side](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_side "Order Side")\
-type | ENUM | YES | ENUM:[Order Type](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_type "Order Type")\
+side | ENUM | YES | ENUM:[Order Side](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_side)\
+type | ENUM | YES | ENUM:[Order Type](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_type)\
 quantity | DECIMAL | NO | Quantity\
 quoteOrderQty | DECIMAL | NO | Quote order quantity\
 price | DECIMAL | NO | Price\
@@ -201,8 +162,8 @@ orderId | order id\
 orderListId | order list id\
 price | Price\
 origQty | Original order quantity\
-type | [Order type](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_type "Order type")\
-side | [order side](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_side "order side")\
+type | [Order type](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_type)\
+side | [order side](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_side)\
 stpMode | “” - Default value, no restriction on self-trading.“cancel_maker” - Cancel the maker order.“cancel_taker” - Cancel the taker order.“cancel_both” - Cancel both sides.\
 transactTime | transactTime\
 Additional mandatory parameters based on `type`:
@@ -220,56 +181,54 @@ MARKET: When type is market, `quoteOrderQty` or `quantity` required to choose an
     - On the `BUY` side, the order will buy as many BTC as `quoteOrderQty` USDT can.
     - On the `SELL` side, the order will sell the `quantity` of BTC.
 
-## Batch Orders[​](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#batch-orders "Direct link to Batch Orders")
+## Batch Orders
 
 Supports 20 orders with a same symbol in a batch,rate limit:2 times/s.
 
 > Request
 
-```
-POST /api/v3/batchOrders?batchOrders=[{"type": "LIMIT_ORDER","price": "40000","quantity": "0.0002","symbol": "BTCUSDT","side": "BUY","newClientOrderId": 9588234},{"type": "LIMIT_ORDER","price": "4005","quantity": "0.0003","symbol": "BTCUSDT","side": "SELL"}]  
-
+```json
+POST /api/v3/batchOrders?batchOrders=[{"type": "LIMIT_ORDER","price": "40000","quantity": "0.0002","symbol": "BTCUSDT","side": "BUY","newClientOrderId": 9588234},{"type": "LIMIT_ORDER","price": "4005","quantity": "0.0003","symbol": "BTCUSDT","side": "SELL"}]
 ```
 
 > Response
 
-```
-{  
-{//success response:  
-[  
-{  
-"symbol":"BTCUSDT",  
-"orderId":"1196315350023612316",  
-"orderListId":-1  
-},  
-{  
-"symbol":"BTCUSDT",  
-"orderId":"1196315350023612318",  
-"orderListId":-1  
-}  
-],  
-//error response:  
-[  
-{  
-"symbol":"BTCUSDT",  
-"orderId":"1196315350023612316",  
-"newClientOrderId":"hio8279hbdsds",  
-"orderListId":-1  
-},  
-{  
-"newClientOrderId":"123456",  
-"msg":"The minimum transaction volume cannot be less than:0.5USDT",  
-"code":30002  
-},  
-{  
-"symbol":"BTCUSDT",  
-"orderId":"1196315350023612318",  
-"orderListId":-1  
-}  
-]  
-}  
-}  
-
+```json
+{
+  {//success response:
+  [
+  {
+    "symbol":"BTCUSDT",
+    "orderId":"1196315350023612316",
+    "orderListId":-1
+  },
+  {
+    "symbol":"BTCUSDT",
+    "orderId":"1196315350023612318",
+    "orderListId":-1
+  }
+  ],
+  //error response:
+  [
+  {
+    "symbol":"BTCUSDT",
+    "orderId":"1196315350023612316",
+    "newClientOrderId":"hio8279hbdsds",
+    "orderListId":-1
+  },
+  {
+    "newClientOrderId":"123456",
+    "msg":"The minimum transaction volume cannot be less than:0.5USDT",
+    "code":30002
+  },
+  {
+    "symbol":"BTCUSDT",
+    "orderId":"1196315350023612318",
+    "orderListId":-1
+  }
+  ]
+}
+}
 ```
 
 - **POST** `/api/v3/batchOrders`
@@ -281,8 +240,8 @@ Name | type | Mandatory | Description\
 ---|---|---|---\
 batchOrders | LIST | YES | list of batchOrders,supports max 20 orders\
 symbol | STRING | YES | symbol\
-side | ENUM | YES | [order side](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_side "order side")\
-type | ENUM | YES | [order type](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_type "order type")\
+side | ENUM | YES | [order side](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_side)\
+type | ENUM | YES | [order type](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_type)\
 quantity | DECIMAL | NO | quantity\
 quoteOrderQty | DECIMAL | NO | quoteOrderQty\
 price | DECIMAL | NO | order price\
@@ -301,26 +260,25 @@ Name | type | Description\
 symbol | STRING | symbol\
 orderId | STRING | orderId
 
-## Cancel Order[​](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#cancel-order "Direct link to Cancel Order")
+## Cancel Order
 
 > Response
 
-```
-{  
-"symbol":"LTCBTC",  
-"origClientOrderId":"myOrder1",  
-"orderId":4,  
-"clientOrderId":"cancelMyOrder1",  
-"price":"2.00000000",  
-"origQty":"1.00000000",  
-"executedQty":"0.00000000",  
-"cummulativeQuoteQty":"0.00000000",  
-"status":"CANCELED",  
-"timeInForce":"GTC",  
-"type":"LIMIT",  
-"side":"BUY"  
-}  
-
+```json
+{
+  "symbol": "LTCBTC",
+  "origClientOrderId": "myOrder1",
+  "orderId": 4,
+  "clientOrderId": "cancelMyOrder1",
+  "price": "2.00000000",
+  "origQty": "1.00000000",
+  "executedQty": "0.00000000",
+  "cummulativeQuoteQty": "0.00000000",
+  "status": "CANCELED",
+  "timeInForce": "GTC",
+  "type": "LIMIT",
+  "side": "BUY"
+}
 ```
 
 - **DELETE** `/api/v3/order`
@@ -349,49 +307,48 @@ price | Price\
 origQty | Original order quantity\
 executedQty | Executed order quantity\
 cummulativeQuoteQty | Cummulative quote quantity\
-status | [order status](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_status "order status")\
+status | [order status](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_status)\
 timeInForce |\
-type | [Order type](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_type "Order type")\
-side | [order side](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_side "order side")
+type | [Order type](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_type)\
+side | [order side](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_side)
 
-## Cancel all Open Orders on a Symbol[​](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#cancel-all-open-orders-on-a-symbol "Direct link to Cancel all Open Orders on a Symbol")
+## Cancel all Open Orders on a Symbol
 
 > Response
 
-```
-[  
-{  
-"symbol":"BTCUSDT",  
-"origClientOrderId":"E6APeyTJvkMvLMYMqu1KQ4",  
-"orderId":11,  
-"orderListId":-1,  
-"clientOrderId":"pXLV6Hz6mprAcVYpVMTGgx",  
-"price":"0.089853",  
-"origQty":"0.178622",  
-"executedQty":"0.000000",  
-"cummulativeQuoteQty":"0.000000",  
-"status":"CANCELED",  
-"timeInForce":"GTC",  
-"type":"LIMIT",  
-"side":"BUY"  
-},  
-{  
-"symbol":"BTCUSDT",  
-"origClientOrderId":"A3EF2HCwxgZPFMrfwbgrhv",  
-"orderId":13,  
-"orderListId":-1,  
-"clientOrderId":"pXLV6Hz6mprAcVYpVMTGgx",  
-"price":"0.090430",  
-"origQty":"0.178622",  
-"executedQty":"0.000000",  
-"cummulativeQuoteQty":"0.000000",  
-"status":"CANCELED",  
-"timeInForce":"GTC",  
-"type":"LIMIT",  
-"side":"BUY"  
-}  
-]  
-
+```json
+[
+  {
+    "symbol": "BTCUSDT",
+    "origClientOrderId": "E6APeyTJvkMvLMYMqu1KQ4",
+    "orderId": 11,
+    "orderListId": -1,
+    "clientOrderId": "pXLV6Hz6mprAcVYpVMTGgx",
+    "price": "0.089853",
+    "origQty": "0.178622",
+    "executedQty": "0.000000",
+    "cummulativeQuoteQty": "0.000000",
+    "status": "CANCELED",
+    "timeInForce": "GTC",
+    "type": "LIMIT",
+    "side": "BUY"
+  },
+  {
+    "symbol": "BTCUSDT",
+    "origClientOrderId": "A3EF2HCwxgZPFMrfwbgrhv",
+    "orderId": 13,
+    "orderListId": -1,
+    "clientOrderId": "pXLV6Hz6mprAcVYpVMTGgx",
+    "price": "0.090430",
+    "origQty": "0.178622",
+    "executedQty": "0.000000",
+    "cummulativeQuoteQty": "0.000000",
+    "status": "CANCELED",
+    "timeInForce": "GTC",
+    "type": "LIMIT",
+    "side": "BUY"
+  }
+]
 ```
 
 - **DELETE** `/api/v3/openOrders`
@@ -416,38 +373,37 @@ price | Price\
 origQty | Original order quantity\
 executedQty | Executed order quantity\
 cummulativeQuoteQty | Cummulative quote quantity\
-status | [order status](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_status "order status")\
+status | [order status](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_status)\
 timeInForce |\
-type | [Order type](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_type "Order type")\
-side | [order side](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_side "order side")
+type | [Order type](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_type)\
+side | [order side](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_side)
 
-## Query Order[​](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#query-order "Direct link to Query Order")
+## Query Order
 
 > Response
 
-```
-{  
-"symbol":"LTCBTC",  
-"orderId":1,  
-"orderListId":-1,  
-"clientOrderId":"myOrder1",  
-"price":"0.1",  
-"Qty":"1.0",  
-"executedQty":"0.0",  
-"cummulativeQuoteQty":"0.0",  
-"status":"NEW",  
-"timeInForce":"GTC",  
-"type":"LIMIT",  
-"side":"BUY",  
-"stopPrice":"0.0",  
-"time":1499827319559,  
-"updateTime":1499827319559,  
-"stpMode":"",  
-"cancelReason":"stp_cancel",  
-"isWorking":true,  
-"origQuoteOrderQty":"0.000000"  
-}  
-
+```json
+{
+  "symbol": "LTCBTC",
+  "orderId": 1,
+  "orderListId": -1,
+  "clientOrderId": "myOrder1",
+  "price": "0.1",
+  "Qty": "1.0",
+  "executedQty": "0.0",
+  "cummulativeQuoteQty": "0.0",
+  "status": "NEW",
+  "timeInForce": "GTC",
+  "type": "LIMIT",
+  "side": "BUY",
+  "stopPrice": "0.0",
+  "time": 1499827319559,
+  "updateTime": 1499827319559,
+  "stpMode": "",
+  "cancelReason": "stp_cancel",
+  "isWorking": true,
+  "origQuoteOrderQty": "0.000000"
+}
 ```
 
 - **GET** `/api/v3/order`
@@ -474,10 +430,10 @@ price | Price\
 Qty | Original order quantity\
 executedQty | Executed order quantity\
 cummulativeQuoteQty | Cummulative quote quantity\
-status | [order status](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_status "order status")\
+status | [order status](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_status)\
 timeInForce |\
-type | [Order type](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_type "Order type")\
-side | [Order side](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_side "Order side")\
+type | [Order type](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_type)\
+side | [Order side](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_side)\
 stopPrice | stop price\
 time | Order created time\
 updateTime | Last update time\
@@ -485,36 +441,35 @@ isWorking | is orderbook\
 stpMode | “” - Default value, no restriction on self-trading.“cancel_maker” - Cancel the maker order.“cancel_taker” - Cancel the taker order.“cancel_both” - Cancel both sides.\
 cancelReason | cancel reason.stp_cancel: canceled due to STP rules.
 
-## Current Open Orders[​](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#current-open-orders "Direct link to Current Open Orders")
+## Current Open Orders
 
 > Response
 
-```
-[  
-{  
-"symbol":"LTCBTC",  
-"orderId":1,  
-"orderListId":-1,  
-"clientOrderId":"myOrder1",  
-"price":"0.1",  
-"origQty":"1.0",  
-"executedQty":"0.0",  
-"cummulativeQuoteQty":"0.0",  
-"status":"NEW",  
-"timeInForce":"GTC",  
-"type":"LIMIT",  
-"side":"BUY",  
-"stopPrice":"0.0",  
-"icebergQty":"0.0",  
-"time":1499827319559,  
-"updateTime":1499827319559,  
-"isWorking":true,  
-"stpMode":"",  
-"cancelReason":"stp_cancel",  
-"origQuoteOrderQty":"0.000000"  
-}  
-]  
-
+```json
+[
+  {
+    "symbol": "LTCBTC",
+    "orderId": 1,
+    "orderListId": -1,
+    "clientOrderId": "myOrder1",
+    "price": "0.1",
+    "origQty": "1.0",
+    "executedQty": "0.0",
+    "cummulativeQuoteQty": "0.0",
+    "status": "NEW",
+    "timeInForce": "GTC",
+    "type": "LIMIT",
+    "side": "BUY",
+    "stopPrice": "0.0",
+    "icebergQty": "0.0",
+    "time": 1499827319559,
+    "updateTime": 1499827319559,
+    "isWorking": true,
+    "stpMode": "",
+    "cancelReason": "stp_cancel",
+    "origQuoteOrderQty": "0.000000"
+  }
+]
 ```
 
 - **GET** `/api/v3/openOrders`
@@ -539,10 +494,10 @@ price | Price\
 origQty | Original order quantity\
 executedQty | Executed order quantity\
 cummulativeQuoteQty | Cummulative quote quantity\
-status | [order status](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_status "order status")\
+status | [order status](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_status)\
 timeInForce |\
-type | [Order type](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_type "Order type")\
-side | [Order side](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_side "Order side")\
+type | [Order type](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_type)\
+side | [Order side](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_side)\
 stopPrice | stop price\
 time | Order created time\
 updateTime | Last update time\
@@ -550,36 +505,35 @@ isWorking | is orderbook\
 stpMode | “” - Default value, no restriction on self-trading.“cancel_maker” - Cancel the maker order.“cancel_taker” - Cancel the taker order.“cancel_both” - Cancel both sides.\
 cancelReason | cancel reason.stp_cancel: canceled due to STP rules.
 
-## All Orders[​](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#all-orders "Direct link to All Orders")
+## All Orders
 
 > Response
 
-```
-[  
-{  
-"symbol":"LTCBTC",  
-"orderId":1,  
-"orderListId":-1,  
-"clientOrderId":"myOrder1",  
-"price":"0.1",  
-"origQty":"1.0",  
-"executedQty":"0.0",  
-"cummulativeQuoteQty":"0.0",  
-"status":"NEW",  
-"timeInForce":"GTC",  
-"type":"LIMIT",  
-"side":"BUY",  
-"stopPrice":"0.0",  
-"icebergQty":"0.0",  
-"time":1499827319559,  
-"updateTime":1499827319559,  
-"isWorking":true,  
-"stpMode":"",  
-"cancelReason":"stp_cancel",  
-"origQuoteOrderQty":"0.000000"  
-}  
-]  
-
+```json
+[
+  {
+    "symbol": "LTCBTC",
+    "orderId": 1,
+    "orderListId": -1,
+    "clientOrderId": "myOrder1",
+    "price": "0.1",
+    "origQty": "1.0",
+    "executedQty": "0.0",
+    "cummulativeQuoteQty": "0.0",
+    "status": "NEW",
+    "timeInForce": "GTC",
+    "type": "LIMIT",
+    "side": "BUY",
+    "stopPrice": "0.0",
+    "icebergQty": "0.0",
+    "time": 1499827319559,
+    "updateTime": 1499827319559,
+    "isWorking": true,
+    "stpMode": "",
+    "cancelReason": "stp_cancel",
+    "origQuoteOrderQty": "0.000000"
+  }
+]
 ```
 
 - **GET** `/api/v3/allOrders`
@@ -607,10 +561,10 @@ price | Price\
 origQty | Original order quantity\
 executedQty | Executed order quantity\
 cummulativeQuoteQty | Cummulative quote quantity\
-status | [order status](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_status "order status")\
+status | [order status](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_status)\
 timeInForce |\
-type | [Order type](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_type "Order type")\
-side | [Order side](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_side "Order side")\
+type | [Order type](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_type)\
+side | [Order side](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#order_side)\
 stopPrice | stop price\
 time | Order created time\
 updateTime | Last update time\
@@ -619,35 +573,39 @@ stpMode | “” - Default value, no restriction on self-trading.“cancel_maker
 cancelReason | cancel reason.stp_cancel: canceled due to STP rules.\
 origQuoteOrderQty |
 
-## Account Information[​](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#account-information "Direct link to Account Information")
+## Account Information
 
 > Response
 
-```
-{  
-"makerCommission":null,  
-"takerCommission":null,  
-"buyerCommission":null,  
-"sellerCommission":null,  
-"canTrade":true,  
-"canWithdraw":true,  
-"canDeposit":true,  
-"updateTime":null,  
-"accountType":"SPOT",  
-"balances":[{  
-"asset":"NBNTEST",  
-"free":"1111078",  
-"locked":"33",  
-"available":"1"  
-},{  
-"asset":"MAIN",  
-"free":"1020000",  
-"locked":"0",  
-"available":"102000"  
-}],  
-"permissions":["SPOT"]  
-}  
-
+```json
+{
+  "makerCommission": null,
+  "takerCommission": null,
+  "buyerCommission": null,
+  "sellerCommission": null,
+  "canTrade": true,
+  "canWithdraw": true,
+  "canDeposit": true,
+  "updateTime": null,
+  "accountType": "SPOT",
+  "balances": [
+    {
+      "asset": "NBNTEST",
+      "free": "1111078",
+      "locked": "33",
+      "available": "1"
+    },
+    {
+      "asset": "MAIN",
+      "free": "1020000",
+      "locked": "0",
+      "available": "102000"
+    }
+  ],
+  "permissions": [
+    "SPOT"
+  ]
+}
 ```
 
 - **GET** `/api/v3/account`
@@ -675,31 +633,30 @@ locked | Forzen coin\
 available | Available coin\
 permissions | Permission
 
-## Account Trade List[​](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#account-trade-list "Direct link to Account Trade List")
+## Account Trade List
 
 > Response
 
-```
-[  
-{  
-"symbol":"BNBBTC",  
-"id":"fad2af9e942049b6adbda1a271f990c6",  
-"orderId":"bb41e5663e124046bd9497a3f5692f39",  
-"orderListId":-1,  
-"price":"4.00000100",  
-"qty":"12.00000000",  
-"quoteQty":"48.000012",  
-"commission":"10.10000000",  
-"commissionAsset":"BNB",  
-"time":1499865549590,  
-"isBuyer":true,  
-"isMaker":false,  
-"isBestMatch":true,  
-"isSelfTrade":true,  
-"clientOrderId":null  
-}  
-]  
-
+```json
+[
+  {
+    "symbol": "BNBBTC",
+    "id": "fad2af9e942049b6adbda1a271f990c6",
+    "orderId": "bb41e5663e124046bd9497a3f5692f39",
+    "orderListId": -1,
+    "price": "4.00000100",
+    "qty": "12.00000000",
+    "quoteQty": "48.000012",
+    "commission": "10.10000000",
+    "commissionAsset": "BNB",
+    "time": 1499865549590,
+    "isBuyer": true,
+    "isMaker": false,
+    "isBestMatch": true,
+    "isSelfTrade": true,
+    "clientOrderId": null
+  }
+]
 ```
 
 - **GET** `/api/v3/myTrades`
@@ -735,7 +692,7 @@ isBestMatch |\
 isSelfTrade | isSelfTrade\
 clientOrderId | clientOrderId
 
-## Enable MX Deduct[​](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#enable-mx-deduct "Direct link to Enable MX Deduct")
+## Enable MX Deduct
 
 Enable or disable MX deduct for spot commission fee
 
@@ -748,16 +705,15 @@ post api/v3/mxDeduct/enable
 
 > Response
 
-```
-{  
-"data":{  
-"mxDeductEnable":true  
-},  
-"code":0,  
-"msg":"success",  
-"timestamp":1669109672280  
-}  
-
+```json
+{
+  "data": {
+    "mxDeductEnable": true
+  },
+  "code": 0,
+  "msg": "success",
+  "timestamp": 1669109672280
+}
 ```
 
 - **POST** `api/v3/mxDeduct/enable`
@@ -776,7 +732,7 @@ Name | Type | Description\
 ---|---|---\
 mxDeductEnable | boolean | true:enable,false:disable
 
-## Query MX Deduct Status[​](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#query-mx-deduct-status "Direct link to Query MX Deduct Status")
+## Query MX Deduct Status
 
 > Request
 
@@ -787,16 +743,15 @@ get api/v3/mxDeduct/enable
 
 > Response
 
-```
-{  
-"data":{  
-"mxDeductEnable":false  
-},  
-"code":0,  
-"msg":"success",  
-"timestamp":1669109672717  
-}  
-
+```json
+{
+  "data": {
+    "mxDeductEnable": false
+  },
+  "code": 0,
+  "msg": "success",
+  "timestamp": 1669109672717
+}
 ```
 
 - **GET** `api/v3/mxDeduct/enable`
@@ -814,7 +769,7 @@ Name | Type | Description\
 ---|---|---\
 mxDeductEnable | boolean | true:enable,false:disable
 
-## Query Symbol Commission[​](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#query-symbol-commission "Direct link to Query Symbol Commission")
+## Query Symbol Commission
 
 > request
 
@@ -825,17 +780,16 @@ get api/v3/tradeFee?symbol=MXUSDT&timestamp={{timestamp}}&signature={{signature}
 
 > return
 
-```
-{  
-"data":{  
-"makerCommission":0.003000000000000000,  
-"takerCommission":0.003000000000000000  
-},  
-"code":0,  
-"msg":"success",  
-"timestamp":1669109672717  
-}  
-
+```json
+{
+  "data": {
+    "makerCommission": 0.003,
+    "takerCommission": 0.003
+  },
+  "code": 0,
+  "msg": "success",
+  "timestamp": 1669109672717
+}
 ```
 
 - **GET** `api/v3/tradeFee`
@@ -855,7 +809,7 @@ Name | Type | Description\
 makerCommission | long | User Maker Commission\
 takerCommission | long | User Taker Commission
 
-## Create STP strategy group[​](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#create-stp-strategy-group "Direct link to Create STP strategy group")
+## Create STP strategy group
 
 > request
 
@@ -866,19 +820,18 @@ post /api/v3/strategy/group?tradeGroupName=tradeGroupOne&timestamp={{timestamp}}
 
 > return
 
-```
-{  
-"data":{  
-"tradeGroupName":"tradeGroupOne",  
-"tradeGroupId":91,  
-"createTime":1758043350000,  
-"updateTime":1758043350000  
-},  
-"code":200,  
-"msg":"success",  
-"timestamp":1758043350233  
-}  
-
+```json
+{
+  "data": {
+    "tradeGroupName": "tradeGroupOne",
+    "tradeGroupId": 91,
+    "createTime": 1758043350000,
+    "updateTime": 1758043350000
+  },
+  "code": 200,
+  "msg": "success",
+  "timestamp": 1758043350233
+}
 ```
 
 - **POST** `/api/v3/strategy/group`
@@ -904,7 +857,7 @@ Precautions:
 - The STP strategy group ID is unique
 - A master account can have up to 10 strategy groups
 
-## Query STP strategy group[​](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#query-stp-strategy-group "Direct link to Query STP strategy group")
+## Query STP strategy group
 
 > request
 
@@ -915,21 +868,20 @@ get /api/v3/strategy/group?tradeGroupName=tradeGroupOne&timestamp={{timestamp}}&
 
 > return
 
-```
-{  
-"data":[  
-{  
-"tradeGroupName":"tradeGroupNameOne",  
-"tradeGroupId":91,  
-"createTime":1758043350000,  
-"updateTime":1758043350000  
-}  
-],  
-"code":200,  
-"msg":"success",  
-"timestamp":1758044090972  
-}  
-
+```json
+{
+  "data": [
+    {
+      "tradeGroupName": "tradeGroupNameOne",
+      "tradeGroupId": 91,
+      "createTime": 1758043350000,
+      "updateTime": 1758043350000
+    }
+  ],
+  "code": 200,
+  "msg": "success",
+  "timestamp": 1758044090972
+}
 ```
 
 - **GET** `/api/v3/strategy/group`
@@ -951,7 +903,7 @@ tradeGroupUid | string | UIDs contained in stp strategy group, separated by ,\
 updateTime | long | update time\
 createTime | long | create time
 
-## Delete STP strategy group[​](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#delete-stp-strategy-group "Direct link to Delete STP strategy group")
+## Delete STP strategy group
 
 > request
 
@@ -962,14 +914,13 @@ delete /api/v3/strategy/group?tradeGroupId=91&timestamp={{timestamp}}&signature=
 
 > return
 
-```
-{  
-"data":true,  
-"code":200,  
-"msg":"success",  
-"timestamp":1758044399749  
-}  
-
+```json
+{
+  "data": true,
+  "code": 200,
+  "msg": "success",
+  "timestamp": 1758044399749
+}
 ```
 
 - **DELETE** `/api/v3/strategy/group`
@@ -991,7 +942,7 @@ Precautions:
 - Only the master account is allowed to delete; sub-accounts cannot access
 - Only strategy groups under the current master account can be operated; cross-master-account operations are not allowed
 
-## Add uid to STP strategy group[​](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#add-uid-to-stp-strategy-group "Direct link to Add uid to STP strategy group")
+## Add uid to STP strategy group
 
 > request
 
@@ -1002,20 +953,19 @@ post /api/v3/strategy/group/uid?uid=49910594&ttradeGroupId=92&timestamp={{timest
 
 > return
 
-```
-{  
-"data":{  
-"tradeGroupName":"1",  
-"tradeGroupId":92,  
-"tradeGroupUid":"49910594",  
-"createTime":1758044671000,  
-"updateTime":1758044777000  
-},  
-"code":200,  
-"msg":"success",  
-"timestamp":1758044777023  
-}  
-
+```json
+{
+  "data": {
+    "tradeGroupName": "1",
+    "tradeGroupId": 92,
+    "tradeGroupUid": "49910594",
+    "createTime": 1758044671000,
+    "updateTime": 1758044777000
+  },
+  "code": 200,
+  "msg": "success",
+  "timestamp": 1758044777023
+}
 ```
 
 - **GET** `/api/v3/strategy/group/uid`
@@ -1041,7 +991,7 @@ Precautions:
 - Only the master account is allowed to add uid; sub-accounts cannot access
 - Only strategy groups under the current master account can be operated; cross-master-account operations are not allowed
 
-## Delete uid to STP strategy group[​](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#delete-uid-to-stp-strategy-group "Direct link to Delete uid to STP strategy group")
+## Delete uid to STP strategy group
 
 > request
 
@@ -1052,14 +1002,13 @@ delete /api/v3/strategy/group/uid?uid=49910594&ttradeGroupId=92&timestamp={{time
 
 > return
 
-```
-{  
-"data":true,  
-"code":200,  
-"msg":"success",  
-"timestamp":1758045403352  
-}  
-
+```json
+{
+  "data": true,
+  "code": 200,
+  "msg": "success",
+  "timestamp": 1758045403352
+}
 ```
 
 - **DELETE** `/api/v3/strategy/group/uid`
@@ -1081,27 +1030,3 @@ Precautions:
 
 - Only the main account is allowed to delete; sub-accounts cannot access
 - Only strategy groups under the current master account can be operated; cross-master-account operations are not allowed
-
-[Previous Sub-Account Endpoints](https://www.mexc.com/api-docs/spot-v3/subaccount-endpoints "PreviousSub-Account Endpoints")[Next Wallet Endpoints](https://www.mexc.com/api-docs/spot-v3/wallet-endpoints "NextWallet Endpoints")
-
-- [Query KYC status](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#query-kyc-status "Query KYC status")
-- [Query UID](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#query-uid "Query UID")
-- [User API default symbol](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#user-api-default-symbol "User API default symbol")
-- [Test New Order](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#test-new-order "Test New Order")
-- [New Order](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#new-order "New Order")
-- [Batch Orders](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#batch-orders "Batch Orders")
-- [Cancel Order](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#cancel-order "Cancel Order")
-- [Cancel all Open Orders on a Symbol](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#cancel-all-open-orders-on-a-symbol "Cancel all Open Orders on a Symbol")
-- [Query Order](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#query-order "Query Order")
-- [Current Open Orders](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#current-open-orders "Current Open Orders")
-- [All Orders](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#all-orders "All Orders")
-- [Account Information](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#account-information "Account Information")
-- [Account Trade List](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#account-trade-list "Account Trade List")
-- [Enable MX Deduct](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#enable-mx-deduct "Enable MX Deduct")
-- [Query MX Deduct Status](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#query-mx-deduct-status "Query MX Deduct Status")
-- [Query Symbol Commission](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#query-symbol-commission "Query Symbol Commission")
-- [Create STP strategy group](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#create-stp-strategy-group "Create STP strategy group")
-- [Query STP strategy group](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#query-stp-strategy-group "Query STP strategy group")
-- [Delete STP strategy group](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#delete-stp-strategy-group "Delete STP strategy group")
-- [Add uid to STP strategy group](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#add-uid-to-stp-strategy-group "Add uid to STP strategy group")
-- [Delete uid to STP strategy group](https://www.mexc.com/api-docs/spot-v3/spot-account-trade#delete-uid-to-stp-strategy-group "Delete uid to STP strategy group")

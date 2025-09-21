@@ -1,50 +1,15 @@
-[Skip to main content](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints#__docusaurus_skipToContent_fallback "Skip to main content")
-[![MEXC Logo](https://www.mexc.com/api-docs-assets/img/mexc-logo.svg)](https://www.mexc.com/ "https://www.mexc.com/")[SpotV3](https://www.mexc.com/api-docs/spot-v3/introduction "SpotV3")[Futures](https://www.mexc.com/api-docs/futures/update-log "Futures")[Broker](https://www.mexc.com/api-docs/broker/mexc-broker-introduction "Broker")
-[](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints "English")
-
-- [English](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints "English")
-
-- [中文](https://www.mexc.com/zh-MY/api-docs/spot-v3/market-data-endpoints "中文")
-
-- [Introduction](https://www.mexc.com/api-docs/spot-v3/introduction "Introduction")
-
-- [Change Log](https://www.mexc.com/api-docs/spot-v3/change-log "Change Log")
-
-- [FAQs](https://www.mexc.com/api-docs/spot-v3/faqs "FAQs")
-
-- [General Info](https://www.mexc.com/api-docs/spot-v3/general-info "General Info")
-
-- [Market Data Endpoints](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints "Market Data Endpoints")
-
-- [Sub-Account Endpoints](https://www.mexc.com/api-docs/spot-v3/subaccount-endpoints "Sub-Account Endpoints")
-
-- [Spot Account/Trade](https://www.mexc.com/api-docs/spot-v3/spot-account-trade "Spot Account/Trade")
-
-- [Wallet Endpoints](https://www.mexc.com/api-docs/spot-v3/wallet-endpoints "Wallet Endpoints")
-
-- [Websocket Market Streams](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams "Websocket Market Streams")
-
-- [Websocket User Data Streams](https://www.mexc.com/api-docs/spot-v3/websocket-user-data-streams "Websocket User Data Streams")
-
-- [Rebate Endpoints](https://www.mexc.com/api-docs/spot-v3/rebate-endpoints "Rebate Endpoints")
-
-- [Public API Definitions](https://www.mexc.com/api-docs/spot-v3/public-api-definitions "Public API Definitions")
-
-On this page
-
 # Market Data Endpoints
 
-## Download Historical Market Data[​](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints#download-historical-market-data "Direct link to Download Historical Market Data")
+## Download Historical Market Data
 
-Provides kline and trading data for all Spot pairs since 01-01-2023:[Historical Market Data](https://www.mexc.co/zh-CN/market-data-download "Historical Market Data")
+Provides kline and trading data for all Spot pairs since 01-01-2023:[Historical Market Data](https://www.mexc.co/zh-CN/market-data-download)
 
-## Test Connectivity[​](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints#test-connectivity "Direct link to Test Connectivity")
+## Test Connectivity
 
 > Response
 
-```
-{}  
-
+```json
+{}
 ```
 
 - **GET** `/api/v3/ping`
@@ -54,15 +19,14 @@ Test connectivity to the Rest API.
 Parameter:
 NONE
 
-## Check Server Time[​](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints#check-server-time "Direct link to Check Server Time")
+## Check Server Time
 
 > Response
 
-```
-{  
-"serverTime":1645539742000  
-}  
-
+```json
+{
+  "serverTime": 1645539742000
+}
 ```
 
 - **GET** `/api/v3/time `
@@ -71,7 +35,7 @@ NONE
 Parameter:
 NONE
 
-## API default symbol[​](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints#api-default-symbol "Direct link to API default symbol")
+## API default symbol
 
 > Request
 
@@ -82,19 +46,18 @@ GET /api/v3/defaultSymbols
 
 > Response
 
-```
-{  
-"code":200,  
-"data":[  
-"GENE1USDT",  
-"SNTUSDT",  
-"SQUAWKUSDT",  
-"HEGICUSDT",  
-"GUMUSDT"  
-],  
-"msg":null  
-}  
-
+```json
+{
+  "code": 200,
+  "data": [
+    "GENE1USDT",
+    "SNTUSDT",
+    "SQUAWKUSDT",
+    "HEGICUSDT",
+    "GUMUSDT"
+  ],
+  "msg": null
+}
 ```
 
 - **GET** `/api/v3/defaultSymbols `
@@ -107,53 +70,50 @@ Name | Type | Description\
 ---|---|---\
 symbol | string | symbol
 
-## Exchange Information[​](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints#exchange-information "Direct link to Exchange Information")
+## Exchange Information
 
 > Response
 
-```
-{  
-"symbol":"METALUSDT",  
-"status":"1",  
-"baseAsset":"METAL",  
-"baseAssetPrecision":2,  
-"quoteAsset":"USDT",  
-"quotePrecision":5,  
-"quoteAssetPrecision":5,  
-"baseCommissionPrecision":2,  
-"quoteCommissionPrecision":5,  
-"orderTypes":[  
-"LIMIT",  
-"MARKET",  
-"LIMIT_MAKER"  
-],  
-"isSpotTradingAllowed":true,  
-"isMarginTradingAllowed":false,  
-"quoteAmountPrecision":"1",  
-"baseSizePrecision":"0.1",  
-"permissions":[  
-"SPOT",  
-],  
-"filters":[  
-{  
-"filterType":"PERCENT_PRICE_BY_SIDE",  
-"bidMultiplierUp":"5",  
-"askMultiplierDown":"0.2"  
-},  
-  
-],  
-"maxQuoteAmount":"2000000",  
-"makerCommission":"0",  
-"takerCommission":"0.0005",  
-"quoteAmountPrecisionMarket":"1",  
-"maxQuoteAmountMarket":"100000",  
-"fullName":"Metal Blockchain",  
-"tradeSideType":"1",  
-"contractAddress":"xtokens",  
-"st":false  
-}  
-  
-
+```json
+{
+  "symbol":"METALUSDT",
+  "status":"1",
+  "baseAsset":"METAL",
+  "baseAssetPrecision":2,
+  "quoteAsset":"USDT",
+  "quotePrecision":5,
+  "quoteAssetPrecision":5,
+  "baseCommissionPrecision":2,
+  "quoteCommissionPrecision":5,
+  "orderTypes":[
+  "LIMIT",
+  "MARKET",
+  "LIMIT_MAKER"
+  ],
+  "isSpotTradingAllowed":true,
+  "isMarginTradingAllowed":false,
+  "quoteAmountPrecision":"1",
+  "baseSizePrecision":"0.1",
+  "permissions":[
+  "SPOT",
+  ],
+  "filters":[
+  {
+    "filterType":"PERCENT_PRICE_BY_SIDE",
+    "bidMultiplierUp":"5",
+    "askMultiplierDown":"0.2"
+  },
+  ],
+  "maxQuoteAmount":"2000000",
+  "makerCommission":"0",
+  "takerCommission":"0.0005",
+  "quoteAmountPrecisionMarket":"1",
+  "maxQuoteAmountMarket":"100000",
+  "fullName":"Metal Blockchain",
+  "tradeSideType":"1",
+  "contractAddress":"xtokens",
+  "st":false
+}
 ```
 
 - **GET** `/api/v3/exchangeInfo`
@@ -183,7 +143,7 @@ quotePrecision | Int | quote Precision\
 quoteAssetPrecision | Int | quote Asset Precision\
 baseCommissionPrecision | Int | base Commission Precision\
 quoteCommissionPrecision | Int | quote Commission Precision\
-orderTypes | Array | [Order Type](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints#order_type "Order Type")\
+orderTypes | Array | [Order Type](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints#order_type)\
 isSpotTradingAllowed | Boolean | allow api spot trading\
 isMarginTradingAllowed | Boolean | allow api margin trading\
 permissions | Array | permissions\
@@ -206,21 +166,26 @@ filter parameter description:
 - For buy orders (only for LIMIT, IMMEDIATE_OR_CANCEL, FILL_OR_KILL): `orderPrice <= lastPrice * bidMultiplierUp`
 - For sell orders: `orderPrice >= lastPrice * askMultiplierDown`
 
-## Order Book[​](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints#order-book "Direct link to Order Book")
+## Order Book
 
 > Response
 
-```
-{  
-"lastUpdateId":1112416,  
-"bids":[  
-["15.00000","49999.00000"]  
-],  
-"asks":[  
-["14.0000","1.0000"]  
-]  
-}  
-
+```json
+{
+  "lastUpdateId": 1112416,
+  "bids": [
+    [
+      "15.00000",
+      "49999.00000"
+    ]
+  ],
+  "asks": [
+    [
+      "14.0000",
+      "1.0000"
+    ]
+  ]
+}
 ```
 
 - **GET** `/api/v3/depth`
@@ -238,23 +203,22 @@ lastUpdateId | long | Last Update Id\
 bids | list | Bid [Price, Quantity ]\
 asks | list | Ask [Price, Quantity ]
 
-## Recent Trades List[​](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints#recent-trades-list "Direct link to Recent Trades List")
+## Recent Trades List
 
 > Response
 
-```
-[  
-{  
-"id":null,  
-"price":"23",  
-"qty":"0.478468",  
-"quoteQty":"11.004764",  
-"time":1640830579240,  
-"isBuyerMaker":true,  
-"isBestMatch":true  
-}  
-]  
-
+```json
+[
+  {
+    "id": null,
+    "price": "23",
+    "qty": "0.478468",
+    "quoteQty": "11.004764",
+    "time": 1640830579240,
+    "isBuyerMaker": true,
+    "isBestMatch": true
+  }
+]
 ```
 
 - **GET** `/api/v3/trades`
@@ -276,24 +240,23 @@ time | Trade time\
 isBuyerMaker | Was the buyer the maker?\
 isBestMatch | Was the trade the best price match?
 
-## Compressed/Aggregate Trades List[​](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints#compressedaggregate-trades-list "Direct link to Compressed/Aggregate Trades List")
+## Compressed/Aggregate Trades List
 
 > Response
 
-```
-[  
-{  
-"a":null,  
-"f":null,  
-"l":null,  
-"p":"46782.67",  
-"q":"0.0038",  
-"T":1641380483000,  
-"m":false,  
-"M":true  
-}  
-]  
-
+```json
+[
+  {
+    "a": null,
+    "f": null,
+    "l": null,
+    "p": "46782.67",
+    "q": "0.0038",
+    "T": 1641380483000,
+    "m": false,
+    "M": true
+  }
+]
 ```
 
 - **GET** `/api/v3/aggTrades`
@@ -320,7 +283,7 @@ T | Timestamp\
 m | Was the buyer the maker?\
 M | Was the trade the best price match?
 
-## Kline/Candlestick Data[​](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints#klinecandlestick-data "Direct link to Kline/Candlestick Data")
+## Kline/Candlestick Data
 
 > Response
 
@@ -348,7 +311,7 @@ Parameters:
 Name | Type | Mandatory | Description\
 ---|---|---|---\
 symbol | string | YES |\
-interval | ENUM | YES | ENUM: [Kline Interval](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints#kline_interval "Kline Interval")\
+interval | ENUM | YES | ENUM: [Kline Interval](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints#kline_interval)\
 startTime | long | NO |\
 endTime | long | NO |\
 limit | integer | NO | Default 500; max 1000.\
@@ -364,16 +327,15 @@ Index | Description\
 6 | Close time\
 7 | Quote asset volume
 
-## Current Average Price[​](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints#current-average-price "Direct link to Current Average Price")
+## Current Average Price
 
 > Response
 
-```
-{  
-"mins":5,  
-"price":"9.35751834"  
-}  
-
+```json
+{
+  "mins": 5,
+  "price": "9.35751834"
+}
 ```
 
 - **GET** `/api/v3/avgPrice`
@@ -389,72 +351,71 @@ Name | Description\
 mins | Average price time frame\
 price | Price
 
-## 24hr Ticker Price Change Statistics[​](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints#24hr-ticker-price-change-statistics "Direct link to 24hr Ticker Price Change Statistics")
+## 24hr Ticker Price Change Statistics
 
 > Response
 
-```
-{  
-"symbol":"BTCUSDT",  
-"priceChange":"184.34",  
-"priceChangePercent":"0.00400048",  
-"prevClosePrice":"46079.37",  
-"lastPrice":"46263.71",  
-"bidPrice":"46260.38",  
-"bidQty":"",  
-"askPrice":"46260.41",  
-"askQty":"",  
-"openPrice":"46079.37",  
-"highPrice":"47550.01",  
-"lowPrice":"45555.5",  
-"volume":"1732.461487",  
-"quoteVolume":null,  
-"openTime":1641349500000,  
-"closeTime":1641349582808,  
-"count":null  
-}  
-or  
-[  
-{  
-"symbol":"BTCUSDT",  
-"priceChange":"184.34",  
-"priceChangePercent":"0.00400048",  
-"prevClosePrice":"46079.37",  
-"lastPrice":"46263.71",  
-"bidPrice":"46260.38",  
-"bidQty":"",  
-"askPrice":"46260.41",  
-"askQty":"",  
-"openPrice":"46079.37",  
-"highPrice":"47550.01",  
-"lowPrice":"45555.5",  
-"volume":"1732.461487",  
-"quoteVolume":null,  
-"openTime":1641349500000,  
-"closeTime":1641349582808,  
-"count":null  
-},  
-{  
-"symbol":"ETHUSDT",  
-"priceChange":"184.34",  
-"priceChangePercent":"0.00400048",  
-"prevClosePrice":"46079.37",  
-"lastPrice":"46263.71",  
-"bidPrice":"46260.38",  
-"bidQty":"",  
-"askPrice":"46260.41",  
-"askQty":"",  
-"openPrice":"46079.37",  
-"highPrice":"47550.01",  
-"lowPrice":"45555.5",  
-"volume":"1732.461487",  
-"quoteVolume":null,  
-"openTime":1641349500000,  
-"closeTime":1641349582808,  
-"count":null  
-}  
-]  
-
+```json
+{
+  "symbol":"BTCUSDT",
+  "priceChange":"184.34",
+  "priceChangePercent":"0.00400048",
+  "prevClosePrice":"46079.37",
+  "lastPrice":"46263.71",
+  "bidPrice":"46260.38",
+  "bidQty":"",
+  "askPrice":"46260.41",
+  "askQty":"",
+  "openPrice":"46079.37",
+  "highPrice":"47550.01",
+  "lowPrice":"45555.5",
+  "volume":"1732.461487",
+  "quoteVolume":null,
+  "openTime":1641349500000,
+  "closeTime":1641349582808,
+  "count":null
+}
+or
+[
+{
+  "symbol":"BTCUSDT",
+  "priceChange":"184.34",
+  "priceChangePercent":"0.00400048",
+  "prevClosePrice":"46079.37",
+  "lastPrice":"46263.71",
+  "bidPrice":"46260.38",
+  "bidQty":"",
+  "askPrice":"46260.41",
+  "askQty":"",
+  "openPrice":"46079.37",
+  "highPrice":"47550.01",
+  "lowPrice":"45555.5",
+  "volume":"1732.461487",
+  "quoteVolume":null,
+  "openTime":1641349500000,
+  "closeTime":1641349582808,
+  "count":null
+},
+{
+  "symbol":"ETHUSDT",
+  "priceChange":"184.34",
+  "priceChangePercent":"0.00400048",
+  "prevClosePrice":"46079.37",
+  "lastPrice":"46263.71",
+  "bidPrice":"46260.38",
+  "bidQty":"",
+  "askPrice":"46260.41",
+  "askQty":"",
+  "openPrice":"46079.37",
+  "highPrice":"47550.01",
+  "lowPrice":"45555.5",
+  "volume":"1732.461487",
+  "quoteVolume":null,
+  "openTime":1641349500000,
+  "closeTime":1641349582808,
+  "count":null
+}
+]
 ```
 
 - **GET** `/api/v3/ticker/24hr`
@@ -490,27 +451,26 @@ openTime | Start time\
 closeTime | Close time\
 count |
 
-## Symbol Price Ticker[​](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints#symbol-price-ticker "Direct link to Symbol Price Ticker")
+## Symbol Price Ticker
 
 > Response
 
-```
-{  
-"symbol":"BTCUSDT",  
-"price":"184.34"  
-}  
-or  
-[  
-{  
-"symbol":"BTCUSDT",  
-"price":"6.65"  
-},  
-{  
-"symbol":"ETHUSDT",  
-"price":"5.65"  
-}  
-]  
-
+```json
+{
+  "symbol":"BTCUSDT",
+  "price":"184.34"
+}
+or
+[
+{
+  "symbol":"BTCUSDT",
+  "price":"6.65"
+},
+{
+  "symbol":"ETHUSDT",
+  "price":"5.65"
+}
+]
 ```
 
 - **GET** `/api/v3/ticker/price`
@@ -530,36 +490,35 @@ Name | Description\
 symbol |\
 price | Last price
 
-## Symbol Order Book Ticker[​](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints#symbol-order-book-ticker "Direct link to Symbol Order Book Ticker")
+## Symbol Order Book Ticker
 
 > Response
 
-```
-{  
-"symbol":"AEUSDT",  
-"bidPrice":"0.11001",  
-"bidQty":"115.59",  
-"askPrice":"0.11127",  
-"askQty":"215.48"  
-}  
-OR  
-[  
-{  
-"symbol":"AEUSDT",  
-"bidPrice":"0.11001",  
-"bidQty":"115.59",  
-"askPrice":"0.11127",  
-"askQty":"215.48"  
-},  
-{  
-"symbol":"AEUSDT",  
-"bidPrice":"0.11001",  
-"bidQty":"115.59",  
-"askPrice":"0.11127",  
-"askQty":"215.48"  
-}  
-]  
-
+```json
+{
+  "symbol":"AEUSDT",
+  "bidPrice":"0.11001",
+  "bidQty":"115.59",
+  "askPrice":"0.11127",
+  "askQty":"215.48"
+}
+OR
+[
+{
+  "symbol":"AEUSDT",
+  "bidPrice":"0.11001",
+  "bidQty":"115.59",
+  "askPrice":"0.11127",
+  "askQty":"215.48"
+},
+{
+  "symbol":"AEUSDT",
+  "bidPrice":"0.11001",
+  "bidQty":"115.59",
+  "askPrice":"0.11127",
+  "askQty":"215.48"
+}
+]
 ```
 
 - **GET** `/api/v3/ticker/bookTicker`
@@ -578,18 +537,3 @@ bidPrice | Best bid price\
 bidQty | Best bid quantity\
 askPrice | Best ask price\
 askQty | Best ask quantity\
-[Previous General Info](https://www.mexc.com/api-docs/spot-v3/general-info "PreviousGeneral Info")[Next Sub-Account Endpoints](https://www.mexc.com/api-docs/spot-v3/subaccount-endpoints "NextSub-Account Endpoints")
-
-- [Download Historical Market Data](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints#download-historical-market-data "Download Historical Market Data")
-- [Test Connectivity](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints#test-connectivity "Test Connectivity")
-- [Check Server Time](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints#check-server-time "Check Server Time")
-- [API default symbol](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints#api-default-symbol "API default symbol")
-- [Exchange Information](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints#exchange-information "Exchange Information")
-- [Order Book](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints#order-book "Order Book")
-- [Recent Trades List](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints#recent-trades-list "Recent Trades List")
-- [Compressed/Aggregate Trades List](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints#compressedaggregate-trades-list "Compressed/Aggregate Trades List")
-- [Kline/Candlestick Data](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints#klinecandlestick-data "Kline/Candlestick Data")
-- [Current Average Price](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints#current-average-price "Current Average Price")
-- [24hr Ticker Price Change Statistics](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints#24hr-ticker-price-change-statistics "24hr Ticker Price Change Statistics")
-- [Symbol Price Ticker](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints#symbol-price-ticker "Symbol Price Ticker")
-- [Symbol Order Book Ticker](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints#symbol-order-book-ticker "Symbol Order Book Ticker")

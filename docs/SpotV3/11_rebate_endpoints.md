@@ -1,40 +1,6 @@
-[Skip to main content](https://www.mexc.com/api-docs/spot-v3/rebate-endpoints#__docusaurus_skipToContent_fallback "Skip to main content")
-[![MEXC Logo](https://www.mexc.com/api-docs-assets/img/mexc-logo.svg)](https://www.mexc.com/ "https://www.mexc.com/")[SpotV3](https://www.mexc.com/api-docs/spot-v3/introduction "SpotV3")[Futures](https://www.mexc.com/api-docs/futures/update-log "Futures")[Broker](https://www.mexc.com/api-docs/broker/mexc-broker-introduction "Broker")
-[](https://www.mexc.com/api-docs/spot-v3/rebate-endpoints "English")
-
-- [English](https://www.mexc.com/api-docs/spot-v3/rebate-endpoints "English")
-
-- [中文](https://www.mexc.com/zh-MY/api-docs/spot-v3/rebate-endpoints "中文")
-
-- [Introduction](https://www.mexc.com/api-docs/spot-v3/introduction "Introduction")
-
-- [Change Log](https://www.mexc.com/api-docs/spot-v3/change-log "Change Log")
-
-- [FAQs](https://www.mexc.com/api-docs/spot-v3/faqs "FAQs")
-
-- [General Info](https://www.mexc.com/api-docs/spot-v3/general-info "General Info")
-
-- [Market Data Endpoints](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints "Market Data Endpoints")
-
-- [Sub-Account Endpoints](https://www.mexc.com/api-docs/spot-v3/subaccount-endpoints "Sub-Account Endpoints")
-
-- [Spot Account/Trade](https://www.mexc.com/api-docs/spot-v3/spot-account-trade "Spot Account/Trade")
-
-- [Wallet Endpoints](https://www.mexc.com/api-docs/spot-v3/wallet-endpoints "Wallet Endpoints")
-
-- [Websocket Market Streams](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams "Websocket Market Streams")
-
-- [Websocket User Data Streams](https://www.mexc.com/api-docs/spot-v3/websocket-user-data-streams "Websocket User Data Streams")
-
-- [Rebate Endpoints](https://www.mexc.com/api-docs/spot-v3/rebate-endpoints "Rebate Endpoints")
-
-- [Public API Definitions](https://www.mexc.com/api-docs/spot-v3/public-api-definitions "Public API Definitions")
-
-On this page
-
 # Rebate Endpoints
 
-## Get Rebate History Records[​](https://www.mexc.com/api-docs/spot-v3/rebate-endpoints#get-rebate-history-records "Direct link to Get Rebate History Records")
+## Get Rebate History Records
 
 > request
 
@@ -45,32 +11,31 @@ get /api/v3/rebate/taxQuery?timestamp={{timestamp}}&signature={{signature}}
 
 > response
 
-```
-{  
-"page":1,  
-"totalRecords":1,  
-"totalPageNum":1,  
-"data":[  
-{  
-"spot":"0.00082273",  
-"futures":"0.00022487",  
-"total":"0.00012126",  
-"uid":"221827",  
-"account":"154****291@qq.com",  
-"inviteTime":1637651320000  
-},  
-        ...  
-{  
-"spot":"0.00082273",  
-"futures":"0.00022487",  
-"total":"0.00012126",  
-"uid":"82937",  
-"account":"338****291@qq.com",  
-"inviteTime":1637651320000  
-}  
-]  
-}  
-
+```json
+{
+  "page":1,
+  "totalRecords":1,
+  "totalPageNum":1,
+  "data":[
+  {
+    "spot":"0.00082273",
+    "futures":"0.00022487",
+    "total":"0.00012126",
+    "uid":"221827",
+    "account":"154****291@qq.com",
+    "inviteTime":1637651320000
+  },
+  ...
+  {
+    "spot":"0.00082273",
+    "futures":"0.00022487",
+    "total":"0.00012126",
+    "uid":"82937",
+    "account":"338****291@qq.com",
+    "inviteTime":1637651320000
+  }
+  ]
+}
 ```
 
 **Http Request**
@@ -99,7 +64,7 @@ account | string | Invitee account\
 inviteTime | long | invite time\
 If startTime and endTime are not sent, the recent 1 year's data will be returned.
 
-## Get Rebate Records Detail[​](https://www.mexc.com/api-docs/spot-v3/rebate-endpoints#get-rebate-records-detail "Direct link to Get Rebate Records Detail")
+## Get Rebate Records Detail
 
 > request
 
@@ -110,37 +75,36 @@ get /api/v3/rebate/detail?timestamp={{timestamp}}&signature={{signature}}
 
 > response
 
-```
-{  
-"page":1,  
-"totalRecords":1,  
-"totalPageNum":1,  
-"data":[  
-{  
-"asset":"USDT",  
-"type":"spot",  
-"rate":"0.3",  
-"amount":"0.0001126",  
-"uid":"2293729101827",  
-"account":"154****291@qq.com",  
-"tradeTime":1637651320000,  
-"updateTime":1637651320000  
-},  
-         ...  
-{  
-"asset":"ETH",  
-"type":"spot",  
-"rate":"0.3",  
-"amount":"0.00000056",  
-"uid":"22937291018263",  
-"account":"154****291@qq.com",  
-"tradeTime":1637651320000,  
-"updateTime":1637928379000  
-}  
-]  
-}  
-​  
-
+```json
+{
+  "page":1,
+  "totalRecords":1,
+  "totalPageNum":1,
+  "data":[
+  {
+    "asset":"USDT",
+    "type":"spot",
+    "rate":"0.3",
+    "amount":"0.0001126",
+    "uid":"2293729101827",
+    "account":"154****291@qq.com",
+    "tradeTime":1637651320000,
+    "updateTime":1637651320000
+  },
+  ...
+  {
+    "asset":"ETH",
+    "type":"spot",
+    "rate":"0.3",
+    "amount":"0.00000056",
+    "uid":"22937291018263",
+    "account":"154****291@qq.com",
+    "tradeTime":1637651320000,
+    "updateTime":1637928379000
+  }
+  ]
+}
+​
 ```
 
 **Http Request**
@@ -171,7 +135,7 @@ tradeTime | long | trade time\
 updateTime | long | update time\
 If startTime and endTime are not sent, the recent 1 year's data will be returned.
 
-## Get Self Rebate Records Detail[​](https://www.mexc.com/api-docs/spot-v3/rebate-endpoints#get-self-rebate-records-detail "Direct link to Get Self Rebate Records Detail")
+## Get Self Rebate Records Detail
 
 > request
 
@@ -182,36 +146,35 @@ get /api/v3/rebate/detail/kickback?timestamp={{timestamp}}&signature={{signature
 
 > response
 
-```
-{  
-"page":1,  
-"totalRecords":27,  
-"totalPageNum":3,  
-"data":[  
-{  
-"asset":"USDT",  
-"type":"spot",  
-"rate":"0.3",  
-"amount":"0.0001126",  
-"uid":"2293729101827",  
-"account":"154****291@qq.com",  
-"tradeTime":1637651320000,  
-"updateTime":1637651320000  
-},  
-        ...  
-{  
-"asset":"ETH",  
-"type":"spot",  
-"rate":"0.3",  
-"amount":"0.00000056",  
-"uid":"22937291018263",  
-"account":"154****291@qq.com",  
-"tradeTime":1637651320000,  
-"updateTime":1637928379000  
-}  
-]  
-}  
-
+```json
+{
+  "page":1,
+  "totalRecords":27,
+  "totalPageNum":3,
+  "data":[
+  {
+    "asset":"USDT",
+    "type":"spot",
+    "rate":"0.3",
+    "amount":"0.0001126",
+    "uid":"2293729101827",
+    "account":"154****291@qq.com",
+    "tradeTime":1637651320000,
+    "updateTime":1637651320000
+  },
+  ...
+  {
+    "asset":"ETH",
+    "type":"spot",
+    "rate":"0.3",
+    "amount":"0.00000056",
+    "uid":"22937291018263",
+    "account":"154****291@qq.com",
+    "tradeTime":1637651320000,
+    "updateTime":1637928379000
+  }
+  ]
+}
 ```
 
 **Http Request**
@@ -242,7 +205,7 @@ tradeTime | long | trade time\
 updateTime | long | update time\
 If startTime and endTime are not sent, the recent 1 year's data will be returned.
 
-## Query ReferCode[​](https://www.mexc.com/api-docs/spot-v3/rebate-endpoints#query-refercode "Direct link to Query ReferCode")
+## Query ReferCode
 
 > request
 
@@ -253,11 +216,10 @@ get /api/v3/rebate/referCode?timestamp={{timestamp}}&signature={{signature}}
 
 > response
 
-```
-{  
-"referCode":"in3jd"  
-}  
-
+```json
+{
+  "referCode": "in3jd"
+}
 ```
 
 **HTTP Request**
@@ -277,7 +239,7 @@ Name | Type | Description\
 ---|---|---\
 referCode | string | referCode
 
-## Get Affiliate Commission Record (affiliate only)[​](https://www.mexc.com/api-docs/spot-v3/rebate-endpoints#get-affiliate-commission-record-affiliate-only "Direct link to Get Affiliate Commission Record (affiliate only)")
+## Get Affiliate Commission Record (affiliate only)
 
 > request
 
@@ -288,50 +250,49 @@ get /api/v3/rebate/affiliate/commission?timestamp={{timestamp}}&signature={{sign
 
 > response
 
-```
-{  
-"success":true,  
-"code":0,  
-"message":null,  
-"data":{  
-"pageSize":10,  
-"totalCount":2,  
-"totalPage":1,  
-"currentPage":1,  
-"usdtAmount":null,  
-"totalCommissionUsdtAmount":null,  
-"totalTradeUsdtAmount":null,  
-"finished":null,  
-"resultList":[  
-{  
-"uid":"27121050",  
-"account":"",  
-"inviteCode":"mexc-12345",  
-"inviteTime":1637145911,  
-"spot":"0.00000000",  
-"etf":"0.21131086",  
-"futures":"0.74546367",  
-"total":"0.95677453",  
-"deposit":null,  
-"firstDepositTime":null  
-},  
-{  
-"uid":"52813530",  
-"account":"",  
-"inviteCode":"mexc-12345",  
-"inviteTime":1637145478,  
-"spot":"1.25023599",  
-"etf":"0.00000000",  
-"futures":"0.00000000",  
-"total":"1.25023599",  
-"deposit":"26000.00000000",  
-"firstDepositTime":"2021-11-19"  
-}  
-]  
-}  
-}  
-​  
-
+```json
+{
+  "success":true,
+  "code":0,
+  "message":null,
+  "data":{
+    "pageSize":10,
+    "totalCount":2,
+    "totalPage":1,
+    "currentPage":1,
+    "usdtAmount":null,
+    "totalCommissionUsdtAmount":null,
+    "totalTradeUsdtAmount":null,
+    "finished":null,
+    "resultList":[
+    {
+      "uid":"27121050",
+      "account":"",
+      "inviteCode":"mexc-12345",
+      "inviteTime":1637145911,
+      "spot":"0.00000000",
+      "etf":"0.21131086",
+      "futures":"0.74546367",
+      "total":"0.95677453",
+      "deposit":null,
+      "firstDepositTime":null
+    },
+    {
+      "uid":"52813530",
+      "account":"",
+      "inviteCode":"mexc-12345",
+      "inviteTime":1637145478,
+      "spot":"1.25023599",
+      "etf":"0.00000000",
+      "futures":"0.00000000",
+      "total":"1.25023599",
+      "deposit":"26000.00000000",
+      "firstDepositTime":"2021-11-19"
+    }
+    ]
+  }
+}
+​
 ```
 
 **HTTP Request**
@@ -365,7 +326,7 @@ deposit | string | deposit amount(usdt)\
 firstDepositTime | string | first Deposit Time\
 If startTime and endTime are not sent, default return the data of the last six months .
 
-## Get Affiliate Withdraw Record (affiliate only)[​](https://www.mexc.com/api-docs/spot-v3/rebate-endpoints#get-affiliate-withdraw-record-affiliate-only "Direct link to Get Affiliate Withdraw Record (affiliate only)")
+## Get Affiliate Withdraw Record (affiliate only)
 
 > request
 
@@ -376,33 +337,31 @@ get /api/v3/rebate/affiliate/withdraw?timestamp={{timestamp}}&signature={{signat
 
 > response
 
-```
-{  
-"success":true,  
-"code":0,  
-"message":null,  
-"data":{  
-"pageSize":10,  
-"totalCount":15,  
-"totalPage":2,  
-"currentPage":1,  
-"resultList":[  
-{  
-"withdrawTime":1682321417000,  
-"asset":"USDT",  
-"amount":"0.00001000"  
-},  
-{  
-"withdrawTime":1682321405000,  
-"asset":"USDC",  
-"amount":"0.00001000"  
-}  
-]  
-}  
-}  
-  
-​  
-
+```json
+{
+  "success":true,
+  "code":0,
+  "message":null,
+  "data":{
+    "pageSize":10,
+    "totalCount":15,
+    "totalPage":2,
+    "currentPage":1,
+    "resultList":[
+    {
+      "withdrawTime":1682321417000,
+      "asset":"USDT",
+      "amount":"0.00001000"
+    },
+    {
+      "withdrawTime":1682321405000,
+      "asset":"USDC",
+      "amount":"0.00001000"
+    }
+    ]
+  }
+}
+​
 ```
 
 **HTTP Request**
@@ -428,7 +387,7 @@ asset | string | withdraw asset\
 amount | string | withdraw amount\
 If startTime and endTime are not sent, the data of the last six months is returned.
 
-## Get Affiliate Commission Detail Record (affiliate only)[​](https://www.mexc.com/api-docs/spot-v3/rebate-endpoints#get-affiliate-commission-detail-record-affiliate-only "Direct link to Get Affiliate Commission Detail Record (affiliate only)")
+## Get Affiliate Commission Detail Record (affiliate only)
 
 > request
 
@@ -439,40 +398,38 @@ get /api/v3/rebate/affiliate/commission/detail?timestamp={{timestamp}}&signature
 
 > response
 
-```
-{  
-"success":true,  
-"code":0,  
-"message":null,  
-"data":{  
-"pageSize":10,  
-"totalCount":5,  
-"totalPage":1,  
-"currentPage":1,  
-"totalCommissionUsdtAmount":"0.0011",  
-"totalTradeUsdtAmount":"281.8096",  
-"resultList":[  
-{  
-"type":2,  
-"sourceType":2,  
-"state":2,  
-"date":1689264000000,  
-"uid":"17875073",  
-"rate":0.1,  
-"symbol":"USDT",  
-"takerAmount":"170.49326",  
-"makerAmount":"0",  
-"amountCurrency":"USDT",  
-"usdtAmount":"170.49326",  
-"commission":"0.00085246",  
-"currency":"USDT"  
-}  
-]  
-}  
-}  
-  
-​  
-
+```json
+{
+  "success":true,
+  "code":0,
+  "message":null,
+  "data":{
+    "pageSize":10,
+    "totalCount":5,
+    "totalPage":1,
+    "currentPage":1,
+    "totalCommissionUsdtAmount":"0.0011",
+    "totalTradeUsdtAmount":"281.8096",
+    "resultList":[
+    {
+      "type":2,
+      "sourceType":2,
+      "state":2,
+      "date":1689264000000,
+      "uid":"17875073",
+      "rate":0.1,
+      "symbol":"USDT",
+      "takerAmount":"170.49326",
+      "makerAmount":"0",
+      "amountCurrency":"USDT",
+      "usdtAmount":"170.49326",
+      "commission":"0.00085246",
+      "currency":"USDT"
+    }
+    ]
+  }
+}
+​
 ```
 
 **HTTP Request**
@@ -512,7 +469,7 @@ commission | string | commission amount\
 currency | string | commission currency\
 If startTime and endTime are not sent, the data from T-7 to T is returned. If type is not sent, the data of all types is returned,maximum 30 days data can be queried at one time.
 
-## Get Affiliate Campaign Data (affiliate only)[​](https://www.mexc.com/api-docs/spot-v3/rebate-endpoints#get-affiliate-campaign-data-affiliate-only "Direct link to Get Affiliate Campaign Data (affiliate only)")
+## Get Affiliate Campaign Data (affiliate only)
 
 > request
 
@@ -523,47 +480,45 @@ get /api/v3/rebate/affiliate/campaign?timestamp={{timestamp}}&signature={{signat
 
 > response
 
-```
-{  
-"success":true,  
-"code":0,  
-"message":null,  
-"data":{  
-"pageSize":10,  
-"totalCount":15,  
-"totalPage":2,  
-"currentPage":1,  
-"resultList":[  
-{  
-"campaign":"11kd",  
-"inviteCode":"mexc-11Kd",  
-"clickTime":0,  
-"createTime":1695125287000,  
-"signup":0,  
-"traded":0,  
-"deposited":0,  
-"depositAmount":"0",  
-"tradingAmount":"0",  
-"commission":"0"  
-},  
-{  
-"campaign":"New10",  
-"inviteCode":"mexc-newcode",  
-"clickTime":7,  
-"createTime":1693152531000,  
-"signup":0,  
-"traded":0,  
-"deposited":0,  
-"depositAmount":"0",  
-"tradingAmount":"0",  
-"commission":"0"  
-}  
-]  
-}  
-}  
-  
-​  
-
+```json
+{
+  "success":true,
+  "code":0,
+  "message":null,
+  "data":{
+    "pageSize":10,
+    "totalCount":15,
+    "totalPage":2,
+    "currentPage":1,
+    "resultList":[
+    {
+      "campaign":"11kd",
+      "inviteCode":"mexc-11Kd",
+      "clickTime":0,
+      "createTime":1695125287000,
+      "signup":0,
+      "traded":0,
+      "deposited":0,
+      "depositAmount":"0",
+      "tradingAmount":"0",
+      "commission":"0"
+    },
+    {
+      "campaign":"New10",
+      "inviteCode":"mexc-newcode",
+      "clickTime":7,
+      "createTime":1693152531000,
+      "signup":0,
+      "traded":0,
+      "deposited":0,
+      "depositAmount":"0",
+      "tradingAmount":"0",
+      "commission":"0"
+    }
+    ]
+  }
+}
+​
 ```
 
 **HTTP Request**
@@ -596,7 +551,7 @@ traded | int | traded number\
 commission | string | commission\
 If startTime and endTime are not sent, the data from T-7 to T is returned.
 
-## Get Affiliate Referral Data（affiliate only）[​](https://www.mexc.com/api-docs/spot-v3/rebate-endpoints#get-affiliate-referral-dataaffiliate-only "Direct link to Get Affiliate Referral Data（affiliate only）")
+## Get Affiliate Referral Data（affiliate only）
 
 > request
 
@@ -607,40 +562,38 @@ get /api/v3/rebate/affiliate/referral?timestamp={{timestamp}}&signature={{signat
 
 > response
 
-```
-{  
-"success":true,  
-"code":0,  
-"message":null,  
-"data":{  
-"pageSize":10,  
-"totalCount":15,  
-"totalPage":2,  
-"currentPage":1,  
-"resultList":[  
-{  
-"uid":"42469975",  
-"nickName":null,  
-"email":"",  
-"registerTime":1640275818000,  
-"inviteCode":"mexc-12201950",  
-"depositAmount":"0.00000000",  
-"tradingAmount":"0.00000000",  
-"commission":"0.00000000",  
-"firstDepositTime":null,  
-"firstTradeTime":null,  
-"lastDepositTime":null,  
-"lastTradeTime":null,  
-"withdrawAmount":"0.00000000",  
-"asset":"0 USDT",  
-"identification":1  
-}  
-]  
-}  
-}  
-  
-​  
-
+```json
+{
+  "success":true,
+  "code":0,
+  "message":null,
+  "data":{
+    "pageSize":10,
+    "totalCount":15,
+    "totalPage":2,
+    "currentPage":1,
+    "resultList":[
+    {
+      "uid":"42469975",
+      "nickName":null,
+      "email":"",
+      "registerTime":1640275818000,
+      "inviteCode":"mexc-12201950",
+      "depositAmount":"0.00000000",
+      "tradingAmount":"0.00000000",
+      "commission":"0.00000000",
+      "firstDepositTime":null,
+      "firstTradeTime":null,
+      "lastDepositTime":null,
+      "lastTradeTime":null,
+      "withdrawAmount":"0.00000000",
+      "asset":"0 USDT",
+      "identification":1
+    }
+    ]
+  }
+}
+​
 ```
 
 **HTTP Request**
@@ -680,7 +633,7 @@ withdrawalAmount | string | withdrawal amount(USDT)\
 identification | int | identification,1: Uncertified, 2: primary, 3: Advanced, 4: Institutional\
 If startTime and endTime are not sent, the data from T-7 to T is returned.
 
-## Get Subaffiliates Data (affiliate only)[​](https://www.mexc.com/api-docs/spot-v3/rebate-endpoints#get-subaffiliates-data-affiliate-only "Direct link to Get Subaffiliates Data (affiliate only)")
+## Get Subaffiliates Data (affiliate only)
 
 > request
 
@@ -691,45 +644,43 @@ get /api/v3/rebate/affiliate/subaffiliates?timestamp={{timestamp}}&signature={{s
 
 > response
 
-```
-{  
-"success":true,  
-"code":0,  
-"message":null,  
-"data":{  
-"pageSize":10,  
-"totalCount":15,  
-"totalPage":2,  
-"currentPage":1,  
-"resultList":[  
-{  
-"subaffiliateName":"ada176@mailtemp.top ada176",  
-"subaffiliateMail":"ad*****6@mailtemp.top",  
-"campaign":"new1",  
-"inviteCode":"mexc-12181621",  
-"activationTime":1639834136000,  
-"registered":0,  
-"deposited":0,  
-"depositAmount":"0",  
-"commission":"0"  
-},  
-{  
-"subaffiliateName":"ada165@mailtemp.top ada165",  
-"subaffiliateMail":"ad*****5@mailtemp.top",  
-"campaign":null,  
-"inviteCode":"1KMyk",  
-"activationTime":1639831541000,  
-"registered":0,  
-"deposited":1,  
-"depositAmount":"21.15318",  
-"commission":"0.5161221"  
-}  
-]  
-}  
-}  
-  
-​  
-
+```json
+{
+  "success":true,
+  "code":0,
+  "message":null,
+  "data":{
+    "pageSize":10,
+    "totalCount":15,
+    "totalPage":2,
+    "currentPage":1,
+    "resultList":[
+    {
+      "subaffiliateName":"ada176@mailtemp.top ada176",
+      "subaffiliateMail":"ad*****6@mailtemp.top",
+      "campaign":"new1",
+      "inviteCode":"mexc-12181621",
+      "activationTime":1639834136000,
+      "registered":0,
+      "deposited":0,
+      "depositAmount":"0",
+      "commission":"0"
+    },
+    {
+      "subaffiliateName":"ada165@mailtemp.top ada165",
+      "subaffiliateMail":"ad*****5@mailtemp.top",
+      "campaign":null,
+      "inviteCode":"1KMyk",
+      "activationTime":1639831541000,
+      "registered":0,
+      "deposited":1,
+      "depositAmount":"21.15318",
+      "commission":"0.5161221"
+    }
+    ]
+  }
+}
+​
 ```
 
 **HTTP Request**
@@ -761,15 +712,3 @@ deposited | int | deposited number\
 depositAmount | string | deposit amount\
 commission | string | commission\
 If startTime and endTime are not sent, the data from T-7 to T is returned.
-[Previous Websocket User Data Streams](https://www.mexc.com/api-docs/spot-v3/websocket-user-data-streams "PreviousWebsocket User Data Streams")[Next Public API Definitions](https://www.mexc.com/api-docs/spot-v3/public-api-definitions "NextPublic API Definitions")
-
-- [Get Rebate History Records](https://www.mexc.com/api-docs/spot-v3/rebate-endpoints#get-rebate-history-records "Get Rebate History Records")
-- [Get Rebate Records Detail](https://www.mexc.com/api-docs/spot-v3/rebate-endpoints#get-rebate-records-detail "Get Rebate Records Detail")
-- [Get Self Rebate Records Detail](https://www.mexc.com/api-docs/spot-v3/rebate-endpoints#get-self-rebate-records-detail "Get Self Rebate Records Detail")
-- [Query ReferCode](https://www.mexc.com/api-docs/spot-v3/rebate-endpoints#query-refercode "Query ReferCode")
-- [Get Affiliate Commission Record (affiliate only)](https://www.mexc.com/api-docs/spot-v3/rebate-endpoints#get-affiliate-commission-record-affiliate-only "Get Affiliate Commission Record (affiliate only)")
-- [Get Affiliate Withdraw Record (affiliate only)](https://www.mexc.com/api-docs/spot-v3/rebate-endpoints#get-affiliate-withdraw-record-affiliate-only "Get Affiliate Withdraw Record (affiliate only)")
-- [Get Affiliate Commission Detail Record (affiliate only)](https://www.mexc.com/api-docs/spot-v3/rebate-endpoints#get-affiliate-commission-detail-record-affiliate-only "Get Affiliate Commission Detail Record (affiliate only)")
-- [Get Affiliate Campaign Data (affiliate only)](https://www.mexc.com/api-docs/spot-v3/rebate-endpoints#get-affiliate-campaign-data-affiliate-only "Get Affiliate Campaign Data (affiliate only)")
-- [Get Affiliate Referral Data（affiliate only）](https://www.mexc.com/api-docs/spot-v3/rebate-endpoints#get-affiliate-referral-dataaffiliate-only "Get Affiliate Referral Data（affiliate only）")
-- [Get Subaffiliates Data (affiliate only)](https://www.mexc.com/api-docs/spot-v3/rebate-endpoints#get-subaffiliates-data-affiliate-only "Get Subaffiliates Data (affiliate only)")

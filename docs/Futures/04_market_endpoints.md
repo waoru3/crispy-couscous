@@ -1,30 +1,8 @@
-[Skip to main content](https://www.mexc.com/api-docs/futures/market-endpoints#__docusaurus_skipToContent_fallback "Skip to main content")
-[![MEXC Logo](https://www.mexc.com/api-docs-assets/img/mexc-logo.svg)](https://www.mexc.com/ "https://www.mexc.com/")[SpotV3](https://www.mexc.com/api-docs/spot-v3/introduction "SpotV3")[Futures](https://www.mexc.com/api-docs/futures/update-log "Futures")[Broker](https://www.mexc.com/api-docs/broker/mexc-broker-introduction "Broker")
-[](https://www.mexc.com/api-docs/futures/market-endpoints "English")
-
-- [English](https://www.mexc.com/api-docs/futures/market-endpoints "English")
-
-- [中文](https://www.mexc.com/zh-MY/api-docs/futures/market-endpoints "中文")
-
-- [Update log](https://www.mexc.com/api-docs/futures/update-log "Update log")
-
-- [Integration guide](https://www.mexc.com/api-docs/futures/integration-guide "Integration guide")
-
-- [Error code](https://www.mexc.com/api-docs/futures/error-code "Error code")
-
-- [Market endpoints](https://www.mexc.com/api-docs/futures/market-endpoints "Market endpoints")
-
-- [Account and trading endpoints](https://www.mexc.com/api-docs/futures/account-and-trading-endpoints "Account and trading endpoints")
-
-- [WebSocket API](https://www.mexc.com/api-docs/futures/websocket-api "WebSocket API")
-
-On this page
-
 # Market endpoints
 
 The API endpoint under the [Market endpoints] module doesn't require authentication.
 
-## Get the server time[​](https://www.mexc.com/api-docs/futures/market-endpoints#get-the-server-time "Direct link to Get the server time")
+## Get the server time
 
 > Request
 
@@ -35,12 +13,11 @@ curl "https://contract.mexc.com/api/v1/contract/ping"
 
 > Response
 
-```
-{  
-"success":true,  
-"data":1587442022003  
-}  
-
+```json
+{
+  "success": true,
+  "data": 1587442022003
+}
 ```
 
 - **GET** `api/v1/contract/ping`
@@ -49,7 +26,7 @@ rate limit: 20 times / 2 seconds
 **Request parameters:**
 None
 
-## Get the contract information[​](https://www.mexc.com/api-docs/futures/market-endpoints#get-the-contract-information "Direct link to Get the contract information")
+## Get the contract information
 
 > Request
 
@@ -60,72 +37,71 @@ curl "https://contract.mexc.com/api/v1/contract/detail"
 
 > Response
 
-```
-{  
-"success":true,  
-"code":0,  
-"data":[  
-{  
-"symbol":"BTC_USDT",  
-"displayName":"BTC_USDT永续",  
-"displayNameEn":"BTC_USDT SWAP",  
-"positionOpenType":3,  
-"baseCoin":"BTC",  
-"quoteCoin":"USDT",  
-"settleCoin":"USDT",  
-"contractSize":0.0001,  
-"minLeverage":1,  
-"maxLeverage":125,  
-"priceScale":2,  
-"volScale":0,  
-"amountScale":4,  
-"priceUnit":0.5,  
-"volUnit":1,  
-"minVol":1,  
-"maxVol":5000000,  
-"bidLimitPriceRate":0.03,  
-"askLimitPriceRate":0.03,  
-"takerFeeRate":0.0006,  
-"makerFeeRate":0.0002,  
-"maintenanceMarginRate":0.004,  
-"initialMarginRate":0.008,  
-"riskBaseVol":150000,  
-"riskIncrVol":150000,  
-"riskIncrMmr":0.004,  
-"riskIncrImr":0.004,  
-"riskLevelLimit":5,  
-"priceCoefficientVariation":0.05,  
-"indexOrigin":[  
-"Binance",  
-"GATEIO",  
-"HUOBI",  
-"MXC"  
-],  
-"state":0,  
-"isNew":false,  
-"isHot":true,  
-"isHidden":false,  
-"conceptPlate":[  
-"mc-trade-zone-grey",  
-"mc-trade-zone-pow"  
-],  
-"riskLimitType":"BY_VOLUME",  
-"maxNumOrders":[  
-200,  
-50  
-],  
-"marketOrderMaxLevel":15,  
-"marketOrderPriceLimitRate1":0.03,  
-"marketOrderPriceLimitRate2":0.005,  
-"triggerProtect":0.05,  
-"appraisal":0,  
-"showAppraisalCountdown":0,  
-"automaticDelivery":0,  
-"apiAllowed":false  
-},  
-]  
-}  
-
+```json
+{
+  "success":true,
+  "code":0,
+  "data":[
+  {
+    "symbol":"BTC_USDT",
+    "displayName":"BTC_USDT永续",
+    "displayNameEn":"BTC_USDT SWAP",
+    "positionOpenType":3,
+    "baseCoin":"BTC",
+    "quoteCoin":"USDT",
+    "settleCoin":"USDT",
+    "contractSize":0.0001,
+    "minLeverage":1,
+    "maxLeverage":125,
+    "priceScale":2,
+    "volScale":0,
+    "amountScale":4,
+    "priceUnit":0.5,
+    "volUnit":1,
+    "minVol":1,
+    "maxVol":5000000,
+    "bidLimitPriceRate":0.03,
+    "askLimitPriceRate":0.03,
+    "takerFeeRate":0.0006,
+    "makerFeeRate":0.0002,
+    "maintenanceMarginRate":0.004,
+    "initialMarginRate":0.008,
+    "riskBaseVol":150000,
+    "riskIncrVol":150000,
+    "riskIncrMmr":0.004,
+    "riskIncrImr":0.004,
+    "riskLevelLimit":5,
+    "priceCoefficientVariation":0.05,
+    "indexOrigin":[
+    "Binance",
+    "GATEIO",
+    "HUOBI",
+    "MXC"
+    ],
+    "state":0,
+    "isNew":false,
+    "isHot":true,
+    "isHidden":false,
+    "conceptPlate":[
+    "mc-trade-zone-grey",
+    "mc-trade-zone-pow"
+    ],
+    "riskLimitType":"BY_VOLUME",
+    "maxNumOrders":[
+    200,
+    50
+    ],
+    "marketOrderMaxLevel":15,
+    "marketOrderPriceLimitRate1":0.03,
+    "marketOrderPriceLimitRate2":0.005,
+    "triggerProtect":0.05,
+    "appraisal":0,
+    "showAppraisalCountdown":0,
+    "automaticDelivery":0,
+    "apiAllowed":false
+  },
+  ]
+}
 ```
 
 - **GET** `api/v1/contract/detail`
@@ -173,7 +149,7 @@ apiAllowed | bool | whether support api\
 conceptPlate | List | The zone, corresponding to the entryKey field of the section list\
 riskLimitType | List | Risk limit type, BY_VOLUME: by the volume, BY_VALUE: by the position
 
-## Get the transferable currencies[​](https://www.mexc.com/api-docs/futures/market-endpoints#get-the-transferable-currencies "Direct link to Get the transferable currencies")
+## Get the transferable currencies
 
 > Request
 
@@ -184,17 +160,16 @@ curl "https://contract.mexc.com/api/v1/contract/support_currencies"
 
 > Response
 
-```
-{  
-"success":true,  
-"code":0,  
-"data":[  
-"BTC",  
-"ETH",  
-"USDT"  
-]  
-}  
-
+```json
+{
+  "success": true,
+  "code": 0,
+  "data": [
+    "BTC",
+    "ETH",
+    "USDT"
+  ]
+}
 ```
 
 - **GET** `api/v1/contract/support_currencies`
@@ -205,7 +180,7 @@ None
 **Response parameters:**
 The returned "data" field contains a list of string with each string represents a suppported currency.
 
-## Get the contract‘s depth information[​](https://www.mexc.com/api-docs/futures/market-endpoints#get-the-contracts--depth-information "Direct link to Get the contract‘s  depth information")
+## Get the contract‘s depth information
 
 > Request
 
@@ -216,35 +191,34 @@ curl "https://contract.mexc.com/api/v1/contract/depth/BTC_USDT"
 
 > Response
 
-```
-{  
-"asks":[  
-[  
-3968.5,  
-121  
-],  
-[  
-3968.6,  
-160,  
-4  
-]  
-],  
-"bids":[  
-[  
-3968.4,  
-179,  
-4  
-],  
-[  
-3968,  
-914,  
-3  
-]  
-],  
-"version":1,  
-"timestamp":1587442022003  
-}  
-
+```json
+{
+  "asks": [
+    [
+      3968.5,
+      121
+    ],
+    [
+      3968.6,
+      160,
+      4
+    ]
+  ],
+  "bids": [
+    [
+      3968.4,
+      179,
+      4
+    ],
+    [
+      3968,
+      914,
+      3
+    ]
+  ],
+  "version": 1,
+  "timestamp": 1587442022003
+}
 ```
 
 - **GET** `api/v1/contract/depth/{symbol}`
@@ -264,7 +238,7 @@ version | long | the version number\
 timestamp | long | system timestamp\
 note: [411.8, 10, 1] 411.8 is the price，10 is the volume of contracts for this price,1 is the order quantity
 
-## Get a snapshot of the latest N depth information of the contract[​](https://www.mexc.com/api-docs/futures/market-endpoints#get-a-snapshot-of-the-latest-n-depth-information-of-the-contract "Direct link to Get a snapshot of the latest N depth information of the contract")
+## Get a snapshot of the latest N depth information of the contract
 
 > Request
 
@@ -275,25 +249,24 @@ curl "https://contract.mexc.com/api/v1/contract/depth_commits/BTC_USDT/20"
 
 > Response
 
-```
-{  
-"success":true,  
-"code":0,  
-"data":[  
-{  
-"asks":[  
-[  
-31792,  
-59105,  
-1  
-]  
-],  
-"bids":[],  
-"version":1481763378  
-}  
-]  
-}  
-
+```json
+{
+  "success": true,
+  "code": 0,
+  "data": [
+    {
+      "asks": [
+        [
+          31792,
+          59105,
+          1
+        ]
+      ],
+      "bids": [],
+      "version": 1481763378
+    }
+  ]
+}
 ```
 
 - **GET** `api/v1/contract/depth_commits/{symbol}/{limit}`
@@ -311,7 +284,7 @@ asks | List | the seller depth\
 bids | List | the buyer depth\
 version | long | the version number
 
-## Get contract index price[​](https://www.mexc.com/api-docs/futures/market-endpoints#get-contract--index-price "Direct link to Get contract  index price")
+## Get contract index price
 
 > Request
 
@@ -322,17 +295,16 @@ curl "https://contract.mexc.com/api/v1/contract/index_price/BTC_USDT"
 
 > Response
 
-```
-{  
-"success":true,  
-"code":0,  
-"data":{  
-"symbol":"BTC_USDT",  
-"indexPrice":31104.6,  
-"timestamp":1609829627708  
-}  
-}  
-
+```json
+{
+  "success": true,
+  "code": 0,
+  "data": {
+    "symbol": "BTC_USDT",
+    "indexPrice": 31104.6,
+    "timestamp": 1609829627708
+  }
+}
 ```
 
 - **GET** `api/v1/contract/index_price/{symbol}`
@@ -349,7 +321,7 @@ symbol | string | trading pair\
 indexPrice | decimal | index price\
 timestamp | long | system timestamp
 
-## Get contract fair price[​](https://www.mexc.com/api-docs/futures/market-endpoints#get-contract-fair-price "Direct link to Get contract fair price")
+## Get contract fair price
 
 > Request
 
@@ -360,17 +332,16 @@ curl "https://contract.mexc.com/api/v1/contract/fair_price/BTC_USDT"
 
 > Response
 
-```
-{  
-"success":true,  
-"code":0,  
-"data":{  
-"symbol":"BTC_USDT",  
-"fairPrice":31103.4,  
-"timestamp":1609829705178  
-}  
-}  
-
+```json
+{
+  "success": true,
+  "code": 0,
+  "data": {
+    "symbol": "BTC_USDT",
+    "fairPrice": 31103.4,
+    "timestamp": 1609829705178
+  }
+}
 ```
 
 - **GET** `api/v1/contract/fair_price/{symbol}`
@@ -387,7 +358,7 @@ symbol | string | the name of the contract\
 fairPrice | decimal | fair price\
 timestamp | long | system timestamp
 
-## Get contract funding rate[​](https://www.mexc.com/api-docs/futures/market-endpoints#get-contract-funding-rate "Direct link to Get contract funding rate")
+## Get contract funding rate
 
 > Request
 
@@ -398,21 +369,20 @@ curl "https://contract.mexc.com/api/v1/contract/funding_rate/BTC_USDT"
 
 > Response
 
-```
-{  
-"success":true,  
-"code":0,  
-"data":{  
-"symbol":"BTC_USDT",  
-"fundingRate":-0.000489,  
-"maxFundingRate":0.001,  
-"minFundingRate":-0.001,  
-"collectCycle":8,  
-"nextSettleTime":1609833600000,  
-"timestamp":1609829807577  
-}  
-}  
-
+```json
+{
+  "success": true,
+  "code": 0,
+  "data": {
+    "symbol": "BTC_USDT",
+    "fundingRate": -0.000489,
+    "maxFundingRate": 0.001,
+    "minFundingRate": -0.001,
+    "collectCycle": 8,
+    "nextSettleTime": 1609833600000,
+    "timestamp": 1609829807577
+  }
+}
 ```
 
 - **GET** `api/v1/contract/funding_rate/{symbol}`
@@ -433,7 +403,7 @@ collectCycle | int | charge cycle\
 nextSettleTime | long | next charge time\
 timestamp | long | system timestamp
 
-## K-line data[​](https://www.mexc.com/api-docs/futures/market-endpoints#k-line-data "Direct link to K-line data")
+## K-line data
 
 > Request
 
@@ -444,35 +414,34 @@ curl "https://contract.mexc.com/api/v1/contract/kline/BTC_USDT?interval=Min15&st
 
 > Response
 
-```
-{  
-"success":true,  
-"code":0,  
-"data":{  
-"time":[  
-1609740600  
-],  
-"open":[  
-33016.5  
-],  
-"close":[  
-33040.5  
-],  
-"high":[  
-33094.0  
-],  
-"low":[  
-32995.0  
-],  
-"vol":[  
-67332.0  
-],  
-"amount":[  
-222515.85925  
-]  
-}  
-}  
-
+```json
+{
+  "success": true,
+  "code": 0,
+  "data": {
+    "time": [
+      1609740600
+    ],
+    "open": [
+      33016.5
+    ],
+    "close": [
+      33040.5
+    ],
+    "high": [
+      33094.0
+    ],
+    "low": [
+      32995.0
+    ],
+    "vol": [
+      67332.0
+    ],
+    "amount": [
+      222515.85925
+    ]
+  }
+}
 ```
 
 - **GET** `api/v1/contract/kline/{symbol}`
@@ -498,7 +467,7 @@ Attention:
 1、The maximum data in a single request is 2000 pieces. If your choice of start/end time and granularity of time results in more than the maximum volume of data in a single request, your request will only return 2000 pieces. If you want to get sufficiently fine-grained data over a larger time range, you need to make several times requests.
 2、If only the start time is provided, then query the data from the start time to the current system time. If only the end time is provided, the 2000 pieces of data closest to the end time are returned. If neither start time nor end time is provided, the 2000 pieces of data closest to the current time in the system are queried.
 
-## Get K-line data of the index price[​](https://www.mexc.com/api-docs/futures/market-endpoints#get-k-line-data-of-the-index-price "Direct link to Get K-line data of the index price")
+## Get K-line data of the index price
 
 > Request
 
@@ -509,35 +478,34 @@ curl "https://contract.mexc.com/api/v1/contract/kline/index_price/BTC_USDT?inter
 
 > Response
 
-```
-{  
-"success":true,  
-"code":0,  
-"data":{  
-"time":[  
-1609740900  
-],  
-"open":[  
-33039.0  
-],  
-"close":[  
-33233.1  
-],  
-"high":[  
-33352.3  
-],  
-"low":[  
-33007.9  
-],  
-"vol":[  
-0.0  
-],  
-"amount":[  
-0.0  
-]  
-}  
-}  
-
+```json
+{
+  "success": true,
+  "code": 0,
+  "data": {
+    "time": [
+      1609740900
+    ],
+    "open": [
+      33039.0
+    ],
+    "close": [
+      33233.1
+    ],
+    "high": [
+      33352.3
+    ],
+    "low": [
+      33007.9
+    ],
+    "vol": [
+      0.0
+    ],
+    "amount": [
+      0.0
+    ]
+  }
+}
 ```
 
 - **GET** `api/v1/contract/kline/index_price/{symbol}`
@@ -563,7 +531,7 @@ Attention:
 1、The maximum data in a single request is 2000 pieces. If your choice of start/end time and granularity of time results in more than the maximum volume of data in a single request, your request will only return 2000 pieces. If you want to get sufficiently fine-grained data over a larger time range, you need to make several times requests.
 2、If only the start time is provided, then query the data from the start time to the current system time. If only the end time is provided, the 2000 pieces of data closest to the end time are returned. If neither start time nor end time is provided, the 2000 pieces of data closest to the current time in the system are queried.
 
-## Get K-line data of the fair price[​](https://www.mexc.com/api-docs/futures/market-endpoints#get-k-line-data-of-the-fair-price "Direct link to Get K-line data of the fair price")
+## Get K-line data of the fair price
 
 > Request
 
@@ -574,35 +542,34 @@ curl "https://contract.mexc.com/api/v1/contract/kline/fair_price/BTC_USDT?interv
 
 > Response
 
-```
-{  
-"success":true,  
-"code":0,  
-"data":{  
-"time":[  
-1609740900  
-],  
-"open":[  
-33041.0  
-],  
-"close":[  
-33233.3  
-],  
-"high":[  
-33354.8  
-],  
-"low":[  
-33009.4  
-],  
-"vol":[  
-0.0  
-],  
-"amount":[  
-0.0  
-]  
-}  
-}  
-
+```json
+{
+  "success": true,
+  "code": 0,
+  "data": {
+    "time": [
+      1609740900
+    ],
+    "open": [
+      33041.0
+    ],
+    "close": [
+      33233.3
+    ],
+    "high": [
+      33354.8
+    ],
+    "low": [
+      33009.4
+    ],
+    "vol": [
+      0.0
+    ],
+    "amount": [
+      0.0
+    ]
+  }
+}
 ```
 
 - **GET** `api/v1/contract/kline/fair_price/{symbol}`
@@ -628,7 +595,7 @@ Attention:
 1、The maximum data in a single request is 2000 pieces. If your choice of start/end time and granularity of time results in more than the maximum volume of data in a single request, your request will only return 2000 pieces. If you want to get sufficiently fine-grained data over a larger time range, you need to make several times requests.
 2、If only the start time is provided, then query the data from the start time to the current system time. If only the end time is provided, the 2000 pieces of data closest to the end time are returned. If neither start time nor end time is provided, the 2000 pieces of data closest to the current time in the system are queried.
 
-## Get contract transaction data[​](https://www.mexc.com/api-docs/futures/market-endpoints#get-contract-transaction-data "Direct link to Get contract transaction data")
+## Get contract transaction data
 
 > Request
 
@@ -639,30 +606,29 @@ curl "https://contract.mexc.com/api/v1/contract/deals/BTC_USDT"
 
 > Response
 
-```
-{  
-"success":true,  
-"code":0,  
-"data":[  
-{  
-"p":31199,  
-"v":18,  
-"T":1,  
-"O":3,  
-"M":2,  
-"t":1609831235985  
-},  
-{  
-"p":31199,  
-"v":15,  
-"T":2,  
-"O":3,  
-"M":1,  
-"t":1609831234759  
-}  
-]  
-}  
-
+```json
+{
+  "success": true,
+  "code": 0,
+  "data": [
+    {
+      "p": 31199,
+      "v": 18,
+      "T": 1,
+      "O": 3,
+      "M": 2,
+      "t": 1609831235985
+    },
+    {
+      "p": 31199,
+      "v": 15,
+      "T": 2,
+      "O": 3,
+      "M": 1,
+      "t": 1609831234759
+    }
+  ]
+}
 ```
 
 - **GET** `api/v1/contract/deals/{symbol}`
@@ -683,7 +649,7 @@ O | int | open position, 1: Yes,2: No, when O is 1, vol is additional position\
 M | int | self-transact,1:yes,2:no\
 t | long | transaction time
 
-## Get contract trend data[​](https://www.mexc.com/api-docs/futures/market-endpoints#get-contract-trend-data "Direct link to Get contract trend data")
+## Get contract trend data
 
 > Request
 
@@ -694,31 +660,30 @@ curl "https://contract.mexc.com/api/v1/contract/ticker"
 
 > Response
 
-```
-{  
-"success":true,  
-"code":0,  
-"data":{  
-"symbol":"BTC_USDT",  
-"lastPrice":31199,  
-"bid1":31198.5,  
-"ask1":31199,  
-"volume24":40146908,  
-"amount24":124905007.4428,  
-"holdVol":55102960,  
-"lower24Price":27795,  
-"high24Price":33152.5,  
-"riseFallRate":-0.0176,  
-"riseFallValue":-562,  
-"indexPrice":31016.3,  
-"fairPrice":31199.5,  
-"fundingRate":0.001,  
-"maxBidPrice":31946.5,  
-"minAskPrice":30085.5,  
-"timestamp":1609831334016  
-}  
-}  
-
+```json
+{
+  "success": true,
+  "code": 0,
+  "data": {
+    "symbol": "BTC_USDT",
+    "lastPrice": 31199,
+    "bid1": 31198.5,
+    "ask1": 31199,
+    "volume24": 40146908,
+    "amount24": 124905007.4428,
+    "holdVol": 55102960,
+    "lower24Price": 27795,
+    "high24Price": 33152.5,
+    "riseFallRate": -0.0176,
+    "riseFallValue": -562,
+    "indexPrice": 31016.3,
+    "fairPrice": 31199.5,
+    "fundingRate": 0.001,
+    "maxBidPrice": 31946.5,
+    "minAskPrice": 30085.5,
+    "timestamp": 1609831334016
+  }
+}
 ```
 
 - **GET** `api/v1/contract/ticker`
@@ -747,7 +712,7 @@ fairPrice | decimal | fair price\
 fundingRate | decimal | funding rate\
 timestamp | long | transaction timestamp
 
-## Get all contract risk fund balance[​](https://www.mexc.com/api-docs/futures/market-endpoints#get-all-contract-risk-fund-balance "Direct link to Get all contract risk fund balance")
+## Get all contract risk fund balance
 
 > Request
 
@@ -758,26 +723,25 @@ curl "https://contract.mexc.com/api/v1/contract/risk_reverse"
 
 > Response
 
-```
-{  
-"success":true,  
-"code":0,  
-"data":[  
-{  
-"symbol":"BTC_USDT",  
-"currency":"USDT",  
-"available":425018.32968325152473812,  
-"timestamp":1609831395734  
-},  
-{  
-"symbol":"BTC_USD",  
-"currency":"BTC",  
-"available":5.00211366264782435,  
-"timestamp":1609831395734  
-},  
-]  
-}  
-
+```json
+{
+  "success":true,
+  "code":0,
+  "data":[
+  {
+    "symbol":"BTC_USDT",
+    "currency":"USDT",
+    "available":425018.32968325152473812,
+    "timestamp":1609831395734
+  },
+  {
+    "symbol":"BTC_USD",
+    "currency":"BTC",
+    "available":5.00211366264782435,
+    "timestamp":1609831395734
+  },
+  ]
+}
 ```
 
 - **GET** `api/v1/contract/risk_reverse`
@@ -793,7 +757,7 @@ currency | string | currency\
 available | decimal | available balance\
 timestamp | long | system timestamp
 
-## Get contract risk fund balance history[​](https://www.mexc.com/api-docs/futures/market-endpoints#get-contract-risk-fund-balance-history "Direct link to Get contract risk fund balance history")
+## Get contract risk fund balance history
 
 > Request
 
@@ -804,32 +768,31 @@ curl "https://contract.mexc.com/api/v1/contract/risk_reverse/history?symbol=BTC_
 
 > Response
 
-```
-{  
-"success":true,  
-"code":0,  
-"data":{  
-"pageSize":2,  
-"totalCount":42,  
-"totalPage":21,  
-"currentPage":1,  
-"resultList":[  
-{  
-"symbol":"BTC_USDT",  
-"currency":"USDT",  
-"available":424288.053161046680168662,  
-"snapshotTime":1609819200000  
-},  
-{  
-"symbol":"BTC_USDT",  
-"currency":"USDT",  
-"available":423989.817244106347071489,  
-"snapshotTime":1609804800000  
-}  
-]  
-}  
-}  
-
+```json
+{
+  "success": true,
+  "code": 0,
+  "data": {
+    "pageSize": 2,
+    "totalCount": 42,
+    "totalPage": 21,
+    "currentPage": 1,
+    "resultList": [
+      {
+        "symbol": "BTC_USDT",
+        "currency": "USDT",
+        "available": 424288.0531610467,
+        "snapshotTime": 1609819200000
+      },
+      {
+        "symbol": "BTC_USDT",
+        "currency": "USDT",
+        "available": 423989.8172441063,
+        "snapshotTime": 1609804800000
+      }
+    ]
+  }
+}
 ```
 
 - **GET** `api/v1/contract/risk_reverse/history`
@@ -854,7 +817,7 @@ currency | string | liquidation currency\
 available | decimal | balance\
 snapshotTime | long | snapshot time
 
-## Get contract funding rate history[​](https://www.mexc.com/api-docs/futures/market-endpoints#get-contract-funding-rate-history "Direct link to Get contract funding rate history")
+## Get contract funding rate history
 
 > Request
 
@@ -865,30 +828,29 @@ curl "https://contract.mexc.com/api/v1/contract/funding_rate/history?symbol=BTC_
 
 > Response
 
-```
-{  
-"success":true,  
-"code":0,  
-"data":{  
-"pageSize":2,  
-"totalCount":21,  
-"totalPage":11,  
-"currentPage":1,  
-"resultList":[  
-{  
-"symbol":"BTC_USDT",  
-"fundingRate":0.000266,  
-"settleTime":1609804800000  
-},  
-{  
-"symbol":"BTC_USDT",  
-"fundingRate":0.00029,  
-"settleTime":1609776000000  
-}  
-]  
-}  
-}  
-
+```json
+{
+  "success": true,
+  "code": 0,
+  "data": {
+    "pageSize": 2,
+    "totalCount": 21,
+    "totalPage": 11,
+    "currentPage": 1,
+    "resultList": [
+      {
+        "symbol": "BTC_USDT",
+        "fundingRate": 0.000266,
+        "settleTime": 1609804800000
+      },
+      {
+        "symbol": "BTC_USDT",
+        "fundingRate": 0.00029,
+        "settleTime": 1609776000000
+      }
+    ]
+  }
+}
 ```
 
 - **GET** `api/v1/contract/funding_rate/history`
@@ -911,21 +873,3 @@ resultList | list | data consequence set\
 symbol | string | the name of the contract\
 fundingRate | decimal | funding rate\
 settleTime | long | liquidation time\
-[Previous Error code](https://www.mexc.com/api-docs/futures/error-code "PreviousError code")[Next Account and trading endpoints](https://www.mexc.com/api-docs/futures/account-and-trading-endpoints "NextAccount and trading endpoints")
-
-- [Get the server time](https://www.mexc.com/api-docs/futures/market-endpoints#get-the-server-time "Get the server time")
-- [Get the contract information](https://www.mexc.com/api-docs/futures/market-endpoints#get-the-contract-information "Get the contract information")
-- [Get the transferable currencies](https://www.mexc.com/api-docs/futures/market-endpoints#get-the-transferable-currencies "Get the transferable currencies")
-- [Get the contract‘s depth information](https://www.mexc.com/api-docs/futures/market-endpoints#get-the-contracts--depth-information "Get the contract‘s  depth information")
-- [Get a snapshot of the latest N depth information of the contract](https://www.mexc.com/api-docs/futures/market-endpoints#get-a-snapshot-of-the-latest-n-depth-information-of-the-contract "Get a snapshot of the latest N depth information of the contract")
-- [Get contract index price](https://www.mexc.com/api-docs/futures/market-endpoints#get-contract--index-price "Get contract  index price")
-- [Get contract fair price](https://www.mexc.com/api-docs/futures/market-endpoints#get-contract-fair-price "Get contract fair price")
-- [Get contract funding rate](https://www.mexc.com/api-docs/futures/market-endpoints#get-contract-funding-rate "Get contract funding rate")
-- [K-line data](https://www.mexc.com/api-docs/futures/market-endpoints#k-line-data "K-line data")
-- [Get K-line data of the index price](https://www.mexc.com/api-docs/futures/market-endpoints#get-k-line-data-of-the-index-price "Get K-line data of the index price")
-- [Get K-line data of the fair price](https://www.mexc.com/api-docs/futures/market-endpoints#get-k-line-data-of-the-fair-price "Get K-line data of the fair price")
-- [Get contract transaction data](https://www.mexc.com/api-docs/futures/market-endpoints#get-contract-transaction-data "Get contract transaction data")
-- [Get contract trend data](https://www.mexc.com/api-docs/futures/market-endpoints#get-contract-trend-data "Get contract trend data")
-- [Get all contract risk fund balance](https://www.mexc.com/api-docs/futures/market-endpoints#get-all-contract-risk-fund-balance "Get all contract risk fund balance")
-- [Get contract risk fund balance history](https://www.mexc.com/api-docs/futures/market-endpoints#get-contract-risk-fund-balance-history "Get contract risk fund balance history")
-- [Get contract funding rate history](https://www.mexc.com/api-docs/futures/market-endpoints#get-contract-funding-rate-history "Get contract funding rate history")

@@ -1,51 +1,16 @@
-[Skip to main content](https://www.mexc.com/api-docs/spot-v3/subaccount-endpoints#__docusaurus_skipToContent_fallback "Skip to main content")
-[![MEXC Logo](https://www.mexc.com/api-docs-assets/img/mexc-logo.svg)](https://www.mexc.com/ "https://www.mexc.com/")[SpotV3](https://www.mexc.com/api-docs/spot-v3/introduction "SpotV3")[Futures](https://www.mexc.com/api-docs/futures/update-log "Futures")[Broker](https://www.mexc.com/api-docs/broker/mexc-broker-introduction "Broker")
-[](https://www.mexc.com/api-docs/spot-v3/subaccount-endpoints "English")
-
-- [English](https://www.mexc.com/api-docs/spot-v3/subaccount-endpoints "English")
-
-- [中文](https://www.mexc.com/zh-MY/api-docs/spot-v3/subaccount-endpoints "中文")
-
-- [Introduction](https://www.mexc.com/api-docs/spot-v3/introduction "Introduction")
-
-- [Change Log](https://www.mexc.com/api-docs/spot-v3/change-log "Change Log")
-
-- [FAQs](https://www.mexc.com/api-docs/spot-v3/faqs "FAQs")
-
-- [General Info](https://www.mexc.com/api-docs/spot-v3/general-info "General Info")
-
-- [Market Data Endpoints](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints "Market Data Endpoints")
-
-- [Sub-Account Endpoints](https://www.mexc.com/api-docs/spot-v3/subaccount-endpoints "Sub-Account Endpoints")
-
-- [Spot Account/Trade](https://www.mexc.com/api-docs/spot-v3/spot-account-trade "Spot Account/Trade")
-
-- [Wallet Endpoints](https://www.mexc.com/api-docs/spot-v3/wallet-endpoints "Wallet Endpoints")
-
-- [Websocket Market Streams](https://www.mexc.com/api-docs/spot-v3/websocket-market-streams "Websocket Market Streams")
-
-- [Websocket User Data Streams](https://www.mexc.com/api-docs/spot-v3/websocket-user-data-streams "Websocket User Data Streams")
-
-- [Rebate Endpoints](https://www.mexc.com/api-docs/spot-v3/rebate-endpoints "Rebate Endpoints")
-
-- [Public API Definitions](https://www.mexc.com/api-docs/spot-v3/public-api-definitions "Public API Definitions")
-
-On this page
-
 # Sub-Account Endpoints
 
-## Create a Sub-account(For Master Account)[​](https://www.mexc.com/api-docs/spot-v3/subaccount-endpoints#create-a-sub-accountfor-master-account "Direct link to Create a Sub-account(For Master Account)")
+## Create a Sub-account(For Master Account)
 
 Create a sub-account from the master account.
 
 > Response
 
-```
-{  
-"subAccount":"mexc1",  
-"note":"1"  
-}  
-
+```json
+{
+  "subAccount": "mexc1",
+  "note": "1"
+}
 ```
 
 - POST / api/v3/sub-account/virtualSubAccount
@@ -60,30 +25,29 @@ note | STRING | YES | Sub-account notes\
 recvWindow | LONG | NO |\
 timestamp | LONG | YES |
 
-## Query Sub-account List (For Master Account)[​](https://www.mexc.com/api-docs/spot-v3/subaccount-endpoints#query-sub-account-list-for-master-account "Direct link to Query Sub-account List (For Master Account)")
+## Query Sub-account List (For Master Account)
 
 Get details of the sub-account list
 
 > Response
 
-```
-{  
-"subAccounts":[  
-{  
-"subAccount":"mexc666",  
-"isFreeze":false,  
-"createTime":1544433328000,  
-"uid":"49910511"  
-},  
-{  
-"subAccount":"mexc888",  
-"isFreeze":false,  
-"createTime":1544433328000,  
-"uid":"91921059"  
-}  
-]  
-}  
-
+```json
+{
+  "subAccounts": [
+    {
+      "subAccount": "mexc666",
+      "isFreeze": false,
+      "createTime": 1544433328000,
+      "uid": "49910511"
+    },
+    {
+      "subAccount": "mexc888",
+      "isFreeze": false,
+      "createTime": 1544433328000,
+      "uid": "91921059"
+    }
+  ]
+}
 ```
 
 - GET / api/v3/sub-account/list
@@ -107,21 +71,20 @@ isFreeze | isFreeze\
 createTime | createTime\
 uid | subaccount uid
 
-## Create an APIKey for a sub-account (For Master Account)[​](https://www.mexc.com/api-docs/spot-v3/subaccount-endpoints#create-an-apikey-for-a-sub-account-for-master-account "Direct link to Create an APIKey for a sub-account (For Master Account)")
+## Create an APIKey for a sub-account (For Master Account)
 
 > Response
 
-```
-{  
-"subAccount":"mexc1",  
-"note":"1",  
-"apiKey":"arg13sdfgs",  
-"secretKey":"nkjwn21973ihi",  
-"permissions":"SPOT_ACCOUNT_READ",  
-"ip":"135.181.193",  
-"creatTime":1597026383085  
-}  
-
+```json
+{
+  "subAccount": "mexc1",
+  "note": "1",
+  "apiKey": "arg13sdfgs",
+  "secretKey": "nkjwn21973ihi",
+  "permissions": "SPOT_ACCOUNT_READ",
+  "ip": "135.181.193",
+  "creatTime": 1597026383085
+}
 ```
 
 - POST /api/v3/sub-account/apiKey
@@ -148,32 +111,31 @@ ip | STRING | NO | Link IP addresses, separate with commas if more than one. Sup
 recvWindow | LONG | NO |\
 timestamp | LONG | YES |
 
-## Query the APIKey of a sub-account (For Master Account)[​](https://www.mexc.com/api-docs/spot-v3/subaccount-endpoints#query-the-apikey-of-a-sub-account-for-master-account "Direct link to Query the APIKey of a sub-account (For Master Account)")
+## Query the APIKey of a sub-account (For Master Account)
 
 Applies to master accounts only
 
 > Response
 
-```
-{  
-"subAccount":[  
-{  
-"note":"v5",  
-"apiKey":"arg13sdfgs",  
-"permissions":"SPOT_ACCOUNT_READ,SPOT_ACCOUNT_WRITE",  
-"ip":"1.1.1.1,2.2.2.2",  
-"creatTime":1597026383085  
-},  
-{  
-"note":"v5.1",  
-"apiKey":"arg13sdfgs12",  
-"permissions":"SPOT_ACCOUNT_READ,SPOT_ACCOUNT_WRITE",  
-"ip":"1.1.1.1,2.2.2.2",  
-"creatTime":1597026383085  
-}  
-]  
-}  
-
+```json
+{
+  "subAccount": [
+    {
+      "note": "v5",
+      "apiKey": "arg13sdfgs",
+      "permissions": "SPOT_ACCOUNT_READ,SPOT_ACCOUNT_WRITE",
+      "ip": "1.1.1.1,2.2.2.2",
+      "creatTime": 1597026383085
+    },
+    {
+      "note": "v5.1",
+      "apiKey": "arg13sdfgs12",
+      "permissions": "SPOT_ACCOUNT_READ,SPOT_ACCOUNT_WRITE",
+      "ip": "1.1.1.1,2.2.2.2",
+      "creatTime": 1597026383085
+    }
+  ]
+}
 ```
 
 - GET/api/v3/sub-account/apiKey
@@ -187,15 +149,14 @@ subAccount | STRING | YES | Sub-account Name\
 recvWindow | LONG | NO |\
 timestamp | LONG | YES |
 
-## Delete the APIKey of a sub-account (For Master Account)[​](https://www.mexc.com/api-docs/spot-v3/subaccount-endpoints#delete-the-apikey-of-a-sub-account-for-master-account "Direct link to Delete the APIKey of a sub-account (For Master Account)")
+## Delete the APIKey of a sub-account (For Master Account)
 
 > Response
 
-```
-{  
-"subAccount":"mexc1"  
-}  
-
+```json
+{
+  "subAccount": "mexc1"
+}
 ```
 
 - DELETE /api/v3/sub-account/apiKey
@@ -210,7 +171,7 @@ apiKey | STRING | YES | API public key\
 recvWindow | LONG | NO |\
 timestamp | LONG | YES |
 
-## Universal Transfer (For Master Account)[​](https://www.mexc.com/api-docs/spot-v3/subaccount-endpoints#universal-transfer-for-master-account "Direct link to Universal Transfer (For Master Account)")
+## Universal Transfer (For Master Account)
 
 > Request
 
@@ -221,11 +182,10 @@ post /api/v3/capital/sub-account/universalTransfer
 
 > Response
 
-```
-{  
-"tranId":11945860693  
-}  
-
+```json
+{
+  "tranId": 11945860693
+}
 ```
 
 - **POST** `/api/v3/capital/sub-account/universalTransfer`
@@ -248,7 +208,7 @@ Name | Type | Description\
 ---|---|---\
 tranId | string | transfer ID
 
-## Query Universal Transfer History (For Master Account)[​](https://www.mexc.com/api-docs/spot-v3/subaccount-endpoints#query-universal-transfer-history-for-master-account "Direct link to Query Universal Transfer History (For Master Account)")
+## Query Universal Transfer History (For Master Account)
 
 > Request
 
@@ -259,22 +219,21 @@ get /api/v3/capital/sub-account/universalTransfer
 
 > Response
 
-```
-{  
-"tranId":"11945860693",  
-"fromAccount":"master@test.com",  
-"toAccount":"subaccount1@test.com",  
-"clientTranId":"test",  
-"asset":"BTC",  
-"amount":"0.1",  
-"fromAccountType":"SPOT",  
-"toAccountType":"FUTURE",  
-"fromSymbol":"SPOT",  
-"toSymbol":"FUTURE",  
-"status":"SUCCESS",  
-"timestamp":1544433325000  
-}  
-
+```json
+{
+  "tranId": "11945860693",
+  "fromAccount": "master@test.com",
+  "toAccount": "subaccount1@test.com",
+  "clientTranId": "test",
+  "asset": "BTC",
+  "amount": "0.1",
+  "fromAccountType": "SPOT",
+  "toAccountType": "FUTURE",
+  "fromSymbol": "SPOT",
+  "toSymbol": "FUTURE",
+  "status": "SUCCESS",
+  "timestamp": 1544433325000
+}
 ```
 
 - **GET** `/api/v3/capital/sub-account/universalTransfer`
@@ -310,7 +269,7 @@ toSymbol | string | toSymbol\
 status | string | status\
 timestamp | number | timestamp
 
-## Query Sub-account Asset[​](https://www.mexc.com/api-docs/spot-v3/subaccount-endpoints#query-sub-account-asset "Direct link to Query Sub-account Asset")
+## Query Sub-account Asset
 
 > request
 
@@ -321,22 +280,21 @@ get /api/v3/sub-account/asset?subAccount=account1&accountType=SPOT&timestamp={{t
 
 > response
 
-```
-{  
-"balances":[  
-{  
-"asset":"MX",  
-"free":"3",  
-"locked":"0"  
-},  
-{  
-"asset":"BTC",  
-"free":"0.0003",  
-"locked":"0"  
-}  
-]  
-}  
-
+```json
+{
+  "balances": [
+    {
+      "asset": "MX",
+      "free": "3",
+      "locked": "0"
+    },
+    {
+      "asset": "BTC",
+      "free": "0.0003",
+      "locked": "0"
+    }
+  ]
+}
 ```
 
 - **GET** `/api/v3/sub-account/asset`
@@ -357,13 +315,3 @@ balances | string | balance\
 asset | string | asset\
 free | string | free\
 locked | string | locked\
-[Previous Market Data Endpoints](https://www.mexc.com/api-docs/spot-v3/market-data-endpoints "PreviousMarket Data Endpoints")[Next Spot Account/Trade](https://www.mexc.com/api-docs/spot-v3/spot-account-trade "NextSpot Account/Trade")
-
-- [Create a Sub-account(For Master Account)](https://www.mexc.com/api-docs/spot-v3/subaccount-endpoints#create-a-sub-accountfor-master-account "Create a Sub-account(For Master Account)")
-- [Query Sub-account List (For Master Account)](https://www.mexc.com/api-docs/spot-v3/subaccount-endpoints#query-sub-account-list-for-master-account "Query Sub-account List (For Master Account)")
-- [Create an APIKey for a sub-account (For Master Account)](https://www.mexc.com/api-docs/spot-v3/subaccount-endpoints#create-an-apikey-for-a-sub-account-for-master-account "Create an APIKey for a sub-account (For Master Account)")
-- [Query the APIKey of a sub-account (For Master Account)](https://www.mexc.com/api-docs/spot-v3/subaccount-endpoints#query-the-apikey-of-a-sub-account-for-master-account "Query the APIKey of a sub-account (For Master Account)")
-- [Delete the APIKey of a sub-account (For Master Account)](https://www.mexc.com/api-docs/spot-v3/subaccount-endpoints#delete-the-apikey-of-a-sub-account-for-master-account "Delete the APIKey of a sub-account (For Master Account)")
-- [Universal Transfer (For Master Account)](https://www.mexc.com/api-docs/spot-v3/subaccount-endpoints#universal-transfer-for-master-account "Universal Transfer (For Master Account)")
-- [Query Universal Transfer History (For Master Account)](https://www.mexc.com/api-docs/spot-v3/subaccount-endpoints#query-universal-transfer-history-for-master-account "Query Universal Transfer History (For Master Account)")
-- [Query Sub-account Asset](https://www.mexc.com/api-docs/spot-v3/subaccount-endpoints#query-sub-account-asset "Query Sub-account Asset")

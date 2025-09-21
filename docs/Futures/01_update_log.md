@@ -1,23 +1,3 @@
-[Skip to main content](https://www.mexc.com/api-docs/futures/update-log#__docusaurus_skipToContent_fallback)
-[![MEXC Logo](https://www.mexc.com/api-docs-assets/img/mexc-logo.svg)](https://www.mexc.com/)[SpotV3](https://www.mexc.com/api-docs/spot-v3/introduction)[Futures](https://www.mexc.com/api-docs/futures/update-log)[Broker](https://www.mexc.com/api-docs/broker/mexc-broker-introduction)
-[](https://www.mexc.com/api-docs/futures/update-log)
-
-- [English](https://www.mexc.com/api-docs/futures/update-log)
-
-- [中文](https://www.mexc.com/zh-MY/api-docs/futures/update-log)
-
-- [Update log](https://www.mexc.com/api-docs/futures/update-log)
-
-- [Integration guide](https://www.mexc.com/api-docs/futures/integration-guide)
-
-- [Error code](https://www.mexc.com/api-docs/futures/error-code)
-
-- [Market endpoints](https://www.mexc.com/api-docs/futures/market-endpoints)
-
-- [Account and trading endpoints](https://www.mexc.com/api-docs/futures/account-and-trading-endpoints)
-
-- [WebSocket API](https://www.mexc.com/api-docs/futures/websocket-api)
-
 # Update log
 
 Effective Time（UTC+8) | Endpoint | Update Type | Description\
@@ -29,4 +9,3 @@ Effective Time（UTC+8) | Endpoint | Update Type | Description\
 2024-01-31 | * | adjust | ws base url update:wss://contract.mexc.com/edge\
 2025-04-09 | * | adjust | Subscribe to ws incremental depth data, with zipped push by default: `compress` is set to `true`\
 2025-08-21 | * | adjust | Subscribe to ws deal data, with zipped push by default: `compress` is set to `true`\
-[Next Integration guide](https://www.mexc.com/api-docs/futures/integration-guide)
